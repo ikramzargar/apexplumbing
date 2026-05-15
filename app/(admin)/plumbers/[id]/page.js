@@ -60,8 +60,8 @@ export default function PlumberDetailPage() {
     <div className="p-4 md:p-6">
       <div className="mb-5 flex items-start justify-between gap-3">
         <div>
-          <h2 className="text-lg font-semibold text-[#061b31]">{plumber?.full_name || 'Plumber'}</h2>
-          <p className="text-xs text-[#64748d]">ID: {plumberId}</p>
+          <h2 className="text-lg font-semibold text-[var(--color-text-secondary)]">{plumber?.full_name || 'Plumber'}</h2>
+          <p className="text-xs text-[var(--color-text-muted)]">ID: {plumberId}</p>
         </div>
         {!isEditing && (
           <Button onClick={() => setIsEditing(true)} className="gap-2 flex-shrink-0">
@@ -72,8 +72,8 @@ export default function PlumberDetailPage() {
       </div>
 
       {isEditing ? (
-        <div className="rounded-xl border border-[#e8edf5] bg-white p-4 md:p-6">
-          <h3 className="text-sm font-semibold text-[#061b31] mb-4">Edit Plumber</h3>
+        <div className="rounded-xl border border-[var(--color-border)] bg-white p-4 md:p-6">
+          <h3 className="text-sm font-semibold text-[var(--color-text-secondary)] mb-4">Edit Plumber</h3>
           <PlumberForm initialData={plumber} onSubmit={handleUpdate} loading={saving} />
           <div className="mt-4">
             <Button variant="outline" onClick={() => setIsEditing(false)}>Cancel</Button>

@@ -39,10 +39,10 @@ export default function AdminLayout({ children }) {
 
   if (loading) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-[#f8fafc]">
+      <div className="min-h-screen flex items-center justify-center bg-[var(--color-surface-elevated)]">
         <div className="flex flex-col items-center gap-4">
           <LoadingSpinner size={40} />
-          <p className="text-sm text-[#64748d]">Loading dashboard...</p>
+          <p className="text-sm text-[var(--color-text-muted)]">Loading dashboard...</p>
         </div>
       </div>
     );
@@ -53,7 +53,7 @@ export default function AdminLayout({ children }) {
   }
 
   return (
-    <div className="min-h-screen flex bg-[#f8fafc]">
+    <div className="min-h-screen flex bg-[var(--color-surface-elevated)]">
       <Sidebar />
       <main className="flex-1 min-w-0 p-4 pb-20 md:p-6 lg:ml-[260px]">
         {children}

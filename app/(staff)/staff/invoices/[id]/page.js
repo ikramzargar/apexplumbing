@@ -135,8 +135,8 @@ export default function StaffInvoiceDetailPage() {
               </Button>
             </Link>
             <div>
-              <h1 className="text-lg font-semibold text-[#061b31]">{invoice.invoice_number}</h1>
-              <p className="text-xs text-[#64748d]">
+              <h1 className="text-lg font-semibold text-[var(--color-text-secondary)]">{invoice.invoice_number}</h1>
+              <p className="text-xs text-[var(--color-text-muted)]">
                 Created {format(new Date(invoice.createdAt), 'dd MMM yyyy, hh:mm a')}
               </p>
             </div>
@@ -183,7 +183,7 @@ export default function StaffInvoiceDetailPage() {
                   <Button variant="outline" onClick={() => {
                     setWhatsappForm({ phone: invoice.customer_phone || '', name: invoice.customer_name || '' });
                     setWhatsappOpen(true);
-                  }} className="flex-1 sm:flex-none bg-[#25D366] hover:bg-[#20bd5a] text-white border-0">
+                  }} className="flex-1 sm:flex-none bg-[var(--color-success)] hover:bg-[var(--color-success)] text-white border-0">
                     <MessageSquare size={16} className="mr-1" /> Send WhatsApp
                   </Button>
                 )}
@@ -214,7 +214,7 @@ export default function StaffInvoiceDetailPage() {
           <CardContent>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div className="space-y-4">
-                <h3 className="text-xs font-semibold text-[#64748d] uppercase tracking-wide pb-2 border-b border-[#e8edf5]">
+                <h3 className="text-xs font-semibold text-[var(--color-text-muted)] uppercase tracking-wide pb-2 border-b border-[var(--color-border)]">
                   Customer Details
                 </h3>
                 {editMode ? (
@@ -262,45 +262,45 @@ export default function StaffInvoiceDetailPage() {
                 ) : (
                   <>
                     <div className="flex justify-between text-sm">
-                      <span className="text-[#64748d]">Name</span>
-                      <span className="font-medium text-[#061b31]">{invoice.customer_name || 'Walk-in Customer'}</span>
+                      <span className="text-[var(--color-text-muted)]">Name</span>
+                      <span className="font-medium text-[var(--color-text-secondary)]">{invoice.customer_name || 'Walk-in Customer'}</span>
                     </div>
                     <div className="flex justify-between text-sm">
-                      <span className="text-[#64748d]">Phone</span>
-                      <span className="font-medium text-[#061b31]">{invoice.customer_phone}</span>
+                      <span className="text-[var(--color-text-muted)]">Phone</span>
+                      <span className="font-medium text-[var(--color-text-secondary)]">{invoice.customer_phone}</span>
                     </div>
                     <div className="flex justify-between text-sm">
-                      <span className="text-[#64748d]">Payment Method</span>
-                      <span className="font-medium text-[#061b31]">{invoice.payment_method}</span>
+                      <span className="text-[var(--color-text-muted)]">Payment Method</span>
+                      <span className="font-medium text-[var(--color-text-secondary)]">{invoice.payment_method}</span>
                     </div>
                   </>
                 )}
               </div>
 
               <div className="space-y-4">
-                <h3 className="text-xs font-semibold text-[#64748d] uppercase tracking-wide pb-2 border-b border-[#e8edf5]">
+                <h3 className="text-xs font-semibold text-[var(--color-text-muted)] uppercase tracking-wide pb-2 border-b border-[var(--color-border)]">
                   Payment Summary
                 </h3>
                 <div className="flex justify-between text-sm">
-                  <span className="text-[#64748d]">Subtotal</span>
-                  <span className="font-medium text-[#061b31]">{formatCurrency(invoice.subtotal)}</span>
+                  <span className="text-[var(--color-text-muted)]">Subtotal</span>
+                  <span className="font-medium text-[var(--color-text-secondary)]">{formatCurrency(invoice.subtotal)}</span>
                 </div>
-                <div className="flex justify-between text-sm border-t border-[#e8edf5] pt-2">
-                  <span className="text-[#64748d]">Total</span>
-                  <span className="font-semibold text-[#061b31]">{formatCurrency(invoice.total)}</span>
+                <div className="flex justify-between text-sm border-t border-[var(--color-border)] pt-2">
+                  <span className="text-[var(--color-text-muted)]">Total</span>
+                  <span className="font-semibold text-[var(--color-text-secondary)]">{formatCurrency(invoice.total)}</span>
                 </div>
                 <div className="flex justify-between text-sm">
-                  <span className="text-[#64748d]">Amount Paid</span>
-                  <span className="font-medium text-[#15be53]">{formatCurrency(invoice.amount_paid)}</span>
+                  <span className="text-[var(--color-text-muted)]">Amount Paid</span>
+                  <span className="font-medium text-[var(--color-success)]">{formatCurrency(invoice.amount_paid)}</span>
                 </div>
-                <div className="flex justify-between text-sm border-t border-[#e8edf5] pt-2">
-                  <span className="text-[#64748d]">Balance Due</span>
-                  <span className="font-bold text-lg text-[#e53e3e]">{formatCurrency(invoice.balance_due)}</span>
+                <div className="flex justify-between text-sm border-t border-[var(--color-border)] pt-2">
+                  <span className="text-[var(--color-text-muted)]">Balance Due</span>
+                  <span className="font-bold text-lg text-[var(--color-danger)]">{formatCurrency(invoice.balance_due)}</span>
                 </div>
                 {editMode && (
-                  <div className="flex justify-between text-sm border-t border-[#e8edf5] pt-2">
-                    <span className="text-[#64748d]">New Balance</span>
-                    <span className="font-bold text-lg text-[#e53e3e]">
+                  <div className="flex justify-between text-sm border-t border-[var(--color-border)] pt-2">
+                    <span className="text-[var(--color-text-muted)]">New Balance</span>
+                    <span className="font-bold text-lg text-[var(--color-danger)]">
                       {formatCurrency(invoice.total - (editForm.amount_paid || 0))}
                     </span>
                   </div>
@@ -318,33 +318,33 @@ export default function StaffInvoiceDetailPage() {
           <CardContent>
             {invoice.items?.length === 0 ? (
               <div className="text-center py-8">
-                <Package size={40} className="mx-auto text-[#94a3b8] mb-3" />
-                <p className="text-[#64748d]">No items in this invoice</p>
+                <Package size={40} className="mx-auto text-[var(--color-text-muted)] mb-3" />
+                <p className="text-[var(--color-text-muted)]">No items in this invoice</p>
               </div>
             ) : (
-              <div className="border border-[#e8edf5] rounded-lg overflow-hidden">
+              <div className="border border-[var(--color-border)] rounded-lg overflow-hidden">
                 <div className="overflow-x-auto">
                 <table className="w-full">
-                  <thead className="bg-[#f8fafc]">
+                  <thead className="bg-[var(--color-surface-elevated)]">
                     <tr>
-                      <th className="text-left px-4 py-3 text-xs font-medium text-[#64748d]">Product</th>
-                      <th className="text-right px-4 py-3 text-xs font-medium text-[#64748d]">Qty</th>
-                      <th className="text-right px-4 py-3 text-xs font-medium text-[#64748d]">Price</th>
-                      <th className="text-right px-4 py-3 text-xs font-medium text-[#64748d]">Discount</th>
-                      <th className="text-right px-4 py-3 text-xs font-medium text-[#64748d]">Total</th>
+                      <th className="text-left px-4 py-3 text-xs font-medium text-[var(--color-text-muted)]">Product</th>
+                      <th className="text-right px-4 py-3 text-xs font-medium text-[var(--color-text-muted)]">Qty</th>
+                      <th className="text-right px-4 py-3 text-xs font-medium text-[var(--color-text-muted)]">Price</th>
+                      <th className="text-right px-4 py-3 text-xs font-medium text-[var(--color-text-muted)]">Discount</th>
+                      <th className="text-right px-4 py-3 text-xs font-medium text-[var(--color-text-muted)]">Total</th>
                     </tr>
                   </thead>
-                  <tbody className="divide-y divide-[#e8edf5]">
+                  <tbody className="divide-y divide-[var(--color-border)]">
                     {invoice.items?.map((item, index) => (
                       <tr key={index}>
-                        <td className="px-4 py-3 text-sm text-[#061b31]">
+                        <td className="px-4 py-3 text-sm text-[var(--color-text-secondary)]">
                           {item.product_name}
-                          {item.sku && <span className="text-xs text-[#94a3b8] ml-2">({item.sku})</span>}
+                          {item.sku && <span className="text-xs text-[var(--color-text-muted)] ml-2">({item.sku})</span>}
                         </td>
-                        <td className="px-4 py-3 text-sm text-[#061b31] text-right">{item.quantity}</td>
-                        <td className="px-4 py-3 text-sm text-[#061b31] text-right">{formatCurrency(item.unit_price)}</td>
-                        <td className="px-4 py-3 text-sm text-[#061b31] text-right">{formatCurrency(item.discount || 0)}</td>
-                        <td className="px-4 py-3 text-sm font-medium text-[#061b31] text-right">
+                        <td className="px-4 py-3 text-sm text-[var(--color-text-secondary)] text-right">{item.quantity}</td>
+                        <td className="px-4 py-3 text-sm text-[var(--color-text-secondary)] text-right">{formatCurrency(item.unit_price)}</td>
+                        <td className="px-4 py-3 text-sm text-[var(--color-text-secondary)] text-right">{formatCurrency(item.discount || 0)}</td>
+                        <td className="px-4 py-3 text-sm font-medium text-[var(--color-text-secondary)] text-right">
                           {formatCurrency(item.quantity * item.unit_price - (item.discount || 0))}
                         </td>
                       </tr>
@@ -395,7 +395,7 @@ export default function StaffInvoiceDetailPage() {
             <Button
               onClick={handleSendWhatsApp}
               disabled={sendingWhatsapp}
-              className="bg-[#25D366] hover:bg-[#20bd5a] text-white border-0"
+              className="bg-[var(--color-success)] hover:bg-[var(--color-success)] text-white border-0"
             >
               {sendingWhatsapp ? 'Sending...' : 'Send via WhatsApp'}
             </Button>

@@ -199,7 +199,7 @@ export default function InvoiceDetailPage() {
                 <Button variant="outline" onClick={handleEdit} className="flex-1 sm:flex-none">
                   Edit Invoice
                 </Button>
-                <Button onClick={handleConfirm} disabled={actionLoading} className="flex-1 sm:flex-none bg-[#15be53] hover:bg-[#13a94a]">
+                <Button onClick={handleConfirm} disabled={actionLoading} className="flex-1 sm:flex-none bg-[var(--color-success)] hover:bg-[var(--color-success)]">
                   <CheckCircle size={16} className="mr-1" /> Confirm
                 </Button>
               </>
@@ -208,7 +208,7 @@ export default function InvoiceDetailPage() {
             {invoice.status === 'CONFIRMED' && invoice.invoice_type === 'STOCK_TRANSFER' && (
               <div className="flex flex-wrap gap-2">
                 {invoice.payment_status !== 'PAID' && (
-                  <Button onClick={handleMarkAsPaid} disabled={actionLoading} className="bg-[#15be53] hover:bg-[#13a94a]">
+                  <Button onClick={handleMarkAsPaid} disabled={actionLoading} className="bg-[var(--color-success)] hover:bg-[var(--color-success)]">
                     <DollarSign size={16} className="mr-1" /> Mark Paid
                   </Button>
                 )}
@@ -235,7 +235,7 @@ export default function InvoiceDetailPage() {
             {invoice.status === 'CONFIRMED' && invoice.invoice_type !== 'STOCK_TRANSFER' && (
               <div className="flex flex-wrap gap-2">
                 {invoice.payment_status !== 'PAID' && (
-                  <Button onClick={handleMarkAsPaid} disabled={actionLoading} className="flex-1 sm:flex-none bg-[#15be53] hover:bg-[#13a94a]">
+                  <Button onClick={handleMarkAsPaid} disabled={actionLoading} className="flex-1 sm:flex-none bg-[var(--color-success)] hover:bg-[var(--color-success)]">
                     <DollarSign size={16} className="mr-1" /> Mark Paid
                   </Button>
                 )}
@@ -257,7 +257,7 @@ export default function InvoiceDetailPage() {
                   <Button variant="outline" onClick={() => {
                     setWhatsappForm({ phone: invoice.customer_phone, name: invoice.customer_name || '' });
                     setWhatsappOpen(true);
-                  }} className="flex-1 sm:flex-none bg-[#25D366] hover:bg-[#20bd5a] text-white border-0">
+                  }} className="flex-1 sm:flex-none bg-[var(--color-success)] hover:bg-[var(--color-success)] text-white border-0">
                     <MessageSquare size={16} className="mr-1" /> Send WhatsApp
                   </Button>
                 )}
@@ -275,7 +275,7 @@ export default function InvoiceDetailPage() {
             <div className="flex items-center justify-between">
               <div>
                 <CardTitle className="text-xl">{invoice.invoice_number}</CardTitle>
-                <p className="text-sm text-[#64748d] mt-1">
+                <p className="text-sm text-[var(--color-text-muted)] mt-1">
                   {invoice.invoice_type === 'RETAIL' ? 'Retail' : 'Distributor'} Invoice • Created {invoice.createdAt ? format(new Date(invoice.createdAt), 'dd MMM yyyy, hh:mm a') : 'N/A'}
                 </p>
               </div>
@@ -289,7 +289,7 @@ export default function InvoiceDetailPage() {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {/* Customer / Distributor Info */}
               <div className="space-y-4">
-                <h3 className="text-xs font-semibold text-[#061b31] uppercase tracking-wide pb-2 border-b border-[#e8edf5]">
+                <h3 className="text-xs font-semibold text-[var(--color-text-secondary)] uppercase tracking-wide pb-2 border-b border-[var(--color-border)]">
                   {invoice.invoice_type === 'WHOLESALE' ? 'Distributor Details' : 'Customer Details'}
                 </h3>
 
@@ -344,36 +344,36 @@ export default function InvoiceDetailPage() {
                 ) : (
                   <>
                     <div className="flex justify-between text-sm">
-                      <span className="text-[#64748d]">{invoice.invoice_type === 'WHOLESALE' ? 'Distributor' : 'Customer'}</span>
-                      <span className="font-medium text-[#061b31]">
+                      <span className="text-[var(--color-text-muted)]">{invoice.invoice_type === 'WHOLESALE' ? 'Distributor' : 'Customer'}</span>
+                      <span className="font-medium text-[var(--color-text-secondary)]">
                         {invoice.distributor_name || invoice.customer_name || invoice.distributor?.business_name || '-'}
                       </span>
                     </div>
                     <div className="flex justify-between text-sm">
-                      <span className="text-[#64748d]">Phone</span>
-                      <span className="font-medium text-[#061b31]">
+                      <span className="text-[var(--color-text-muted)]">Phone</span>
+                      <span className="font-medium text-[var(--color-text-secondary)]">
                         {invoice.distributor_phone || invoice.customer_phone || invoice.distributor?.phone || '-'}
                       </span>
                     </div>
                     {(invoice.distributor_address || invoice.distributor?.address) && (
                       <div className="flex justify-between text-sm">
-                        <span className="text-[#64748d]">Address</span>
-                        <span className="font-medium text-[#061b31]">
+                        <span className="text-[var(--color-text-muted)]">Address</span>
+                        <span className="font-medium text-[var(--color-text-secondary)]">
                           {invoice.distributor_address || invoice.distributor?.address || '-'}
                         </span>
                       </div>
                     )}
                     {invoice.plumber_ref && (
                       <div className="flex justify-between text-sm">
-                        <span className="text-[#64748d]">Referral Plumber</span>
-                        <span className="font-medium text-[#061b31]">
+                        <span className="text-[var(--color-text-muted)]">Referral Plumber</span>
+                        <span className="font-medium text-[var(--color-text-secondary)]">
                           {invoice.plumber_ref.full_name} ({invoice.plumber_ref.referral_code})
                         </span>
                       </div>
                     )}
                     <div className="flex justify-between text-sm">
-                      <span className="text-[#64748d]">Payment Method</span>
-                      <span className="font-medium text-[#061b31]">{invoice.payment_method}</span>
+                      <span className="text-[var(--color-text-muted)]">Payment Method</span>
+                      <span className="font-medium text-[var(--color-text-secondary)]">{invoice.payment_method}</span>
                     </div>
                   </>
                 )}
@@ -381,28 +381,28 @@ export default function InvoiceDetailPage() {
 
               {/* Payment Summary */}
               <div className="space-y-4">
-                <h3 className="text-xs font-semibold text-[#061b31] uppercase tracking-wide pb-2 border-b border-[#e8edf5]">
+                <h3 className="text-xs font-semibold text-[var(--color-text-secondary)] uppercase tracking-wide pb-2 border-b border-[var(--color-border)]">
                   Payment Summary
                 </h3>
                 <div className="flex justify-between text-sm">
-                  <span className="text-[#64748d]">Subtotal</span>
-                  <span className="font-medium text-[#061b31]">{formatCurrency(invoice.subtotal)}</span>
+                  <span className="text-[var(--color-text-muted)]">Subtotal</span>
+                  <span className="font-medium text-[var(--color-text-secondary)]">{formatCurrency(invoice.subtotal)}</span>
                 </div>
                 <div className="flex justify-between text-sm">
-                  <span className="text-[#64748d]">Tax</span>
-                  <span className="font-medium text-[#061b31]">{formatCurrency(invoice.tax || 0)}</span>
+                  <span className="text-[var(--color-text-muted)]">Tax</span>
+                  <span className="font-medium text-[var(--color-text-secondary)]">{formatCurrency(invoice.tax || 0)}</span>
                 </div>
-                <div className="flex justify-between text-sm border-t border-[#e8edf5] pt-2">
-                  <span className="text-[#64748d]">Total</span>
-                  <span className="font-semibold text-[#061b31]">{formatCurrency(invoice.total)}</span>
+                <div className="flex justify-between text-sm border-t border-[var(--color-border)] pt-2">
+                  <span className="text-[var(--color-text-muted)]">Total</span>
+                  <span className="font-semibold text-[var(--color-text-secondary)]">{formatCurrency(invoice.total)}</span>
                 </div>
                 <div className="flex justify-between text-sm">
-                  <span className="text-[#64748d]">Amount Paid</span>
-                  <span className="font-medium text-[#15be53]">{formatCurrency(invoice.amount_paid)}</span>
+                  <span className="text-[var(--color-text-muted)]">Amount Paid</span>
+                  <span className="font-medium text-[var(--color-success)]">{formatCurrency(invoice.amount_paid)}</span>
                 </div>
-                <div className="flex justify-between text-sm border-t border-[#e8edf5] pt-2">
-                  <span className="text-[#64748d]">Balance Due</span>
-                  <span className="font-bold text-lg text-[#e53e3e]">{formatCurrency(invoice.balance_due)}</span>
+                <div className="flex justify-between text-sm border-t border-[var(--color-border)] pt-2">
+                  <span className="text-[var(--color-text-muted)]">Balance Due</span>
+                  <span className="font-bold text-lg text-[var(--color-danger)]">{formatCurrency(invoice.balance_due)}</span>
                 </div>
               </div>
             </div>
@@ -415,28 +415,28 @@ export default function InvoiceDetailPage() {
             <CardTitle className="text-sm">Items</CardTitle>
           </CardHeader>
           <CardContent>
-            <div className="border border-[#e8edf5] rounded-lg overflow-hidden">
+            <div className="border border-[var(--color-border)] rounded-lg overflow-hidden">
               <table className="w-full">
-                <thead className="bg-[#f8fafc]">
+                <thead className="bg-[var(--color-surface-elevated)]">
                   <tr>
-                    <th className="text-left px-4 py-3 text-xs font-medium text-[#64748d]">Product</th>
-                    <th className="text-right px-4 py-3 text-xs font-medium text-[#64748d]">Qty</th>
-                    <th className="text-right px-4 py-3 text-xs font-medium text-[#64748d]">Price</th>
-                    <th className="text-right px-4 py-3 text-xs font-medium text-[#64748d]">Discount</th>
-                    <th className="text-right px-4 py-3 text-xs font-medium text-[#64748d]">Total</th>
+                    <th className="text-left px-4 py-3 text-xs font-medium text-[var(--color-text-muted)]">Product</th>
+                    <th className="text-right px-4 py-3 text-xs font-medium text-[var(--color-text-muted)]">Qty</th>
+                    <th className="text-right px-4 py-3 text-xs font-medium text-[var(--color-text-muted)]">Price</th>
+                    <th className="text-right px-4 py-3 text-xs font-medium text-[var(--color-text-muted)]">Discount</th>
+                    <th className="text-right px-4 py-3 text-xs font-medium text-[var(--color-text-muted)]">Total</th>
                   </tr>
                 </thead>
-                <tbody className="divide-y divide-[#e8edf5]">
+                <tbody className="divide-y divide-[var(--color-border)]">
                   {invoice.items?.map((item, index) => (
                     <tr key={index}>
-                      <td className="px-4 py-3 text-sm text-[#061b31]">
+                      <td className="px-4 py-3 text-sm text-[var(--color-text-secondary)]">
                         {item.product_name}
-                        {item.sku && <span className="text-xs text-[#94a3b8] ml-2">({item.sku})</span>}
+                        {item.sku && <span className="text-xs text-[var(--color-text-muted)] ml-2">({item.sku})</span>}
                       </td>
-                      <td className="px-4 py-3 text-sm text-[#061b31] text-right">{item.quantity}</td>
-                      <td className="px-4 py-3 text-sm text-[#061b31] text-right">{formatCurrency(item.unit_price)}</td>
-                      <td className="px-4 py-3 text-sm text-[#061b31] text-right">{formatCurrency(item.discount || 0)}</td>
-                      <td className="px-4 py-3 text-sm font-medium text-[#061b31] text-right">{formatCurrency(item.line_total)}</td>
+                      <td className="px-4 py-3 text-sm text-[var(--color-text-secondary)] text-right">{item.quantity}</td>
+                      <td className="px-4 py-3 text-sm text-[var(--color-text-secondary)] text-right">{formatCurrency(item.unit_price)}</td>
+                      <td className="px-4 py-3 text-sm text-[var(--color-text-secondary)] text-right">{formatCurrency(item.discount || 0)}</td>
+                      <td className="px-4 py-3 text-sm font-medium text-[var(--color-text-secondary)] text-right">{formatCurrency(item.line_total)}</td>
                     </tr>
                   ))}
                 </tbody>
@@ -447,7 +447,7 @@ export default function InvoiceDetailPage() {
 
         {/* Created By */}
         {invoice.created_by && (
-          <div className="text-xs text-[#94a3b8] text-center">
+          <div className="text-xs text-[var(--color-text-muted)] text-center">
             Created by {invoice.created_by.name}
           </div>
         )}
@@ -488,7 +488,7 @@ export default function InvoiceDetailPage() {
             <Button
               onClick={handleSendWhatsApp}
               disabled={sendingWhatsapp}
-              className="bg-[#25D366] hover:bg-[#20bd5a] text-white border-0"
+              className="bg-[var(--color-success)] hover:bg-[var(--color-success)] text-white border-0"
             >
               {sendingWhatsapp ? 'Sending...' : 'Send via WhatsApp'}
             </Button>

@@ -144,8 +144,8 @@ export default function NewStaffInvoice() {
           <ArrowLeft size={14} />
         </Button>
         <div>
-          <h1 className="text-lg font-semibold text-[#061b31]">New Invoice</h1>
-          <p className="text-xs text-[#64748d]">Create invoice from your inventory</p>
+          <h1 className="text-lg font-semibold text-[var(--color-text-secondary)]">New Invoice</h1>
+          <p className="text-xs text-[var(--color-text-muted)]">Create invoice from your inventory</p>
         </div>
       </div>
 
@@ -195,8 +195,8 @@ export default function NewStaffInvoice() {
         <CardContent>
           {items.length === 0 ? (
             <div className="text-center py-8">
-              <Package size={40} className="mx-auto text-[#94a3b8] mb-3" />
-              <p className="text-[#64748d] mb-3">No products added yet</p>
+              <Package size={40} className="mx-auto text-[var(--color-text-muted)] mb-3" />
+              <p className="text-[var(--color-text-muted)] mb-3">No products added yet</p>
               <Button variant="outline" onClick={() => setShowProductSelect(true)}>
                 <Plus size={14} className="mr-1" /> Add from Inventory
               </Button>
@@ -206,12 +206,12 @@ export default function NewStaffInvoice() {
               {/* Mobile: stacked product cards */}
               <div className="block md:hidden space-y-4">
               {items.map((item, index) => (
-                <div key={index} className="p-4 bg-[#f8fafc] rounded-lg">
+                <div key={index} className="p-4 bg-[var(--color-surface-elevated)] rounded-lg">
                   <div className="flex items-start justify-between mb-3">
                     <div>
-                      <p className="text-sm font-medium text-[#061b31]">{item.product_name}</p>
-                      <p className="text-xs text-[#94a3b8]">SKU: {item.sku}</p>
-                      <p className="text-xs text-[#533afd]">Avail: {item.max_stock}</p>
+                      <p className="text-sm font-medium text-[var(--color-text-secondary)]">{item.product_name}</p>
+                      <p className="text-xs text-[var(--color-text-muted)]">SKU: {item.sku}</p>
+                      <p className="text-xs text-[var(--color-primary)]">Avail: {item.max_stock}</p>
                     </div>
                     <Button variant="ghost" size="sm" className="text-red-500 h-8" onClick={() => removeItem(index)}>
                       <Trash2 size={14} />
@@ -235,7 +235,7 @@ export default function NewStaffInvoice() {
                     </div>
                   </div>
                   <div className="mt-3 text-right">
-                    <p className="text-lg font-bold text-[#061b31]">
+                    <p className="text-lg font-bold text-[var(--color-text-secondary)]">
                       {formatCurrency(item.quantity * item.unit_price - (item.discount || 0))}
                     </p>
                   </div>
@@ -245,7 +245,7 @@ export default function NewStaffInvoice() {
 
             {/* Desktop: grid layout */}
             <div className="hidden md:block space-y-3">
-              <div className="grid grid-cols-12 gap-2 text-[10px] font-medium text-[#64748d] px-2">
+              <div className="grid grid-cols-12 gap-2 text-[10px] font-medium text-[var(--color-text-muted)] px-2">
                 <div className="col-span-4">Product</div>
                 <div className="col-span-2 text-right">Qty</div>
                 <div className="col-span-2 text-right">Price</div>
@@ -253,11 +253,11 @@ export default function NewStaffInvoice() {
                 <div className="col-span-2 text-right">Total</div>
               </div>
               {items.map((item, index) => (
-                <div key={index} className="grid grid-cols-12 gap-2 items-center p-2 bg-[#f8fafc] rounded-lg">
+                <div key={index} className="grid grid-cols-12 gap-2 items-center p-2 bg-[var(--color-surface-elevated)] rounded-lg">
                   <div className="col-span-4">
-                    <p className="text-xs font-medium text-[#061b31] truncate">{item.product_name}</p>
-                    <p className="text-[10px] text-[#94a3b8]">SKU: {item.sku}</p>
-                    <p className="text-[10px] text-[#533afd]">Avail: {item.max_stock}</p>
+                    <p className="text-xs font-medium text-[var(--color-text-secondary)] truncate">{item.product_name}</p>
+                    <p className="text-[10px] text-[var(--color-text-muted)]">SKU: {item.sku}</p>
+                    <p className="text-[10px] text-[var(--color-primary)]">Avail: {item.max_stock}</p>
                   </div>
                   <div className="col-span-2">
                     <Input type="number" min="1" max={item.max_stock} value={item.quantity}
@@ -272,7 +272,7 @@ export default function NewStaffInvoice() {
                       onChange={(e) => updateItem(index, 'discount', parseFloat(e.target.value) || 0)} className="h-8 text-right" />
                   </div>
                   <div className="col-span-2 text-right">
-                    <p className="text-xs font-semibold text-[#061b31]">
+                    <p className="text-xs font-semibold text-[var(--color-text-secondary)]">
                       {formatCurrency(item.quantity * item.unit_price - (item.discount || 0))}
                     </p>
                   </div>
@@ -306,15 +306,15 @@ export default function NewStaffInvoice() {
             </div>
             <div className="space-y-1.5">
               <Label className="text-xs">Balance Due</Label>
-              <div className="h-10 px-3 flex items-center bg-[#f8fafc] rounded-md border border-[#e8edf5]">
-                <span className="text-lg font-semibold text-[#061b31]">{formatCurrency(balanceDue)}</span>
+              <div className="h-10 px-3 flex items-center bg-[var(--color-surface-elevated)] rounded-md border border-[var(--color-border)]">
+                <span className="text-lg font-semibold text-[var(--color-text-secondary)]">{formatCurrency(balanceDue)}</span>
               </div>
             </div>
           </div>
-          <div className="mt-4 p-4 bg-[#f8fafc] rounded-lg border border-[#e8edf5]">
+          <div className="mt-4 p-4 bg-[var(--color-surface-elevated)] rounded-lg border border-[var(--color-border)]">
             <div className="flex justify-between items-center">
-              <span className="text-sm font-medium text-[#061b31]">Total</span>
-              <span className="text-xl font-bold text-[#533afd]">{formatCurrency(subtotal)}</span>
+              <span className="text-sm font-medium text-[var(--color-text-secondary)]">Total</span>
+              <span className="text-xl font-bold text-[var(--color-primary)]">{formatCurrency(subtotal)}</span>
             </div>
           </div>
           <div className="mt-4 flex flex-col sm:flex-row justify-end gap-3">
@@ -342,21 +342,21 @@ export default function NewStaffInvoice() {
               <div className="space-y-2">
                 {filteredProducts.length === 0 ? (
                   <div className="text-center py-8">
-                    <p className="text-[#64748d]">No products available in your inventory</p>
-                    <p className="text-xs text-[#94a3b8] mt-1">Contact admin to add stock</p>
+                    <p className="text-[var(--color-text-muted)]">No products available in your inventory</p>
+                    <p className="text-xs text-[var(--color-text-muted)] mt-1">Contact admin to add stock</p>
                   </div>
                 ) : (
                   filteredProducts.map((product) => (
-                    <div key={product._id} className="flex items-center justify-between p-3 rounded-lg border border-[#e8edf5] hover:bg-[#f8fafc] cursor-pointer transition-colors"
+                    <div key={product._id} className="flex items-center justify-between p-3 rounded-lg border border-[var(--color-border)] hover:bg-[var(--color-surface-elevated)] cursor-pointer transition-colors"
                       onClick={() => addItem(product)}>
                       <div>
-                        <p className="text-sm font-medium text-[#061b31]">{product.product_name}</p>
-                        <p className="text-xs text-[#64748d]">SKU: {product.product_sku}</p>
-                        <p className="text-xs text-[#533afd]">Available: {product.quantity}</p>
+                        <p className="text-sm font-medium text-[var(--color-text-secondary)]">{product.product_name}</p>
+                        <p className="text-xs text-[var(--color-text-muted)]">SKU: {product.product_sku}</p>
+                        <p className="text-xs text-[var(--color-primary)]">Available: {product.quantity}</p>
                       </div>
                       <div className="text-right">
-                        <p className="text-sm font-semibold text-[#533afd]">{formatCurrency(product.mrp || 0)}</p>
-                        <p className="text-xs text-[#94a3b8]">per unit</p>
+                        <p className="text-sm font-semibold text-[var(--color-primary)]">{formatCurrency(product.mrp || 0)}</p>
+                        <p className="text-xs text-[var(--color-text-muted)]">per unit</p>
                       </div>
                     </div>
                   ))

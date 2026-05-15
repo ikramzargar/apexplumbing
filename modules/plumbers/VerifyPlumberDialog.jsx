@@ -25,19 +25,19 @@ export function VerifyPlumberDialog({ open, plumber, onConfirm, onCancel }) {
         </AlertDialogHeader>
         <div className="space-y-2 py-2">
           <div className="flex justify-between text-sm">
-            <span className="text-[#64748d]">Phone</span>
-            <span className="font-medium text-[#061b31]">{plumber.phone}</span>
+            <span className="text-[var(--color-text-muted)]">Phone</span>
+            <span className="font-medium text-[var(--color-text-secondary)]">{plumber.phone}</span>
           </div>
           <div className="flex justify-between text-sm">
-            <span className="text-[#64748d]">District</span>
-            <span className="font-medium text-[#061b31]">{plumber.district}</span>
+            <span className="text-[var(--color-text-muted)]">District</span>
+            <span className="font-medium text-[var(--color-text-secondary)]">{plumber.district}</span>
           </div>
         </div>
         <AlertDialogFooter>
           <Button variant="destructive" onClick={() => onConfirm('REJECTED')} className="flex items-center gap-1.5">
             <XCircle size={15} /> Reject
           </Button>
-          <Button onClick={() => onConfirm('VERIFIED')} className="bg-[#15be53] hover:bg-[#13a94a] flex items-center gap-1.5">
+          <Button onClick={() => onConfirm('VERIFIED')} className="bg-[var(--color-success)] hover:bg-[var(--color-success)] flex items-center gap-1.5">
             <CheckCircle size={15} /> Verify
           </Button>
         </AlertDialogFooter>

@@ -25,11 +25,11 @@ export function PayoutHistory({ plumberId }) {
     return (
       <Card>
         <CardContent className="p-12 text-center">
-          <div className="w-12 h-12 rounded-full bg-[#f8fafc] flex items-center justify-center mx-auto mb-3">
-            <Wallet size={20} className="text-[#94a3b8]" />
+          <div className="w-12 h-12 rounded-full bg-[var(--color-surface-elevated)] flex items-center justify-center mx-auto mb-3">
+            <Wallet size={20} className="text-[var(--color-text-muted)]" />
           </div>
-          <h3 className="text-sm font-medium text-[#061b31] mb-1">No payout history</h3>
-          <p className="text-xs text-[#94a3b8]">Payouts will appear here once processed</p>
+          <h3 className="text-sm font-medium text-[var(--color-text-secondary)] mb-1">No payout history</h3>
+          <p className="text-xs text-[var(--color-text-muted)]">Payouts will appear here once processed</p>
         </CardContent>
       </Card>
     );
@@ -54,12 +54,12 @@ export function PayoutHistory({ plumberId }) {
           <TableBody>
             {payouts.map((payout) => (
               <TableRow key={payout._id}>
-                <TableCell className="text-xs text-[#64748d] hidden sm:table-cell">
+                <TableCell className="text-xs text-[var(--color-text-muted)] hidden sm:table-cell">
                   {new Date(payout.createdAt).toLocaleDateString('en-IN', { day: 'numeric', month: 'short', year: 'numeric' })}
                 </TableCell>
-                <TableCell className="text-right font-semibold text-[#15be53]">{formatCurrency(payout.amount)}</TableCell>
-                <TableCell className="text-[#64748d] hidden sm:table-cell">{payout.method}</TableCell>
-                <TableCell className="text-xs font-mono text-[#94a3b8] hidden sm:table-cell">{payout.reference_number || '-'}</TableCell>
+                <TableCell className="text-right font-semibold text-[var(--color-success)]">{formatCurrency(payout.amount)}</TableCell>
+                <TableCell className="text-[var(--color-text-muted)] hidden sm:table-cell">{payout.method}</TableCell>
+                <TableCell className="text-xs font-mono text-[var(--color-text-muted)] hidden sm:table-cell">{payout.reference_number || '-'}</TableCell>
                 <TableCell className="hidden sm:table-cell"><StatusBadge status={payout.status} /></TableCell>
               </TableRow>
             ))}

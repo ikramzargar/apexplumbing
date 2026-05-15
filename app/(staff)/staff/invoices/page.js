@@ -28,8 +28,8 @@ export default function StaffInvoicesPage() {
       {/* Header */}
       <div className="flex items-start justify-between mb-4">
         <div>
-          <h1 className="text-lg font-semibold text-[#061b31]">My Invoices</h1>
-          <p className="text-xs text-[#64748d]">View and manage your invoices</p>
+          <h1 className="text-lg font-semibold text-[var(--color-text-secondary)]">My Invoices</h1>
+          <p className="text-xs text-[var(--color-text-muted)]">View and manage your invoices</p>
         </div>
         <Button onClick={() => router.push('/staff/invoices/new')} className="w-full sm:w-auto">
           <Plus size={14} className="mr-1" /> New
@@ -41,9 +41,9 @@ export default function StaffInvoicesPage() {
         <Card>
           <CardContent className="py-12">
             <div className="text-center">
-              <FileText size={48} className="mx-auto text-[#94a3b8] mb-3" />
-              <h3 className="text-sm font-medium text-[#061b31] mb-1">No invoices yet</h3>
-              <p className="text-xs text-[#64748d] mb-4">Create your first invoice from your inventory</p>
+              <FileText size={48} className="mx-auto text-[var(--color-text-muted)] mb-3" />
+              <h3 className="text-sm font-medium text-[var(--color-text-secondary)] mb-1">No invoices yet</h3>
+              <p className="text-xs text-[var(--color-text-muted)] mb-4">Create your first invoice from your inventory</p>
               <Button onClick={() => router.push('/staff/invoices/new')}>
                 <Plus size={14} className="mr-1" /> Create Invoice
               </Button>
@@ -54,18 +54,18 @@ export default function StaffInvoicesPage() {
         <div className="grid gap-3">
           {invoices.map((invoice) => (
             <Link key={invoice._id} href={`/staff/invoices/${invoice._id}`}>
-              <Card className="hover:border-[#533afd] transition-colors cursor-pointer">
+              <Card className="hover:border-[var(--color-primary)] transition-colors cursor-pointer">
                 <CardContent className="p-4">
                   <div className="flex items-start justify-between">
                     <div className="flex-1">
                       <div className="flex items-center gap-2 mb-2">
-                        <span className="text-xs font-mono text-[#94a3b8]">{invoice.invoice_number}</span>
+                        <span className="text-xs font-mono text-[var(--color-text-muted)]">{invoice.invoice_number}</span>
                         <StatusBadge status={invoice.status === 'CONFIRMED' ? 'CONFIRMED' : invoice.status} />
                         <StatusBadge status={invoice.payment_status} variant={invoice.payment_status === 'PAID' ? 'success' : invoice.payment_status === 'PARTIAL' ? 'warning' : 'destructive'} />
                       </div>
                       <div className="space-y-1">
-                        <p className="text-sm font-medium text-[#061b31]">{invoice.customer_name || 'Walk-in Customer'}</p>
-                        <div className="flex flex-wrap gap-4 text-xs text-[#64748d]">
+                        <p className="text-sm font-medium text-[var(--color-text-secondary)]">{invoice.customer_name || 'Walk-in Customer'}</p>
+                        <div className="flex flex-wrap gap-4 text-xs text-[var(--color-text-muted)]">
                           <span className="flex items-center gap-1"><Phone size={12} /> {invoice.customer_phone}</span>
                           <span className="flex items-center gap-1"><CreditCard size={12} /> {invoice.payment_method}</span>
                           <span className="flex items-center gap-1"><Calendar size={12} /> {new Date(invoice.createdAt).toLocaleDateString('en-IN')}</span>
@@ -73,9 +73,9 @@ export default function StaffInvoicesPage() {
                       </div>
                     </div>
                     <div className="text-right">
-                      <p className="text-lg font-semibold text-[#533afd]">{formatCurrency(invoice.total)}</p>
+                      <p className="text-lg font-semibold text-[var(--color-primary)]">{formatCurrency(invoice.total)}</p>
                       {invoice.balance_due > 0 && (
-                        <p className="text-xs text-[#e53e3e]">Due: {formatCurrency(invoice.balance_due)}</p>
+                        <p className="text-xs text-[var(--color-danger)]">Due: {formatCurrency(invoice.balance_due)}</p>
                       )}
                     </div>
                   </div>

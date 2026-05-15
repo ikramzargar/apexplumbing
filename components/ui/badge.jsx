@@ -9,15 +9,15 @@ const badgeVariants = cva(
   {
     variants: {
       variant: {
-        default: "bg-[var(--color-primary)] text-white",
-        primary: "bg-[var(--color-primary-light)] text-[var(--color-primary)] border border-[var(--color-primary-border)]",
-        secondary: "bg-[var(--color-bg-subtle)] text-[var(--color-body)] border border-[var(--color-border)]",
+        default: "bg-[var(--color-primary-muted)] text-[var(--color-primary)] border border-[var(--color-accent-border)]",
+        primary: "bg-[var(--color-primary-muted)] text-[var(--color-primary)] border border-[var(--color-accent-border)]",
+        secondary: "bg-[var(--color-surface)] text-[var(--color-text-muted)] border border-[var(--color-border)]",
         destructive: "bg-[var(--color-danger-bg)] text-[var(--color-danger)] border border-[var(--color-danger-border)]",
-        danger: "bg-[var(--color-danger)] text-white",
-        outline: "border border-[var(--color-border)] text-[var(--color-body)]",
+        danger: "bg-[var(--color-danger-bg)] text-[var(--color-danger)] border border-[var(--color-danger-border)]",
+        outline: "border border-[var(--color-border)] text-[var(--color-text-muted)]",
         success: "bg-[var(--color-success-bg)] text-[var(--color-success)] border border-[var(--color-success-border)]",
         warning: "bg-[var(--color-warning-bg)] text-[var(--color-warning)] border border-[var(--color-warning-border)]",
-        info: "bg-[var(--color-info-bg)] text-[var(--color-info)] border border-[var(--color-info-bg)]",
+        info: "bg-[var(--color-info-bg)] text-[var(--color-info)] border border-[var(--color-accent-border)]",
       },
     },
     defaultVariants: {

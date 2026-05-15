@@ -5,11 +5,11 @@ import { formatCurrency } from '@/utils/formatCurrency';
 
 export function QuickStats({ stats }) {
   const rows = [
-    { label: 'Active Plumbers', value: stats?.active_plumbers || 0, icon: Users, color: '#6366f1', type: 'number' },
-    { label: 'Pending Payouts', value: stats?.pending_payouts_amount || 0, icon: Wallet, color: '#f59e0b', type: 'currency' },
-    { label: 'Low Stock Items', value: stats?.low_stock_count || 0, icon: AlertTriangle, color: '#ef4444', type: 'number', warning: (stats?.low_stock_count || 0) > 0 },
-    { label: 'Pending Approvals', value: stats?.pending_approvals || 0, icon: AlertTriangle, color: '#f59e0b', type: 'number', warning: (stats?.pending_approvals || 0) > 0 },
-    { label: 'Active Distributors', value: stats?.active_distributors || 0, icon: UserCheck, color: '#22c55e', type: 'number' },
+    { label: 'Active Plumbers', value: stats?.active_plumbers || 0, icon: Users, color: 'var(--color-primary)', type: 'number' },
+    { label: 'Pending Payouts', value: stats?.pending_payouts_amount || 0, icon: Wallet, color: 'var(--color-warning)', type: 'currency' },
+    { label: 'Low Stock Items', value: stats?.low_stock_count || 0, icon: AlertTriangle, color: 'var(--color-danger)', type: 'number', warning: (stats?.low_stock_count || 0) > 0 },
+    { label: 'Pending Approvals', value: stats?.pending_approvals || 0, icon: AlertTriangle, color: 'var(--color-warning)', type: 'number', warning: (stats?.pending_approvals || 0) > 0 },
+    { label: 'Active Distributors', value: stats?.active_distributors || 0, icon: UserCheck, color: 'var(--color-success)', type: 'number' },
   ];
 
   return (

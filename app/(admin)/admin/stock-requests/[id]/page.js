@@ -381,7 +381,7 @@ export default function AdminStockRequestDetailPage() {
                     .catch(() => alert('Failed to send invoice'));
                 }
               }}
-              className="gap-2 bg-[#25D366] hover:bg-[#20bd5a] text-white border-0"
+              className="gap-2 bg-[var(--color-success)] hover:bg-[var(--color-success)] text-white border-0"
             >
               <MessageSquare size={14} />
               Share WhatsApp

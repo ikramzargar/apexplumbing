@@ -593,7 +593,7 @@ function StaffReport() {
             {(selectedStaff || isStaff) && staffData && (
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mt-6">
                 {monthly.length > 0 && (
-                  <Card className="border-0 shadow-none bg-[#f8fafc]">
+                  <Card className="border-0 shadow-none bg-[var(--color-surface-elevated)]">
                     <CardHeader className="pb-2">
                       <CardTitle className="text-sm">Monthly Sales</CardTitle>
                     </CardHeader>
@@ -620,7 +620,7 @@ function StaffReport() {
                   </Card>
                 )}
                 {topProducts.length > 0 && (
-                  <Card className="border-0 shadow-none bg-[#f8fafc]">
+                  <Card className="border-0 shadow-none bg-[var(--color-surface-elevated)]">
                     <CardHeader className="pb-2">
                       <CardTitle className="text-sm">Top Products Sold</CardTitle>
                     </CardHeader>

@@ -25,9 +25,9 @@ const toastVariants = cva(
   {
     variants: {
       variant: {
-        default: "border-[#e8edf5] bg-white text-[#061b31]",
-        destructive: "border-[#fee2e2] bg-white text-[#e53e3e]",
-        success: "border-[rgba(21,190,83,0.2)] bg-white text-[#15be53]",
+        default: "border-[var(--color-border)] bg-[var(--color-surface)] text-[var(--color-text)]",
+        destructive: "border-[var(--color-danger-border)] bg-[var(--color-surface)] text-[var(--color-danger)]",
+        success: "border-[var(--color-success-border)] bg-[var(--color-surface)] text-[var(--color-success)]",
       },
     },
     defaultVariants: {
@@ -52,7 +52,7 @@ const ToastClose = React.forwardRef(({ className, ...props }, ref) => (
     ref={ref}
     className={cn(
       "absolute right-2 top-2 rounded-md p-1 opacity-0 transition-all hover:opacity-100 focus:opacity-100 group-hover:opacity-100",
-      "text-[#94a3b8] hover:text-[#64748d] hover:bg-[#f8fafc]",
+      "text-[var(--color-text-muted)] hover:text-[var(--color-text)] hover:bg-[var(--color-surface-elevated)]",
       className
     )}
     {...props}
@@ -74,7 +74,7 @@ ToastTitle.displayName = "ToastTitle";
 const ToastDescription = React.forwardRef(({ className, ...props }, ref) => (
   <ToastPrimitives.Description
     ref={ref}
-    className={cn("text-xs opacity-90", className)}
+    className={cn("text-xs opacity-80", className)}
     {...props}
   />
 ));
@@ -106,17 +106,17 @@ const Toaster = () => {
         >
           <div className="flex items-start gap-3 w-full pr-6">
             {toast.variant === 'destructive' && (
-              <AlertCircle className="h-4 w-4 mt-0.5 flex-shrink-0 text-[#e53e3e]" />
+              <AlertCircle className="h-4 w-4 mt-0.5 flex-shrink-0 text-[var(--color-danger)]" />
             )}
             {toast.variant === 'success' && (
-              <CheckCircle className="h-4 w-4 mt-0.5 flex-shrink-0 text-[#15be53]" />
+              <CheckCircle className="h-4 w-4 mt-0.5 flex-shrink-0 text-[var(--color-success)]" />
             )}
             {toast.variant !== 'destructive' && toast.variant !== 'success' && (
-              <Info className="h-4 w-4 mt-0.5 flex-shrink-0 text-[#64748d]" />
+              <Info className="h-4 w-4 mt-0.5 flex-shrink-0 text-[var(--color-text-muted)]" />
             )}
             <div className="flex flex-col gap-0.5 flex-1">
-              {toast.title && <ToastTitle className={toast.variant === 'destructive' ? 'text-[#e53e3e]' : ''}>{toast.title}</ToastTitle>}
-              {toast.description && <ToastDescription className={toast.variant === 'destructive' ? 'text-[#e53e3e]/80' : ''}>{toast.description}</ToastDescription>}
+              {toast.title && <ToastTitle className={toast.variant === 'destructive' ? 'text-[var(--color-danger)]' : ''}>{toast.title}</ToastTitle>}
+              {toast.description && <ToastDescription className={toast.variant === 'destructive' ? 'text-[var(--color-danger)]/80' : ''}>{toast.description}</ToastDescription>}
             </div>
           </div>
           <ToastClose onClick={() => removeToast(toast.id)} />

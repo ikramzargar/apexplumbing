@@ -25,8 +25,8 @@ export default function PayoutDetailPage() {
   if (!payout) {
     return (
       <div className="p-4 md:p-6">
-        <div className="rounded-lg border border-[#e8edf5] bg-white p-12 text-center">
-          <p className="text-sm text-[#64748d]">Payout not found</p>
+        <div className="rounded-lg border border-[var(--color-border)] bg-white p-12 text-center">
+          <p className="text-sm text-[var(--color-text-muted)]">Payout not found</p>
         </div>
       </div>
     );

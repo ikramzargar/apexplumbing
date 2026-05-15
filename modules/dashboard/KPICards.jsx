@@ -16,23 +16,23 @@ import {
 } from 'lucide-react';
 
 const adminStatConfig = {
-  today_sales: { icon: TrendingUp, label: "Today's Sales", color: '#3b82f6', bg: 'rgba(59,130,246,0.08)', format: 'currency' },
-  month_sales: { icon: DollarSign, label: 'Month Sales', color: '#15be53', bg: 'rgba(21,190,83,0.08)', format: 'currency' },
-  year_sales: { icon: BarChart3, label: 'Year Sales', color: '#533afd', bg: 'rgba(83,58,253,0.08)', format: 'currency' },
-  outstanding: { icon: Clock, label: 'Outstanding', color: '#d97706', bg: 'rgba(217,119,6,0.08)', format: 'currency' },
-  inventory: { icon: Package, label: 'Inventory Value', color: '#0ea5e9', bg: 'rgba(14,165,233,0.08)', format: 'currency' },
-  plumbers: { icon: Users, label: 'Active Plumbers', color: '#8b5cf6', bg: 'rgba(139,92,246,0.08)', format: 'number' },
-  payouts: { icon: Wallet, label: 'Pending Payouts', color: '#f59e0b', bg: 'rgba(245,158,11,0.08)', format: 'currency' },
-  approvals: { icon: Clock, label: 'Pending Approvals', color: '#06b6d4', bg: 'rgba(6,182,212,0.08)', format: 'number' },
-  low_stock: { icon: AlertTriangle, label: 'Low Stock', color: '#e53e3e', bg: 'rgba(229,62,62,0.08)', format: 'number' },
+  today_sales: { icon: TrendingUp, label: "Today's Sales", color: '#7393B3', bg: '#7393B3', format: 'currency' },
+  month_sales: { icon: DollarSign, label: 'Month Sales', color: '#7393B3', bg: '#7393B3', format: 'currency' },
+  year_sales: { icon: BarChart3, label: 'Year Sales', color: '#7393B3', bg: '#7393B3', format: 'currency' },
+  outstanding: { icon: Clock, label: 'Outstanding', color: '#7393B3', bg: '#7393B3', format: 'currency' },
+  inventory: { icon: Package, label: 'Inventory Value', color: '#7393B3', bg: '#7393B3', format: 'currency' },
+  plumbers: { icon: Users, label: 'Active Plumbers', color: '#7393B3', bg: '#7393B3', format: 'number' },
+  payouts: { icon: Wallet, label: 'Pending Payouts', color: '#7393B3', bg: '#7393B3', format: 'currency' },
+  approvals: { icon: Clock, label: 'Pending Approvals', color: '#7393B3', bg: '#7393B3', format: 'number' },
+  low_stock: { icon: AlertTriangle, label: 'Low Stock', color: '#7393B3', bg: '#7393B3', format: 'number' },
 };
 
 const staffStatConfig = {
-  today_sales: { icon: TrendingUp, label: "Today's Sales", color: '#3b82f6', bg: 'rgba(59,130,246,0.08)', format: 'currency' },
-  month_sales: { icon: DollarSign, label: 'Month Sales', color: '#15be53', bg: 'rgba(21,190,83,0.08)', format: 'currency' },
-  total_invoices: { icon: FileText, label: 'Total Invoices', color: '#8b5cf6', bg: 'rgba(139,92,246,0.08)', format: 'number' },
-  confirmed: { icon: CheckCircle, label: 'Confirmed', color: '#15be53', bg: 'rgba(21,190,83,0.08)', format: 'number' },
-  pending: { icon: Clock, label: 'Pending', color: '#d97706', bg: 'rgba(217,119,6,0.08)', format: 'number' },
+  today_sales: { icon: TrendingUp, label: "Today's Sales", color: '#7393B3', bg: '#7393B3', format: 'currency' },
+  month_sales: { icon: DollarSign, label: 'Month Sales', color: '#7393B3', bg: '#7393B3', format: 'currency' },
+  total_invoices: { icon: FileText, label: 'Total Invoices', color: '#7393B3', bg: '#7393B3', format: 'number' },
+  confirmed: { icon: CheckCircle, label: 'Confirmed', color: '#7393B3', bg: '#7393B3', format: 'number' },
+  pending: { icon: Clock, label: 'Pending', color: '#7393B3', bg: '#7393B3', format: 'number' },
 };
 
 const adminStatKeys = {
@@ -95,20 +95,17 @@ export function KPICards({ stats }) {
           <Card
             key={stat.key}
             className={`
-              relative overflow-hidden transition-all duration-200
+              relative overflow-hidden transition-all duration-200 bg-[var(--color-surface)]
               hover:shadow-lg hover:-translate-y-0.5
-              ${stat.isAlert ? 'border-[#fca5a5] bg-[#fef2f2]' : ''}
+              ${stat.isAlert ? 'border-[var(--color-danger-border)] bg-[var(--color-danger-bg)]' : ''}
             `}
             style={{ animationDelay: `${index * 50}ms` }}
           >
-            <div className={stat.isAlert ? 'absolute inset-0 bg-gradient-to-br from-red-50/50 to-transparent' : 'absolute inset-0 bg-gradient-to-br from-white to-[var(--color-bg-subtle)]'} />
+            <div className="absolute inset-0 bg-[var(--color-surface)]" />
             <CardContent className="relative p-5">
               <div className="flex items-start gap-4">
-                <div
-                  className="p-3 rounded-xl flex-shrink-0 shadow-sm"
-                  style={{ backgroundColor: stat.bg }}
-                >
-                  <Icon size={22} style={{ color: stat.color }} />
+                <div className="p-3 rounded-xl flex-shrink-0 shadow-sm" style={{ backgroundColor: '#7393B3' }}>
+                  <Icon size={22} style={{ color: '#fff' }} />
                 </div>
                 <div className="min-w-0 flex-1">
                   <p className="text-[11px] text-[var(--color-body-light)] uppercase tracking-wide font-semibold mb-1 truncate">

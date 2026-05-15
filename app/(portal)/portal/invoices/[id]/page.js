@@ -69,7 +69,7 @@ export default function PortalInvoiceDetail() {
   if (!data) {
     return (
       <div className="text-center py-12">
-        <p className="text-sm text-[#64748d]">Invoice not found</p>
+        <p className="text-sm text-[var(--color-text-muted)]">Invoice not found</p>
         <Button variant="outline" className="mt-4" onClick={() => router.push('/portal/invoices')}>
           <ArrowLeft size={14} className="mr-1" /> Back
         </Button>
@@ -86,8 +86,8 @@ export default function PortalInvoiceDetail() {
             <ArrowLeft size={14} />
           </Button>
           <div>
-            <h1 className="text-lg font-semibold text-[#061b31]">{data.invoice_number}</h1>
-            <p className="text-xs text-[#64748d]">
+            <h1 className="text-lg font-semibold text-[var(--color-text-secondary)]">{data.invoice_number}</h1>
+            <p className="text-xs text-[var(--color-text-muted)]">
               Created {new Date(data.createdAt).toLocaleDateString('en-IN', { day: '2-digit', month: 'short', year: 'numeric' })}
             </p>
           </div>
@@ -144,21 +144,21 @@ export default function PortalInvoiceDetail() {
       {/* Summary */}
       <div className="grid grid-cols-2 lg:grid-cols-4 gap-3">
         {[
-          { label: 'Total', value: formatCurrency(data.total), color: 'text-[#061b31]' },
+          { label: 'Total', value: formatCurrency(data.total), color: 'text-[var(--color-text-secondary)]' },
           { label: 'Amount Paid', value: formatCurrency(data.amount_paid || 0), color: 'text-green-600' },
           { label: 'Balance Due', value: formatCurrency(data.balance_due || 0), color: 'text-orange-600' },
-          { label: 'Payment', value: data.payment_method, color: 'text-[#64748d]' },
+          { label: 'Payment', value: data.payment_method, color: 'text-[var(--color-text-muted)]' },
         ].map((item) => (
-          <div key={item.label} className="bg-white rounded-xl border border-[#e8edf5] p-4">
-            <p className="text-[10px] text-[#94a3b8] uppercase tracking-wide mb-1">{item.label}</p>
+          <div key={item.label} className="bg-white rounded-xl border border-[var(--color-border)] p-4">
+            <p className="text-[10px] text-[var(--color-text-muted)] uppercase tracking-wide mb-1">{item.label}</p>
             <p className={`text-base font-semibold ${item.color}`}>{item.value}</p>
           </div>
         ))}
       </div>
 
       {/* Customer Info */}
-      <div className="bg-white rounded-xl border border-[#e8edf5] p-4">
-        <h2 className="text-xs font-medium text-[#64748d] uppercase tracking-wide mb-3">Customer Details</h2>
+      <div className="bg-white rounded-xl border border-[var(--color-border)] p-4">
+        <h2 className="text-xs font-medium text-[var(--color-text-muted)] uppercase tracking-wide mb-3">Customer Details</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           {editMode ? (
             <>
@@ -196,16 +196,16 @@ export default function PortalInvoiceDetail() {
           ) : (
             <>
               <div>
-                <p className="text-xs text-[#94a3b8]">Name</p>
-                <p className="text-sm text-[#061b31]">{data.distributor_name || data.customer_name || '-'}</p>
+                <p className="text-xs text-[var(--color-text-muted)]">Name</p>
+                <p className="text-sm text-[var(--color-text-secondary)]">{data.distributor_name || data.customer_name || '-'}</p>
               </div>
               <div>
-                <p className="text-xs text-[#94a3b8]">Phone</p>
-                <p className="text-sm text-[#061b31]">{data.distributor_phone || data.customer_phone || '-'}</p>
+                <p className="text-xs text-[var(--color-text-muted)]">Phone</p>
+                <p className="text-sm text-[var(--color-text-secondary)]">{data.distributor_phone || data.customer_phone || '-'}</p>
               </div>
               <div>
-                <p className="text-xs text-[#94a3b8]">Payment Method</p>
-                <p className="text-sm text-[#061b31]">{data.payment_method || '-'}</p>
+                <p className="text-xs text-[var(--color-text-muted)]">Payment Method</p>
+                <p className="text-sm text-[var(--color-text-secondary)]">{data.payment_method || '-'}</p>
               </div>
             </>
           )}
@@ -213,33 +213,33 @@ export default function PortalInvoiceDetail() {
       </div>
 
       {/* Items */}
-      <div className="bg-white rounded-xl border border-[#e8edf5] overflow-hidden">
-        <div className="px-4 py-3 border-b border-[#e8edf5]">
-          <h2 className="text-xs font-medium text-[#64748d] uppercase tracking-wide">Items</h2>
+      <div className="bg-white rounded-xl border border-[var(--color-border)] overflow-hidden">
+        <div className="px-4 py-3 border-b border-[var(--color-border)]">
+          <h2 className="text-xs font-medium text-[var(--color-text-muted)] uppercase tracking-wide">Items</h2>
         </div>
         <div className="overflow-x-auto">
         <table className="w-full">
           <thead>
-            <tr className="bg-[#f8fafc] border-b border-[#e8edf5]">
-              <th className="text-left text-[10px] font-medium text-[#64748d] uppercase px-4 py-2">Product</th>
-              <th className="text-right text-[10px] font-medium text-[#64748d] uppercase px-4 py-2">Qty</th>
-              <th className="text-right text-[10px] font-medium text-[#64748d] uppercase px-4 py-2">Price</th>
-              <th className="text-right text-[10px] font-medium text-[#64748d] uppercase px-4 py-2">Discount</th>
-              <th className="text-right text-[10px] font-medium text-[#64748d] uppercase px-4 py-2">Total</th>
+            <tr className="bg-[var(--color-surface-elevated)] border-b border-[var(--color-border)]">
+              <th className="text-left text-[10px] font-medium text-[var(--color-text-muted)] uppercase px-4 py-2">Product</th>
+              <th className="text-right text-[10px] font-medium text-[var(--color-text-muted)] uppercase px-4 py-2">Qty</th>
+              <th className="text-right text-[10px] font-medium text-[var(--color-text-muted)] uppercase px-4 py-2">Price</th>
+              <th className="text-right text-[10px] font-medium text-[var(--color-text-muted)] uppercase px-4 py-2">Discount</th>
+              <th className="text-right text-[10px] font-medium text-[var(--color-text-muted)] uppercase px-4 py-2">Total</th>
             </tr>
           </thead>
-          <tbody className="divide-y divide-[#f1f5f9]">
+          <tbody className="divide-y divide-[var(--color-surface-elevated)]">
             {(data.items || []).map((item, idx) => (
               <tr key={idx}>
                 <td className="px-4 py-2.5">
-                  <p className="text-xs font-medium text-[#061b31]">{item.product_name}</p>
+                  <p className="text-xs font-medium text-[var(--color-text-secondary)]">{item.product_name}</p>
                 </td>
-                <td className="px-4 py-2.5 text-right text-xs text-[#64748d]">{item.quantity}</td>
-                <td className="px-4 py-2.5 text-right text-xs text-[#64748d]">{formatCurrency(item.unit_price)}</td>
-                <td className="px-4 py-2.5 text-right text-xs text-[#64748d]">
+                <td className="px-4 py-2.5 text-right text-xs text-[var(--color-text-muted)]">{item.quantity}</td>
+                <td className="px-4 py-2.5 text-right text-xs text-[var(--color-text-muted)]">{formatCurrency(item.unit_price)}</td>
+                <td className="px-4 py-2.5 text-right text-xs text-[var(--color-text-muted)]">
                   {item.discount > 0 ? formatCurrency(item.discount) : '-'}
                 </td>
-                <td className="px-4 py-2.5 text-right text-xs font-medium text-[#061b31]">
+                <td className="px-4 py-2.5 text-right text-xs font-medium text-[var(--color-text-secondary)]">
                   {formatCurrency(item.line_total)}
                 </td>
               </tr>

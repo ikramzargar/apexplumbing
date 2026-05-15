@@ -27,33 +27,33 @@ export default function PortalInvoices() {
         </Link>
       </div>
 
-      <div className="bg-[var(--color-bg-subtle)] rounded-xl border border-[var(--color-border)] overflow-hidden">
+      <div className="bg-[var(--color-surface)] rounded-xl border border-[var(--color-border)] overflow-hidden">
         {(!invoices || invoices.length === 0) ? (
-          <div className="p-6 text-center text-xs text-[var(--color-body-light)]">No invoices found</div>
+          <div className="p-6 text-center text-xs text-[var(--color-text-muted)]">No invoices found</div>
         ) : (
           <>
-            <div className="block md:hidden divide-y divide-[var(--color-border)]">
+            <div className="block md:hidden divide-y divide-[var(--color-border-muted)]">
               {invoices.map((inv) => (
                 <div key={inv._id} className="p-4">
                   <div className="flex items-start justify-between mb-2">
-                    <Link href={`/portal/invoices/${inv._id}`} className="text-xs font-medium text-[var(--color-primary)] hover:underline">
+                    <Link href={`/portal/invoices/${inv._id}`} className="text-xs font-medium text-[var(--color-accent)] hover:underline">
                       {inv.invoice_number}
                     </Link>
                     <span className={`inline-block text-[9px] px-1.5 py-0.5 rounded-full font-medium ${
-                      inv.payment_status === 'PAID' ? 'bg-green-100 text-green-700' :
-                      inv.payment_status === 'PARTIAL' ? 'bg-orange-100 text-orange-700' :
-                      'bg-red-100 text-red-700'
+                      inv.payment_status === 'PAID' ? 'bg-[var(--color-success-bg)] text-[var(--color-success)]' :
+                      inv.payment_status === 'PARTIAL' ? 'bg-[var(--color-warning-bg)] text-[var(--color-warning)]' :
+                      'bg-[var(--color-danger-bg)] text-[var(--color-danger)]'
                     }`}>
                       {inv.payment_status}
                     </span>
                   </div>
-                  <p className="text-xs text-[var(--color-body-light)] mb-2">{inv.customer_name || '-'} • {new Date(inv.createdAt).toLocaleDateString()}</p>
+                  <p className="text-xs text-[var(--color-text-muted)] mb-2">{inv.customer_name || '-'} • {new Date(inv.createdAt).toLocaleDateString()}</p>
                   <div className="flex items-center justify-between">
-                    <span className="text-xs font-medium text-[var(--color-navy)]">₹{inv.total.toLocaleString()}</span>
+                    <span className="text-xs font-medium text-[var(--color-text-secondary)]">₹{inv.total.toLocaleString()}</span>
                     <div className="text-right">
-                      <span className="text-xs text-green-600">₹{inv.amount_paid?.toLocaleString() || 0} paid</span>
+                      <span className="text-xs text-[var(--color-success)]">₹{inv.amount_paid?.toLocaleString() || 0} paid</span>
                       {inv.balance_due > 0 && (
-                        <span className="text-xs text-orange-600 block">₹{inv.balance_due?.toLocaleString()} due</span>
+                        <span className="text-xs text-[var(--color-warning)] block">₹{inv.balance_due?.toLocaleString()} due</span>
                       )}
                     </div>
                   </div>
@@ -64,44 +64,44 @@ export default function PortalInvoices() {
             <div className="hidden md:block overflow-x-auto">
               <table className="w-full">
                 <thead>
-                  <tr className="border-b border-[var(--color-border)] bg-[var(--color-bg-subtle)]">
-                    <th className="text-left text-[10px] font-medium text-[var(--color-body-light)] uppercase tracking-wide px-4 py-2.5">Invoice #</th>
-                    <th className="text-left text-[10px] font-medium text-[var(--color-body-light)] uppercase tracking-wide px-4 py-2.5">Date</th>
-                    <th className="text-left text-[10px] font-medium text-[var(--color-body-light)] uppercase tracking-wide px-4 py-2.5">Customer</th>
-                    <th className="text-right text-[10px] font-medium text-[var(--color-body-light)] uppercase tracking-wide px-4 py-2.5">Total</th>
-                    <th className="text-right text-[10px] font-medium text-[var(--color-body-light)] uppercase tracking-wide px-4 py-2.5">Paid</th>
-                    <th className="text-right text-[10px] font-medium text-[var(--color-body-light)] uppercase tracking-wide px-4 py-2.5">Balance</th>
-                    <th className="text-center text-[10px] font-medium text-[var(--color-body-light)] uppercase tracking-wide px-4 py-2.5">Status</th>
+                  <tr className="border-b border-[var(--color-border)] bg-[var(--color-surface)]">
+                    <th className="text-left text-[10px] font-medium text-[var(--color-text-muted)] uppercase tracking-wide px-4 py-2.5">Invoice #</th>
+                    <th className="text-left text-[10px] font-medium text-[var(--color-text-muted)] uppercase tracking-wide px-4 py-2.5">Date</th>
+                    <th className="text-left text-[10px] font-medium text-[var(--color-text-muted)] uppercase tracking-wide px-4 py-2.5">Customer</th>
+                    <th className="text-right text-[10px] font-medium text-[var(--color-text-muted)] uppercase tracking-wide px-4 py-2.5">Total</th>
+                    <th className="text-right text-[10px] font-medium text-[var(--color-text-muted)] uppercase tracking-wide px-4 py-2.5">Paid</th>
+                    <th className="text-right text-[10px] font-medium text-[var(--color-text-muted)] uppercase tracking-wide px-4 py-2.5">Balance</th>
+                    <th className="text-center text-[10px] font-medium text-[var(--color-text-muted)] uppercase tracking-wide px-4 py-2.5">Status</th>
                   </tr>
                 </thead>
-                <tbody className="divide-y divide-[var(--color-border)]">
+                <tbody className="divide-y divide-[var(--color-border-muted)]">
                   {invoices.map((inv) => (
-                    <tr key={inv._id} className="hover:bg-[var(--color-bg-subtle)] transition-colors">
+                    <tr key={inv._id} className="hover:bg-[var(--color-surface-elevated)] transition-colors">
                       <td className="px-4 py-2.5">
-                        <Link href={`/portal/invoices/${inv._id}`} className="text-xs font-medium text-[var(--color-primary)] hover:underline">
+                        <Link href={`/portal/invoices/${inv._id}`} className="text-xs font-medium text-[var(--color-accent)] hover:underline">
                           {inv.invoice_number}
                         </Link>
                       </td>
-                      <td className="px-4 py-2.5 text-xs text-[var(--color-body-light)]">
+                      <td className="px-4 py-2.5 text-xs text-[var(--color-text-muted)]">
                         {new Date(inv.createdAt).toLocaleDateString()}
                       </td>
-                      <td className="px-4 py-2.5 text-xs text-[var(--color-navy)]">
+                      <td className="px-4 py-2.5 text-xs text-[var(--color-text-secondary)]">
                         {inv.customer_name || '-'}
                       </td>
-                      <td className="px-4 py-2.5 text-xs text-right font-medium text-[var(--color-navy)]">
+                      <td className="px-4 py-2.5 text-xs text-right font-medium text-[var(--color-text-secondary)]">
                         ₹{inv.total.toLocaleString()}
                       </td>
-                      <td className="px-4 py-2.5 text-xs text-right text-green-600">
+                      <td className="px-4 py-2.5 text-xs text-right text-[var(--color-success)]">
                         ₹{inv.amount_paid?.toLocaleString() || 0}
                       </td>
-                      <td className="px-4 py-2.5 text-xs text-right text-orange-600">
+                      <td className="px-4 py-2.5 text-xs text-right text-[var(--color-warning)]">
                         ₹{inv.balance_due?.toLocaleString() || 0}
                       </td>
                       <td className="px-4 py-2.5 text-center">
                         <span className={`inline-block text-[9px] px-1.5 py-0.5 rounded-full font-medium ${
-                          inv.payment_status === 'PAID' ? 'bg-green-100 text-green-700' :
-                          inv.payment_status === 'PARTIAL' ? 'bg-orange-100 text-orange-700' :
-                          'bg-red-100 text-red-700'
+                          inv.payment_status === 'PAID' ? 'bg-[var(--color-success-bg)] text-[var(--color-success)]' :
+                          inv.payment_status === 'PARTIAL' ? 'bg-[var(--color-warning-bg)] text-[var(--color-warning)]' :
+                          'bg-[var(--color-danger-bg)] text-[var(--color-danger)]'
                         }`}>
                           {inv.payment_status}
                         </span>

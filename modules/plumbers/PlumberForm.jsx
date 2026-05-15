@@ -103,11 +103,11 @@ export function PlumberForm({ initialData, onSubmit, loading }) {
 
   const ImageUploadBox = ({ label, preview, onClick, required }) => (
     <div className="flex flex-col gap-1.5">
-      <Label className="text-xs font-medium text-[#64748d] uppercase tracking-wide">{label}</Label>
+      <Label className="text-xs font-medium text-[var(--color-text-muted)] uppercase tracking-wide">{label}</Label>
       <button
         type="button"
         onClick={onClick}
-        className="relative w-full h-28 border-2 border-dashed border-[#e8edf5] rounded-lg flex flex-col items-center justify-center gap-1.5 cursor-pointer hover:border-[#533afd] hover:bg-[#533afd]/5 transition-all duration-150 bg-[#fafbfc]"
+        className="relative w-full h-28 border-2 border-dashed border-[var(--color-border)] rounded-lg flex flex-col items-center justify-center gap-1.5 cursor-pointer hover:border-[var(--color-primary)] hover:bg-[var(--color-primary)]/5 transition-all duration-150 bg-[var(--color-surface-elevated)]"
       >
         {preview ? (
           <>
@@ -118,8 +118,8 @@ export function PlumberForm({ initialData, onSubmit, loading }) {
           </>
         ) : (
           <>
-            <Upload size={16} className="text-[#94a3b8]" />
-            <span className="text-[10px] text-[#94a3b8]">{required ? 'Required' : 'Optional'}</span>
+            <Upload size={16} className="text-[var(--color-text-muted)]" />
+            <span className="text-[10px] text-[var(--color-text-muted)]">{required ? 'Required' : 'Optional'}</span>
           </>
         )}
       </button>
@@ -129,7 +129,7 @@ export function PlumberForm({ initialData, onSubmit, loading }) {
   return (
     <form onSubmit={handleSubmit} className="space-y-6">
       {/* Photo Upload Section */}
-      <div className="bg-[#f8fafc] rounded-lg p-4 border border-[#e8edf5]">
+      <div className="bg-[var(--color-surface-elevated)] rounded-lg p-4 border border-[var(--color-border)]">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
           <ImageUploadBox
             label="Plumber Photo"
@@ -151,7 +151,7 @@ export function PlumberForm({ initialData, onSubmit, loading }) {
 
       {/* Basic Info */}
       <div className="space-y-4">
-        <h3 className="text-xs font-semibold text-[#061b31] uppercase tracking-wide pb-2 border-b border-[#e8edf5]">Basic Information</h3>
+        <h3 className="text-xs font-semibold text-[var(--color-text-secondary)] uppercase tracking-wide pb-2 border-b border-[var(--color-border)]">Basic Information</h3>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <div className="space-y-1.5">
             <Label htmlFor="full_name">Full Name</Label>
@@ -174,7 +174,7 @@ export function PlumberForm({ initialData, onSubmit, loading }) {
 
       {/* Address Info */}
       <div className="space-y-4">
-        <h3 className="text-xs font-semibold text-[#061b31] uppercase tracking-wide pb-2 border-b border-[#e8edf5]">Address & Location</h3>
+        <h3 className="text-xs font-semibold text-[var(--color-text-secondary)] uppercase tracking-wide pb-2 border-b border-[var(--color-border)]">Address & Location</h3>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <div className="space-y-1.5 md:col-span-2">
             <Label htmlFor="address">Address</Label>
@@ -200,7 +200,7 @@ export function PlumberForm({ initialData, onSubmit, loading }) {
 
       {/* Bank Info */}
       <div className="space-y-4">
-        <h3 className="text-xs font-semibold text-[#061b31] uppercase tracking-wide pb-2 border-b border-[#e8edf5]">Bank Details</h3>
+        <h3 className="text-xs font-semibold text-[var(--color-text-secondary)] uppercase tracking-wide pb-2 border-b border-[var(--color-border)]">Bank Details</h3>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
           <div className="space-y-1.5">
             <Label htmlFor="bank_account">Bank Account</Label>
@@ -219,14 +219,14 @@ export function PlumberForm({ initialData, onSubmit, loading }) {
 
       {/* Notes */}
       <div className="space-y-4">
-        <h3 className="text-xs font-semibold text-[#061b31] uppercase tracking-wide pb-2 border-b border-[#e8edf5]">Additional Notes</h3>
+        <h3 className="text-xs font-semibold text-[var(--color-text-secondary)] uppercase tracking-wide pb-2 border-b border-[var(--color-border)]">Additional Notes</h3>
         <div className="space-y-1.5">
           <Label htmlFor="notes">Notes</Label>
           <Textarea id="notes" name="notes" value={form.notes} onChange={handleChange} placeholder="Any additional notes..." />
         </div>
       </div>
 
-      <div className="flex flex-col sm:flex-row items-center gap-3 pt-4 border-t border-[#e8edf5]">
+      <div className="flex flex-col sm:flex-row items-center gap-3 pt-4 border-t border-[var(--color-border)]">
         <Button type="submit" disabled={loading} className="min-w-[120px] w-full sm:w-auto">
           {loading ? 'Saving...' : initialData ? 'Update Plumber' : 'Add Plumber'}
         </Button>

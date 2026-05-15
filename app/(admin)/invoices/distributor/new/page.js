@@ -207,7 +207,7 @@ export default function NewDistributorInvoicePage() {
               <Label>Phone Number *</Label>
               <div className="relative" ref={distributorSearchRef}>
                 <div className="flex items-center">
-                  <Search size={16} className="absolute left-3 top-1/2 -translate-y-1/2 text-[#94a3b8] z-10" />
+                  <Search size={16} className="absolute left-3 top-1/2 -translate-y-1/2 text-[var(--color-text-muted)] z-10" />
                   <Input
                     placeholder="Search by phone..."
                     value={phoneSearch}
@@ -217,34 +217,34 @@ export default function NewDistributorInvoicePage() {
                   />
                 </div>
                 {phoneSearch.length >= 3 && showDistributorSuggestions && (
-                  <div className="absolute top-full left-0 right-0 z-50 mt-1 bg-white border border-[#e8edf5] rounded-lg shadow-lg max-h-48 overflow-y-auto">
+                  <div className="absolute top-full left-0 right-0 z-50 mt-1 bg-white border border-[var(--color-border)] rounded-lg shadow-lg max-h-48 overflow-y-auto">
                     {searchingDistributors ? (
-                      <div className="p-4 text-center text-sm text-[#64748d]">Searching...</div>
+                      <div className="p-4 text-center text-sm text-[var(--color-text-muted)]">Searching...</div>
                     ) : distributorSuggestions.length > 0 ? (
                       <>
-                        <div className="p-2 text-xs text-[#64748d] border-b border-[#f1f5f9] bg-[#f8fafc]">
+                        <div className="p-2 text-xs text-[var(--color-text-muted)] border-b border-[var(--color-surface-elevated)] bg-[var(--color-surface-elevated)]">
                           {distributorSuggestions.length} distributor{distributorSuggestions.length !== 1 ? 's' : ''} found
                         </div>
                         {distributorSuggestions.map((distributor) => (
                           <div
                             key={distributor._id}
-                            className="px-4 py-3 cursor-pointer hover:bg-[#f8fafc] border-b border-[#f1f5f9] last:border-0 transition-colors"
+                            className="px-4 py-3 cursor-pointer hover:bg-[var(--color-surface-elevated)] border-b border-[var(--color-surface-elevated)] last:border-0 transition-colors"
                             onClick={() => handleDistributorSelect(distributor)}
                           >
                             <div className="flex items-center justify-between">
-                              <span className="text-sm font-medium text-[#061b31]">{distributor.business_name || 'No name'}</span>
-                              <span className="text-xs font-mono bg-[#f1f5f9] px-2 py-1 rounded text-[#533afd]">
+                              <span className="text-sm font-medium text-[var(--color-text-secondary)]">{distributor.business_name || 'No name'}</span>
+                              <span className="text-xs font-mono bg-[var(--color-surface-elevated)] px-2 py-1 rounded text-[var(--color-primary)]">
                                 {distributor.phone}
                               </span>
                             </div>
                             {distributor.address && (
-                              <p className="text-xs text-[#64748d] mt-1">{distributor.address}</p>
+                              <p className="text-xs text-[var(--color-text-muted)] mt-1">{distributor.address}</p>
                             )}
                           </div>
                         ))}
                       </>
                     ) : (
-                      <div className="p-4 text-center text-sm text-[#64748d]">
+                      <div className="p-4 text-center text-sm text-[var(--color-text-muted)]">
                         No distributors found for &quot;{phoneSearch}&quot;
                       </div>
                     )}
@@ -273,10 +273,10 @@ export default function NewDistributorInvoicePage() {
             <div className="space-y-1.5 md:col-span-2">
               <Label>Selected Distributor</Label>
               {selectedDistributorData ? (
-                <div className="flex items-center justify-between p-2 bg-[#f8fafc] rounded-lg border border-[#e8edf5]">
+                <div className="flex items-center justify-between p-2 bg-[var(--color-surface-elevated)] rounded-lg border border-[var(--color-border)]">
                   <div>
-                    <p className="text-sm font-medium text-[#061b31]">{selectedDistributorData.business_name}</p>
-                    <p className="text-xs text-[#64748d]">
+                    <p className="text-sm font-medium text-[var(--color-text-secondary)]">{selectedDistributorData.business_name}</p>
+                    <p className="text-xs text-[var(--color-text-muted)]">
                       {selectedDistributorData.phone} • {selectedDistributorData.district}
                     </p>
                   </div>
@@ -285,7 +285,7 @@ export default function NewDistributorInvoicePage() {
                   </Button>
                 </div>
               ) : (
-                <div className="h-10 px-3 flex items-center bg-[#f8fafc] rounded-md border border-[#e8edf5] text-sm text-[#64748d]">
+                <div className="h-10 px-3 flex items-center bg-[var(--color-surface-elevated)] rounded-md border border-[var(--color-border)] text-sm text-[var(--color-text-muted)]">
                   Search and select a distributor above
                 </div>
               )}
@@ -320,15 +320,15 @@ export default function NewDistributorInvoicePage() {
           <CardContent>
             {items.length === 0 ? (
               <div className="text-center py-8">
-                <Package size={48} className="mx-auto text-[#94a3b8] mb-3" />
-                <p className="text-[#64748d] mb-3">No products added yet</p>
+                <Package size={48} className="mx-auto text-[var(--color-text-muted)] mb-3" />
+                <p className="text-[var(--color-text-muted)] mb-3">No products added yet</p>
                 <Button variant="outline" onClick={() => setShowProductSelect(true)}>
                   <Plus size={16} className="mr-1" /> Add Product
                 </Button>
               </div>
             ) : (
               <div className="space-y-3">
-                <div className="hidden md:grid grid-cols-12 gap-2 text-xs font-medium text-[#64748d] px-2">
+                <div className="hidden md:grid grid-cols-12 gap-2 text-xs font-medium text-[var(--color-text-muted)] px-2">
                   <div className="col-span-4">Product</div>
                   <div className="col-span-2 text-right">Qty</div>
                   <div className="col-span-2 text-right">Price</div>
@@ -342,16 +342,16 @@ export default function NewDistributorInvoicePage() {
                   {items.map((item, index) => {
                     const isOverStock = item.quantity > item.max_stock;
                     return (
-                      <div key={index} className={`p-4 rounded-lg ${isOverStock ? 'bg-orange-50 border border-orange-300' : 'bg-[#f8fafc]'}`}>
+                      <div key={index} className={`p-4 rounded-lg ${isOverStock ? 'bg-orange-50 border border-orange-300' : 'bg-[var(--color-surface-elevated)]'}`}>
                         <div className="flex items-start justify-between mb-3">
                           <div>
-                            <p className="font-medium text-[#061b31]">{item.product_name}</p>
-                            <p className="text-xs text-[#94a3b8]">SKU: {item.sku}</p>
+                            <p className="font-medium text-[var(--color-text-secondary)]">{item.product_name}</p>
+                            <p className="text-xs text-[var(--color-text-muted)]">SKU: {item.sku}</p>
                           </div>
                           <Button
                             variant="ghost"
                             size="sm"
-                            className="text-[#e53e3e] hover:text-[#e53e3e] hover:bg-[#fee2e2]"
+                            className="text-[var(--color-danger)] hover:text-[var(--color-danger)] hover:bg-[var(--color-danger-bg)]"
                             onClick={() => removeItem(index)}
                           >
                             <Trash2 size={16} />
@@ -367,7 +367,7 @@ export default function NewDistributorInvoicePage() {
                               onChange={(e) => updateItem(index, 'quantity', parseInt(e.target.value) || 1)}
                               className={`h-10 ${isOverStock ? 'border-orange-400 bg-orange-50' : ''}`}
                             />
-                            <p className={`text-[10px] mt-0.5 ${isOverStock ? 'text-orange-600' : 'text-[#94a3b8]'}`}>
+                            <p className={`text-[10px] mt-0.5 ${isOverStock ? 'text-orange-600' : 'text-[var(--color-text-muted)]'}`}>
                               Stock: {item.max_stock}
                             </p>
                           </div>
@@ -392,7 +392,7 @@ export default function NewDistributorInvoicePage() {
                           </div>
                         </div>
                         <div className="mt-3 text-right">
-                          <p className="text-lg font-bold text-[#061b31]">
+                          <p className="text-lg font-bold text-[var(--color-text-secondary)]">
                             {formatCurrency(item.quantity * item.unit_price - (item.discount || 0))}
                           </p>
                         </div>
@@ -406,10 +406,10 @@ export default function NewDistributorInvoicePage() {
                   {items.map((item, index) => {
                     const isOverStock = item.quantity > item.max_stock;
                     return (
-                      <div key={index} className={`grid grid-cols-12 gap-2 items-center p-2 rounded-lg ${isOverStock ? 'bg-orange-50 border border-orange-300' : 'bg-[#f8fafc]'}`}>
+                      <div key={index} className={`grid grid-cols-12 gap-2 items-center p-2 rounded-lg ${isOverStock ? 'bg-orange-50 border border-orange-300' : 'bg-[var(--color-surface-elevated)]'}`}>
                         <div className="col-span-4">
-                          <p className="text-sm font-medium text-[#061b31] truncate">{item.product_name}</p>
-                          <p className="text-xs text-[#94a3b8]">SKU: {item.sku}</p>
+                          <p className="text-sm font-medium text-[var(--color-text-secondary)] truncate">{item.product_name}</p>
+                          <p className="text-xs text-[var(--color-text-muted)]">SKU: {item.sku}</p>
                         </div>
                         <div className="col-span-2">
                           <Input
@@ -419,7 +419,7 @@ export default function NewDistributorInvoicePage() {
                             onChange={(e) => updateItem(index, 'quantity', parseInt(e.target.value) || 1)}
                             className={`text-right h-8 ${isOverStock ? 'border-orange-400 bg-orange-50' : ''}`}
                           />
-                          <p className={`text-[10px] mt-0.5 ${isOverStock ? 'text-orange-600 font-medium' : 'text-[#94a3b8]'} text-right`}>
+                          <p className={`text-[10px] mt-0.5 ${isOverStock ? 'text-orange-600 font-medium' : 'text-[var(--color-text-muted)]'} text-right`}>
                             Stock: {item.max_stock}
                             {isOverStock && (
                               <span className="ml-1">⚠ Only {item.max_stock} available</span>
@@ -444,7 +444,7 @@ export default function NewDistributorInvoicePage() {
                           />
                         </div>
                         <div className="col-span-2 text-right">
-                          <p className="text-sm font-semibold text-[#061b31]">
+                          <p className="text-sm font-semibold text-[var(--color-text-secondary)]">
                             {formatCurrency(item.quantity * item.unit_price - (item.discount || 0))}
                           </p>
                         </div>
@@ -452,7 +452,7 @@ export default function NewDistributorInvoicePage() {
                           <Button
                             variant="ghost"
                             size="sm"
-                            className="text-[#e53e3e] hover:text-[#e53e3e] hover:bg-[#fee2e2]"
+                            className="text-[var(--color-danger)] hover:text-[var(--color-danger)] hover:bg-[var(--color-danger-bg)]"
                             onClick={() => removeItem(index)}
                           >
                             <Trash2 size={16} />
@@ -481,18 +481,18 @@ export default function NewDistributorInvoicePage() {
                   value={markAsPaidOption ? total : amountPaid}
                   onChange={(e) => setAmountPaid(parseFloat(e.target.value) || 0)}
                   disabled={markAsPaidOption}
-                  className={markAsPaidOption ? 'bg-[#f8fafc]' : ''}
+                  className={markAsPaidOption ? 'bg-[var(--color-surface-elevated)]' : ''}
                 />
               </div>
               <div className="space-y-1.5">
                 <Label>Balance Due</Label>
-                <div className="h-10 px-3 flex items-center bg-[#f8fafc] rounded-md border border-[#e8edf5]">
-                  <span className="text-lg font-semibold text-[#061b31]">{markAsPaidOption ? formatCurrency(0) : formatCurrency(balanceDue)}</span>
+                <div className="h-10 px-3 flex items-center bg-[var(--color-surface-elevated)] rounded-md border border-[var(--color-border)]">
+                  <span className="text-lg font-semibold text-[var(--color-text-secondary)]">{markAsPaidOption ? formatCurrency(0) : formatCurrency(balanceDue)}</span>
                 </div>
               </div>
             </div>
 
-            <div className="mt-4 p-4 bg-[#15be53]/5 border border-[#15be53]/20 rounded-lg">
+            <div className="mt-4 p-4 bg-[var(--color-success)]/5 border border-[var(--color-success)]/20 rounded-lg">
               <label className="flex items-center gap-3 cursor-pointer">
                 <input
                   type="checkbox"
@@ -503,23 +503,23 @@ export default function NewDistributorInvoicePage() {
                       setAmountPaid(total);
                     }
                   }}
-                  className="w-5 h-5 rounded border-[#e8edf5] text-[#15be53] focus:ring-[#15be53]"
+                  className="w-5 h-5 rounded border-[var(--color-border)] text-[var(--color-success)] focus:ring-[var(--color-success)]"
                 />
                 <div>
-                  <p className="text-sm font-medium text-[#061b31]">Mark as Paid</p>
-                  <p className="text-xs text-[#64748d]">Invoice will be marked as fully paid ({formatCurrency(total)})</p>
+                  <p className="text-sm font-medium text-[var(--color-text-secondary)]">Mark as Paid</p>
+                  <p className="text-xs text-[var(--color-text-muted)]">Invoice will be marked as fully paid ({formatCurrency(total)})</p>
                 </div>
               </label>
             </div>
 
-            <div className="mt-4 p-4 bg-[#f8fafc] rounded-lg border border-[#e8edf5]">
+            <div className="mt-4 p-4 bg-[var(--color-surface-elevated)] rounded-lg border border-[var(--color-border)]">
               <div className="flex justify-between items-center">
-                <span className="text-sm text-[#64748d]">Subtotal</span>
-                <span className="text-lg font-semibold text-[#061b31]">{formatCurrency(subtotal)}</span>
+                <span className="text-sm text-[var(--color-text-muted)]">Subtotal</span>
+                <span className="text-lg font-semibold text-[var(--color-text-secondary)]">{formatCurrency(subtotal)}</span>
               </div>
-              <div className="flex justify-between items-center mt-2 pt-2 border-t border-[#e8edf5]">
-                <span className="text-sm font-medium text-[#061b31]">Total</span>
-                <span className="text-xl font-bold text-[#533afd]">{formatCurrency(total)}</span>
+              <div className="flex justify-between items-center mt-2 pt-2 border-t border-[var(--color-border)]">
+                <span className="text-sm font-medium text-[var(--color-text-secondary)]">Total</span>
+                <span className="text-xl font-bold text-[var(--color-primary)]">{formatCurrency(total)}</span>
               </div>
             </div>
           </CardContent>
@@ -542,7 +542,7 @@ export default function NewDistributorInvoicePage() {
           <Button
             onClick={() => handleSubmit(true)}
             disabled={submitting || items.length === 0}
-            className={`w-full sm:w-auto ${markAsPaidOption ? 'bg-[#15be53] hover:bg-[#13a94a]' : ''}`}
+            className={`w-full sm:w-auto ${markAsPaidOption ? 'bg-[var(--color-success)] hover:bg-[var(--color-success)]' : ''}`}
           >
             <CheckCircle size={16} className="mr-1" /> {markAsPaidOption ? 'Confirm & Pay' : 'Confirm'}
           </Button>
@@ -572,21 +572,21 @@ export default function NewDistributorInvoicePage() {
             <CardContent className="flex-1 overflow-y-auto">
               <div className="space-y-2">
                 {filteredProducts.length === 0 ? (
-                  <p className="text-center text-[#64748d] py-4">No products found</p>
+                  <p className="text-center text-[var(--color-text-muted)] py-4">No products found</p>
                 ) : (
                   filteredProducts.map((product) => (
                     <div
                       key={product._id}
-                      className="flex items-center justify-between p-3 rounded-lg border border-[#e8edf5] hover:bg-[#f8fafc] cursor-pointer transition-colors"
+                      className="flex items-center justify-between p-3 rounded-lg border border-[var(--color-border)] hover:bg-[var(--color-surface-elevated)] cursor-pointer transition-colors"
                       onClick={() => addItem(product)}
                     >
                       <div>
-                        <p className="text-sm font-medium text-[#061b31]">{product.name}</p>
-                        <p className="text-xs text-[#64748d]">SKU: {product.sku} | Stock: {product.current_stock}</p>
+                        <p className="text-sm font-medium text-[var(--color-text-secondary)]">{product.name}</p>
+                        <p className="text-xs text-[var(--color-text-muted)]">SKU: {product.sku} | Stock: {product.current_stock}</p>
                       </div>
                       <div className="text-right">
-                        <p className="text-sm font-semibold text-[#533afd]">{formatCurrency(product.wholesale_price)}</p>
-                        <p className="text-xs text-[#94a3b8]">wholesale price</p>
+                        <p className="text-sm font-semibold text-[var(--color-primary)]">{formatCurrency(product.wholesale_price)}</p>
+                        <p className="text-xs text-[var(--color-text-muted)]">wholesale price</p>
                       </div>
                     </div>
                   ))

@@ -9,7 +9,10 @@ import {
   deletePlumber,
   verifyPlumber,
   getPlumberBonuses,
-  getPlumberPayouts
+  getPlumberPayouts,
+  getPlumberInvoices,
+  getPlumberDetails,
+  getPlumberById
 } from '@/lib/plumbers.api';
 import { showSuccess, showApiError, toastMessages } from '@/utils/toast';
 
@@ -88,6 +91,29 @@ export const useGetPlumberPayouts = (id) => {
   return useQuery({
     queryKey: ['plumber-payouts', id],
     queryFn: () => getPlumberPayouts(id),
+    enabled: !!id,
+  });
+};
+
+export const useGetPlumberInvoices = (plumberId) => {
+  return useQuery({
+    queryKey: ['plumber-invoices', plumberId],
+    queryFn: () => getPlumberInvoices(plumberId),
+    enabled: !!plumberId,
+  });
+};
+
+export const useGetPlumberDetails = () => {
+  return useQuery({
+    queryKey: ['plumber-details'],
+    queryFn: getPlumberDetails,
+  });
+};
+
+export const useGetPlumberById = (id) => {
+  return useQuery({
+    queryKey: ['plumber-full', id],
+    queryFn: () => getPlumberById(id),
     enabled: !!id,
   });
 };

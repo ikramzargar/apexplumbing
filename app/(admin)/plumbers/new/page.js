@@ -26,10 +26,10 @@ export default function NewPlumberPage() {
   return (
     <div className="p-4 md:p-6 pb-24">
       <div className="mb-5">
-        <h2 className="text-lg font-semibold text-[#061b31]">Add New Plumber</h2>
-        <p className="text-xs text-[#64748d]">Register a new plumber in the system</p>
+        <h2 className="text-lg font-semibold text-[var(--color-text-secondary)]">Add New Plumber</h2>
+        <p className="text-xs text-[var(--color-text-muted)]">Register a new plumber in the system</p>
       </div>
-      <div className="rounded-xl border border-[#e8edf5] bg-white p-4 md:p-6">
+      <div className="rounded-xl border border-[var(--color-border)] bg-white p-4 md:p-6">
         <PlumberForm onSubmit={handleSubmit} loading={loading} />
       </div>
     </div>

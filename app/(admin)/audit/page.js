@@ -112,8 +112,8 @@ export default function AuditPage() {
           <Card>
             <CardContent className="p-4">
               <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-lg bg-[#533afd]/10 flex items-center justify-center">
-                  <Activity size={20} className="text-[#533afd]" />
+                <div className="w-10 h-10 rounded-lg bg-[var(--color-primary)]/10 flex items-center justify-center">
+                  <Activity size={20} className="text-[var(--color-primary)]" />
                 </div>
                 <div>
                   <p className="text-xs text-muted-foreground">Total Actions</p>

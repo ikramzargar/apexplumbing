@@ -33,7 +33,7 @@ export function ConfirmDialog({
           {destructive ? (
             <Button
               onClick={onConfirm}
-              className="bg-[#e53e3e] text-white hover:bg-[#c53030]"
+              className="bg-[var(--color-danger)] text-white hover:bg-[var(--color-danger)]"
             >
               {confirmLabel}
             </Button>

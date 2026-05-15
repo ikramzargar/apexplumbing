@@ -13,8 +13,8 @@ const CustomTooltip = ({ active, payload, label }) => {
     return (
       <div className="bg-white p-4 rounded-xl border border-[var(--color-border)] shadow-xl">
         <p className="text-xs font-semibold text-[var(--color-navy)] mb-2">{label}</p>
-        <p className="text-xs text-[#3b82f6] font-medium">Retail: ₹{payload[0]?.value?.toLocaleString()}</p>
-        <p className="text-xs text-[#15be53] font-medium">Wholesale: ₹{payload[1]?.value?.toLocaleString()}</p>
+        <p className="text-xs text-[var(--color-accent)] font-medium">Retail: ₹{payload[0]?.value?.toLocaleString()}</p>
+        <p className="text-xs text-[var(--color-success)] font-medium">Wholesale: ₹{payload[1]?.value?.toLocaleString()}</p>
       </div>
     );
   }
@@ -66,11 +66,11 @@ export function SalesChart() {
             <ResponsiveContainer width="100%" height={300}>
               <BarChart data={chartData} barGap={4}>
                 <CartesianGrid strokeDasharray="3 3" stroke="var(--color-border)" vertical={false} />
-                <XAxis dataKey="date" tick={{ fontSize: 11, fill: 'var(--color-body-light)' }} axisLine={false} tickLine={false} />
-                <YAxis tick={{ fontSize: 11, fill: 'var(--color-body-light)' }} axisLine={false} tickLine={false} tickFormatter={(v) => `₹${(v/1000).toFixed(0)}k`} />
+                <XAxis dataKey="date" tick={{ fontSize: 11, fill: '#ffffff' }} axisLine={false} tickLine={false} />
+                <YAxis tick={{ fontSize: 11, fill: '#ffffff' }} axisLine={false} tickLine={false} tickFormatter={(v) => `₹${(v/1000).toFixed(0)}k`} />
                 <Tooltip content={<CustomTooltip />} cursor={{ fill: 'var(--color-primary-light)' }} />
-                <Bar dataKey="retail" name="Retail" fill="#3b82f6" radius={[6, 6, 0, 0]} maxBarSize={45} />
-                <Bar dataKey="wholesale" name="Wholesale" fill="#15be53" radius={[6, 6, 0, 0]} maxBarSize={45} />
+                <Bar dataKey="retail" name="Retail" fill="var(--color-accent)" radius={[6, 6, 0, 0]} maxBarSize={45} />
+                <Bar dataKey="wholesale" name="Wholesale" fill="var(--color-success)" radius={[6, 6, 0, 0]} maxBarSize={45} />
               </BarChart>
             </ResponsiveContainer>
           )

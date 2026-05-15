@@ -30,25 +30,25 @@ export default function PortalDashboard() {
       label: 'Credit Limit',
       value: `Rs.${(statement?.credit_limit || 0).toLocaleString()}`,
       icon: TrendingUp,
-      color: 'text-blue-600 bg-blue-50',
+      color: 'text-[var(--color-accent)] bg-[var(--color-accent-muted)]',
     },
     {
       label: 'Total Outstanding',
       value: `Rs.${(statement?.total_outstanding || 0).toLocaleString()}`,
       icon: AlertCircle,
-      color: statement?.total_outstanding > 0 ? 'text-orange-600 bg-orange-50' : 'text-green-600 bg-green-50',
+      color: statement?.total_outstanding > 0 ? 'text-[var(--color-warning)] bg-[var(--color-warning-bg)]' : 'text-[var(--color-success)] bg-[var(--color-success-bg)]',
     },
     {
       label: 'Total Billed',
       value: `Rs.${(statement?.total_billed || 0).toLocaleString()}`,
       icon: FileText,
-      color: 'text-purple-600 bg-purple-50',
+      color: 'text-[var(--color-primary)] bg-[var(--color-primary-muted)]',
     },
     {
       label: 'Total Paid',
       value: `Rs.${(statement?.total_paid || 0).toLocaleString()}`,
       icon: Receipt,
-      color: 'text-green-600 bg-green-50',
+      color: 'text-[var(--color-success)] bg-[var(--color-success-bg)]',
     },
   ];
 
@@ -62,12 +62,12 @@ export default function PortalDashboard() {
         {stats.map((stat) => {
           const Icon = stat.icon;
           return (
-            <div key={stat.label} className="bg-[var(--color-bg-subtle)] rounded-xl border border-[var(--color-border)] p-4">
+            <div key={stat.label} className="bg-[var(--color-surface)] rounded-xl border border-[var(--color-border)] p-4">
               <div className={`w-10 h-10 rounded-xl ${stat.color} flex items-center justify-center mb-3`}>
                 <Icon size={18} />
               </div>
-              <p className="text-[10px] text-[var(--color-body-light)] uppercase tracking-wide mb-1">{stat.label}</p>
-              <p className="text-lg font-semibold text-[var(--color-navy)]">{stat.value}</p>
+              <p className="text-[10px] text-[var(--color-text-muted)] uppercase tracking-wide mb-1">{stat.label}</p>
+              <p className="text-lg font-semibold text-[var(--color-text-secondary)]">{stat.value}</p>
             </div>
           );
         })}
@@ -75,31 +75,31 @@ export default function PortalDashboard() {
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-5">
         {/* Recent Invoices */}
-        <div className="bg-[var(--color-bg-subtle)] rounded-xl border border-[var(--color-border)] overflow-hidden">
+        <div className="bg-[var(--color-surface)] rounded-xl border border-[var(--color-border)] overflow-hidden">
           <div className="flex items-center justify-between px-4 py-3 border-b border-[var(--color-border)]">
-            <h2 className="text-sm font-medium text-[var(--color-navy)]">Recent Invoices</h2>
-            <Link href="/portal/invoices" className="text-[11px] text-[var(--color-primary)] hover:underline font-medium">
+            <h2 className="text-sm font-medium text-[var(--color-text-secondary)]">Recent Invoices</h2>
+            <Link href="/portal/invoices" className="text-[11px] text-[var(--color-accent)] hover:underline font-medium">
               View all
             </Link>
           </div>
           {recentInvoices.length === 0 ? (
-            <div className="p-6 text-center text-xs text-[var(--color-body-light)]">No invoices yet</div>
+            <div className="p-6 text-center text-xs text-[var(--color-text-muted)]">No invoices yet</div>
           ) : (
-            <div className="divide-y divide-[var(--color-border)]">
+            <div className="divide-y divide-[var(--color-border-muted)]">
               {recentInvoices.map((inv) => (
-                <div key={inv._id} className="flex items-center justify-between px-4 py-3 hover:bg-[var(--color-bg)] transition-colors">
+                <div key={inv._id} className="flex items-center justify-between px-4 py-3 hover:bg-[var(--color-surface-elevated)] transition-colors">
                   <div>
-                    <p className="text-xs font-medium text-[var(--color-navy)]">{inv.invoice_number}</p>
-                    <p className="text-[10px] text-[var(--color-body-light)]">
+                    <p className="text-xs font-medium text-[var(--color-text-secondary)]">{inv.invoice_number}</p>
+                    <p className="text-[10px] text-[var(--color-text-muted)]">
                       {new Date(inv.createdAt).toLocaleDateString()}
                     </p>
                   </div>
                   <div className="text-right">
-                    <p className="text-xs font-medium text-[var(--color-navy)]">Rs.{inv.total.toLocaleString()}</p>
+                    <p className="text-xs font-medium text-[var(--color-text-secondary)]">Rs.{inv.total.toLocaleString()}</p>
                     <span className={`inline-block text-[9px] px-1.5 py-0.5 rounded-full font-medium ${
-                      inv.payment_status === 'PAID' ? 'bg-green-100 text-green-700' :
-                      inv.payment_status === 'PARTIAL' ? 'bg-orange-100 text-orange-700' :
-                      'bg-red-100 text-red-700'
+                      inv.payment_status === 'PAID' ? 'bg-[var(--color-success-bg)] text-[var(--color-success)]' :
+                      inv.payment_status === 'PARTIAL' ? 'bg-[var(--color-warning-bg)] text-[var(--color-warning)]' :
+                      'bg-[var(--color-danger-bg)] text-[var(--color-danger)]'
                     }`}>
                       {inv.payment_status}
                     </span>
@@ -111,26 +111,26 @@ export default function PortalDashboard() {
         </div>
 
         {/* Recent Payments */}
-        <div className="bg-[var(--color-bg-subtle)] rounded-xl border border-[var(--color-border)] overflow-hidden">
+        <div className="bg-[var(--color-surface)] rounded-xl border border-[var(--color-border)] overflow-hidden">
           <div className="flex items-center justify-between px-4 py-3 border-b border-[var(--color-border)]">
-            <h2 className="text-sm font-medium text-[var(--color-navy)]">Recent Payments</h2>
-            <Link href="/portal/statements" className="text-[11px] text-[var(--color-primary)] hover:underline font-medium">
+            <h2 className="text-sm font-medium text-[var(--color-text-secondary)]">Recent Payments</h2>
+            <Link href="/portal/statements" className="text-[11px] text-[var(--color-accent)] hover:underline font-medium">
               View all
             </Link>
           </div>
           {recentPayments.length === 0 ? (
-            <div className="p-6 text-center text-xs text-[var(--color-body-light)]">No payment records yet</div>
+            <div className="p-6 text-center text-xs text-[var(--color-text-muted)]">No payment records yet</div>
           ) : (
-            <div className="divide-y divide-[var(--color-border)]">
+            <div className="divide-y divide-[var(--color-border-muted)]">
               {recentPayments.map((pay) => (
-                <div key={pay._id} className="flex items-center justify-between px-4 py-3 hover:bg-[var(--color-bg)] transition-colors">
+                <div key={pay._id} className="flex items-center justify-between px-4 py-3 hover:bg-[var(--color-surface-elevated)] transition-colors">
                   <div>
-                    <p className="text-xs font-medium text-[var(--color-navy)]">{pay.note || pay.method}</p>
-                    <p className="text-[10px] text-[var(--color-body-light)]">
+                    <p className="text-xs font-medium text-[var(--color-text-secondary)]">{pay.note || pay.method}</p>
+                    <p className="text-[10px] text-[var(--color-text-muted)]">
                       {new Date(pay.createdAt).toLocaleDateString()}
                     </p>
                   </div>
-                  <p className="text-xs font-semibold text-green-600">
+                  <p className="text-xs font-semibold text-[var(--color-success)]">
                     +Rs.{pay.amount.toLocaleString()}
                   </p>
                 </div>

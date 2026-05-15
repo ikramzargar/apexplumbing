@@ -6,17 +6,17 @@ import { cva } from "class-variance-authority";
 import { cn } from "@/lib/utils";
 
 const buttonVariants = cva(
-  "inline-flex items-center justify-center whitespace-nowrap rounded-lg text-base font-semibold transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 shadow-sm",
+  "inline-flex items-center justify-center whitespace-nowrap rounded-lg text-base font-semibold transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50",
   {
     variants: {
       variant: {
-        default: "bg-[var(--color-primary)] text-white hover:bg-[var(--color-primary-hover)] focus-visible:ring-[var(--color-primary)] hover:shadow-md",
-        destructive: "bg-[var(--color-danger)] text-white hover:bg-[#c53030] focus-visible:ring-[var(--color-danger)] hover:shadow-md",
-        outline: "border border-[var(--color-border)] bg-[var(--color-bg-subtle)] text-[var(--color-navy)] hover:bg-[var(--color-bg)] hover:border-[var(--color-border-strong)]",
-        secondary: "bg-[var(--color-bg-subtle)] text-[var(--color-navy)] hover:bg-[var(--color-bg-muted)]",
-        ghost: "text-[var(--color-body)] hover:bg-[var(--color-bg-subtle)] hover:text-[var(--color-navy)]",
-        link: "text-[var(--color-primary)] underline-offset-4 hover:underline",
-        success: "bg-[var(--color-success)] text-white hover:bg-[#13a94a] focus-visible:ring-[var(--color-success)] hover:shadow-md",
+        default: "bg-[var(--color-primary)] text-white hover:bg-[var(--color-primary-hover)] focus-visible:ring-[var(--color-primary)]",
+        destructive: "bg-[var(--color-danger)] text-white hover:bg-[var(--color-danger)] focus-visible:ring-[var(--color-danger)]",
+        outline: "border border-[var(--color-border)] bg-[var(--color-surface)] text-[var(--color-text)] hover:bg-[var(--color-surface-elevated)] hover:border-[var(--color-border-strong)]",
+        secondary: "bg-[var(--color-surface)] text-[var(--color-text)] hover:bg-[var(--color-surface-elevated)] border border-[var(--color-border)]",
+        ghost: "text-[var(--color-text-muted)] hover:bg-[var(--color-surface)] hover:text-[var(--color-text)]",
+        link: "text-[var(--color-accent)] underline-offset-4 hover:underline",
+        success: "bg-[var(--color-success)] text-white hover:bg-[var(--color-success)] focus-visible:ring-[var(--color-success)]",
       },
       size: {
         default: "h-10 px-5 py-2.5",

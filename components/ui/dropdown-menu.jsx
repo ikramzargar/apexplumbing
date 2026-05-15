@@ -17,14 +17,14 @@ const DropdownMenuSubTrigger = React.forwardRef(({ className, inset, children, .
     ref={ref}
     className={cn(
       "flex cursor-pointer select-none items-center rounded-lg px-2 py-1.5 text-sm outline-none",
-      "focus:bg-[var(--color-bg-subtle)] data-[state=open]:bg-[var(--color-bg-subtle)]",
+      "focus:bg-[var(--color-surface-elevated)] data-[state=open]:bg-[var(--color-surface-elevated)] text-[var(--color-text)]",
       className
     )}
     {...props}
   >
     {inset && <span className="mr-2 flex h-4 w-4" />}
     {children}
-    <ChevronRight className="ml-auto h-4 w-4" />
+    <ChevronRight className="ml-auto h-4 w-4 text-[var(--color-text-muted)]" />
   </DropdownMenuPrimitive.SubTrigger>
 ));
 DropdownMenuSubTrigger.displayName = DropdownMenuPrimitive.SubTrigger.displayName;
@@ -33,7 +33,7 @@ const DropdownMenuSubContent = React.forwardRef(({ className, ...props }, ref) =
   <DropdownMenuPrimitive.SubContent
     ref={ref}
     className={cn(
-      "z-50 min-w-[8rem] overflow-hidden rounded-xl border border-[var(--color-border)] bg-white p-1 shadow-xl shadow-[0_20px_40px_-10px_rgba(0,0,0,0.12)]",
+      "z-50 min-w-[8rem] overflow-hidden rounded-xl border border-[var(--color-border)] bg-[var(--color-surface)] p-1 shadow-xl shadow-black/30",
       "data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0",
       "data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95",
       "data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2",
@@ -51,7 +51,7 @@ const DropdownMenuContent = React.forwardRef(({ className, sideOffset = 4, ...pr
       ref={ref}
       sideOffset={sideOffset}
       className={cn(
-        "z-50 min-w-[8rem] overflow-hidden rounded-xl border border-[var(--color-border)] bg-white p-1 shadow-xl shadow-[0_20px_40px_-10px_rgba(0,0,0,0.12)]",
+        "z-50 min-w-[8rem] overflow-hidden rounded-xl border border-[var(--color-border)] bg-[var(--color-surface)] p-1 shadow-xl shadow-black/30",
         "data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0",
         "data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95",
         "data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2",
@@ -68,8 +68,8 @@ const DropdownMenuItem = React.forwardRef(({ className, inset, ...props }, ref) 
   <DropdownMenuPrimitive.Item
     ref={ref}
     className={cn(
-      "relative flex cursor-pointer select-none items-center rounded-lg px-2 py-2 text-sm text-[var(--color-navy)] outline-none transition-colors duration-100",
-      "focus:bg-[var(--color-bg-subtle)] focus:text-[var(--color-primary)]",
+      "relative flex cursor-pointer select-none items-center rounded-lg px-2 py-2 text-sm text-[var(--color-text)] outline-none transition-colors duration-100",
+      "focus:bg-[var(--color-surface-elevated)] focus:text-[var(--color-accent)]",
       "data-[disabled]:pointer-events-none data-[disabled]:opacity-50",
       inset && "pl-8",
       className
@@ -83,8 +83,8 @@ const DropdownMenuCheckboxItem = React.forwardRef(({ className, children, checke
   <DropdownMenuPrimitive.CheckboxItem
     ref={ref}
     className={cn(
-      "relative flex cursor-pointer select-none items-center rounded-lg py-2 pl-8 pr-2 text-sm text-[var(--color-navy)] outline-none transition-colors duration-100",
-      "focus:bg-[var(--color-bg-subtle)] focus:text-[var(--color-primary)]",
+      "relative flex cursor-pointer select-none items-center rounded-lg py-2 pl-8 pr-2 text-sm text-[var(--color-text)] outline-none transition-colors duration-100",
+      "focus:bg-[var(--color-surface-elevated)] focus:text-[var(--color-accent)]",
       "data-[disabled]:pointer-events-none data-[disabled]:opacity-50",
       className
     )}
@@ -92,7 +92,7 @@ const DropdownMenuCheckboxItem = React.forwardRef(({ className, children, checke
   >
     <span className="absolute left-2 flex h-4 w-4 items-center justify-center">
       <DropdownMenuPrimitive.ItemIndicator>
-        <Check className="h-4 w-4 text-[var(--color-primary)]" />
+        <Check className="h-4 w-4 text-[var(--color-accent)]" />
       </DropdownMenuPrimitive.ItemIndicator>
     </span>
     {children}
@@ -104,8 +104,8 @@ const DropdownMenuRadioItem = React.forwardRef(({ className, children, ...props 
   <DropdownMenuPrimitive.RadioItem
     ref={ref}
     className={cn(
-      "relative flex cursor-pointer select-none items-center rounded-lg py-2 pl-8 pr-2 text-sm text-[var(--color-navy)] outline-none transition-colors duration-100",
-      "focus:bg-[var(--color-bg-subtle)] focus:text-[var(--color-primary)]",
+      "relative flex cursor-pointer select-none items-center rounded-lg py-2 pl-8 pr-2 text-sm text-[var(--color-text)] outline-none transition-colors duration-100",
+      "focus:bg-[var(--color-surface-elevated)] focus:text-[var(--color-accent)]",
       "data-[disabled]:pointer-events-none data-[disabled]:opacity-50",
       className
     )}
@@ -113,7 +113,7 @@ const DropdownMenuRadioItem = React.forwardRef(({ className, children, ...props 
   >
     <span className="absolute left-2 flex h-4 w-4 items-center justify-center">
       <DropdownMenuPrimitive.ItemIndicator>
-        <Circle className="h-2 w-2 fill-current" />
+        <Circle className="h-2 w-2 fill-current text-[var(--color-accent)]" />
       </DropdownMenuPrimitive.ItemIndicator>
     </span>
     {children}
@@ -125,7 +125,7 @@ const DropdownMenuLabel = React.forwardRef(({ className, inset, ...props }, ref)
   <DropdownMenuPrimitive.Label
     ref={ref}
     className={cn(
-      "px-2 py-1.5 text-xs font-semibold text-[var(--color-body-light)] uppercase tracking-wide",
+      "px-2 py-1.5 text-xs font-semibold text-[var(--color-text-muted)] uppercase tracking-wide",
       inset && "pl-8",
       className
     )}
@@ -145,7 +145,7 @@ DropdownMenuSeparator.displayName = DropdownMenuPrimitive.Separator.displayName;
 
 const DropdownMenuShortcut = ({ className, ...props }) => (
   <span
-    className={cn("ml-auto text-xs tracking-widest text-[var(--color-body-light)]", className)}
+    className={cn("ml-auto text-xs tracking-widest text-[var(--color-text-muted)]", className)}
     {...props}
   />
 );

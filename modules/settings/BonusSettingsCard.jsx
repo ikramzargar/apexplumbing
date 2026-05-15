@@ -40,8 +40,8 @@ export function BonusSettingsCard({ form, setForm }) {
     <Card className="border-slate-200/60">
       <CardHeader className="pb-4">
         <div className="flex items-center gap-3">
-          <div className="p-2 rounded-lg bg-[#533afd]/10">
-            <Calculator className="w-5 h-5 text-[#533afd]" />
+          <div className="p-2 rounded-lg bg-[var(--color-primary)]/10">
+            <Calculator className="w-5 h-5 text-[var(--color-primary)]" />
           </div>
           <div>
             <CardTitle className="text-base">Bonus Configuration</CardTitle>

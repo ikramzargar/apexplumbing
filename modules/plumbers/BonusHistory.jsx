@@ -25,11 +25,11 @@ export function BonusHistory({ plumberId }) {
     return (
       <Card>
         <CardContent className="p-12 text-center">
-          <div className="w-12 h-12 rounded-full bg-[#f8fafc] flex items-center justify-center mx-auto mb-3">
-            <Gift size={20} className="text-[#94a3b8]" />
+          <div className="w-12 h-12 rounded-full bg-[var(--color-surface-elevated)] flex items-center justify-center mx-auto mb-3">
+            <Gift size={20} className="text-[var(--color-text-muted)]" />
           </div>
-          <h3 className="text-sm font-medium text-[#061b31] mb-1">No bonus history</h3>
-          <p className="text-xs text-[#94a3b8]">Referral bonuses will appear here</p>
+          <h3 className="text-sm font-medium text-[var(--color-text-secondary)] mb-1">No bonus history</h3>
+          <p className="text-xs text-[var(--color-text-muted)]">Referral bonuses will appear here</p>
         </CardContent>
       </Card>
     );
@@ -53,11 +53,11 @@ export function BonusHistory({ plumberId }) {
           <TableBody>
             {bonuses.map((bonus) => (
               <TableRow key={bonus._id}>
-                <TableCell className="text-xs text-[#64748d] hidden sm:table-cell">
+                <TableCell className="text-xs text-[var(--color-text-muted)] hidden sm:table-cell">
                   {new Date(bonus.createdAt).toLocaleDateString('en-IN', { day: 'numeric', month: 'short', year: 'numeric' })}
                 </TableCell>
-                <TableCell className="font-mono text-xs text-[#94a3b8]">{bonus.invoice?.invoice_number || 'N/A'}</TableCell>
-                <TableCell className="text-right font-semibold text-[#15be53]">{formatCurrency(bonus.amount)}</TableCell>
+                <TableCell className="font-mono text-xs text-[var(--color-text-muted)]">{bonus.invoice?.invoice_number || 'N/A'}</TableCell>
+                <TableCell className="text-right font-semibold text-[var(--color-success)]">{formatCurrency(bonus.amount)}</TableCell>
                 <TableCell className="hidden sm:table-cell"><StatusBadge status={bonus.status} /></TableCell>
               </TableRow>
             ))}

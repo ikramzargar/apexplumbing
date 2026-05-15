@@ -81,8 +81,8 @@ export default function StockRequestsPage() {
             className={cn(
               "px-3 py-1.5 text-xs font-medium rounded-lg transition-all whitespace-nowrap",
               statusFilter === status
-                ? "bg-[var(--color-primary)] text-white"
-                : "bg-[var(--color-bg-subtle)] text-[var(--color-body)] hover:bg-[var(--color-bg)] border border-[var(--color-border)]"
+                ? "bg-[var(--color-accent)] text-white"
+                : "bg-[var(--color-surface)] text-[var(--color-text-muted)] hover:bg-[var(--color-surface-elevated)] border border-[var(--color-border)]"
             )}
           >
             {status === 'all' ? 'All' : statusConfig[status]?.label || status}
@@ -96,12 +96,12 @@ export default function StockRequestsPage() {
           <LoadingSpinner size={32} />
         </div>
       ) : requests.length === 0 ? (
-        <div className="bg-[var(--color-bg-subtle)] rounded-xl border border-[var(--color-border)] p-12 text-center">
-          <div className="w-16 h-16 bg-[var(--color-bg-subtle)] rounded-full flex items-center justify-center mx-auto mb-4">
-            <Package size={28} className="text-[var(--color-body-light)]" />
+        <div className="bg-[var(--color-surface)] rounded-xl border border-[var(--color-border)] p-12 text-center">
+          <div className="w-16 h-16 bg-[var(--color-surface-elevated)] rounded-full flex items-center justify-center mx-auto mb-4">
+            <Package size={28} className="text-[var(--color-text-muted)]" />
           </div>
-          <h3 className="text-base font-medium text-[var(--color-navy)] mb-2">No stock requests yet</h3>
-          <p className="text-sm text-[var(--color-body-light)] mb-6">
+          <h3 className="text-base font-medium text-[var(--color-text-secondary)] mb-2">No stock requests yet</h3>
+          <p className="text-sm text-[var(--color-text-muted)] mb-6">
             Submit a request to get stock from admin
           </p>
           <Link href="/portal/stock-requests/new">
@@ -112,50 +112,50 @@ export default function StockRequestsPage() {
           </Link>
         </div>
       ) : (
-        <div className="bg-[var(--color-bg-subtle)] rounded-xl border border-[var(--color-border)] overflow-hidden">
+        <div className="bg-[var(--color-surface)] rounded-xl border border-[var(--color-border)] overflow-hidden">
           <table className="w-full">
             <thead>
-              <tr className="border-b border-[var(--color-border)] bg-[var(--color-bg-subtle)]">
-                <th className="text-left px-4 py-3 text-xs font-medium text-[var(--color-body-light)] uppercase tracking-wide">
+              <tr className="border-b border-[var(--color-border)] bg-[var(--color-surface)]">
+                <th className="text-left px-4 py-3 text-xs font-medium text-[var(--color-text-muted)] uppercase tracking-wide">
                   Request ID
                 </th>
-                <th className="text-left px-4 py-3 text-xs font-medium text-[var(--color-body-light)] uppercase tracking-wide">
+                <th className="text-left px-4 py-3 text-xs font-medium text-[var(--color-text-muted)] uppercase tracking-wide">
                   Date
                 </th>
-                <th className="text-left px-4 py-3 text-xs font-medium text-[var(--color-body-light)] uppercase tracking-wide">
+                <th className="text-left px-4 py-3 text-xs font-medium text-[var(--color-text-muted)] uppercase tracking-wide">
                   Products
                 </th>
-                <th className="text-right px-4 py-3 text-xs font-medium text-[var(--color-body-light)] uppercase tracking-wide">
+                <th className="text-right px-4 py-3 text-xs font-medium text-[var(--color-text-muted)] uppercase tracking-wide">
                   Total Value
                 </th>
-                <th className="text-center px-4 py-3 text-xs font-medium text-[var(--color-body-light)] uppercase tracking-wide">
+                <th className="text-center px-4 py-3 text-xs font-medium text-[var(--color-text-muted)] uppercase tracking-wide">
                   Status
                 </th>
-                <th className="text-center px-4 py-3 text-xs font-medium text-[var(--color-body-light)] uppercase tracking-wide">
+                <th className="text-center px-4 py-3 text-xs font-medium text-[var(--color-text-muted)] uppercase tracking-wide">
                   Action
                 </th>
               </tr>
             </thead>
             <tbody>
               {requests.map((request) => (
-                <tr key={request._id} className="border-b border-[var(--color-border)] last:border-0 hover:bg-[var(--color-bg-subtle)]/50">
+                <tr key={request._id} className="border-b border-[var(--color-border-muted)] last:border-0 hover:bg-[var(--color-surface-elevated)]/50">
                   <td className="px-4 py-3.5">
-                    <span className="text-sm font-mono text-[var(--color-navy)]">
+                    <span className="text-sm font-mono text-[var(--color-text-secondary)]">
                       #{request._id.slice(-6).toUpperCase()}
                     </span>
                   </td>
                   <td className="px-4 py-3.5">
-                    <span className="text-sm text-[var(--color-body)]">
+                    <span className="text-sm text-[var(--color-text-muted)]">
                       {formatDate(request.createdAt)}
                     </span>
                   </td>
                   <td className="px-4 py-3.5">
-                    <span className="text-sm text-[var(--color-body)]">
+                    <span className="text-sm text-[var(--color-text-muted)]">
                       {request.items.length} product{request.items.length > 1 ? 's' : ''}
                     </span>
                   </td>
                   <td className="px-4 py-3.5 text-right">
-                    <span className="text-sm font-medium text-[var(--color-navy)]">
+                    <span className="text-sm font-medium text-[var(--color-text-secondary)]">
                       {formatCurrency(calculateTotal(request.items))}
                     </span>
                   </td>

@@ -45,10 +45,10 @@ export function PlumberSearchModal({ isOpen, onClose, onSelect }) {
     <div className="fixed inset-0 z-50 bg-black/50 flex items-center justify-center p-4">
       <div className="bg-white rounded-xl shadow-xl w-full max-w-2xl max-h-[85vh] flex flex-col">
         {/* Header */}
-        <div className="flex items-center justify-between p-4 border-b border-[#e8edf5]">
+        <div className="flex items-center justify-between p-4 border-b border-[var(--color-border)]">
           <div>
-            <h2 className="text-lg font-semibold text-[#061b31]">Link Plumber</h2>
-            <p className="text-xs text-[#64748d]">Search for a plumber to link to this invoice</p>
+            <h2 className="text-lg font-semibold text-[var(--color-text-secondary)]">Link Plumber</h2>
+            <p className="text-xs text-[var(--color-text-muted)]">Search for a plumber to link to this invoice</p>
           </div>
           <Button variant="ghost" size="sm" onClick={onClose}>
             <X size={18} />
@@ -56,7 +56,7 @@ export function PlumberSearchModal({ isOpen, onClose, onSelect }) {
         </div>
 
         {/* Search */}
-        <div className="p-4 border-b border-[#e8edf5] space-y-3">
+        <div className="p-4 border-b border-[var(--color-border)] space-y-3">
           {/* Search Type Tabs */}
           <div className="flex gap-2">
             {[
@@ -69,8 +69,8 @@ export function PlumberSearchModal({ isOpen, onClose, onSelect }) {
                 onClick={() => setSearchType(tab.id)}
                 className={`px-3 py-1.5 text-xs rounded-lg transition-colors ${
                   searchType === tab.id
-                    ? 'bg-[#533afd] text-white'
-                    : 'bg-[#f8fafc] text-[#64748d] hover:bg-[#f1f5f9]'
+                    ? 'bg-[var(--color-primary)] text-white'
+                    : 'bg-[var(--color-surface-elevated)] text-[var(--color-text-muted)] hover:bg-[var(--color-surface-elevated)]'
                 }`}
               >
                 {tab.label}
@@ -80,7 +80,7 @@ export function PlumberSearchModal({ isOpen, onClose, onSelect }) {
 
           {/* Search Input */}
           <div className="relative">
-            <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-[#94a3b8] w-4 h-4" />
+            <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-[var(--color-text-muted)] w-4 h-4" />
             <Input
               placeholder={
                 searchType === 'name'
@@ -101,16 +101,16 @@ export function PlumberSearchModal({ isOpen, onClose, onSelect }) {
         <div className="flex-1 overflow-y-auto p-4">
           {isLoading ? (
             <div className="flex items-center justify-center py-8">
-              <div className="w-6 h-6 border-2 border-[#533afd]/30 border-t-[#533afd] rounded-full animate-spin" />
+              <div className="w-6 h-6 border-2 border-[var(--color-primary)]/30 border-t-[var(--color-primary)] rounded-full animate-spin" />
             </div>
           ) : searchTerm.length < 2 ? (
-            <div className="text-center py-8 text-[#64748d]">
-              <Search size={32} className="mx-auto mb-2 text-[#94a3b8]" />
+            <div className="text-center py-8 text-[var(--color-text-muted)]">
+              <Search size={32} className="mx-auto mb-2 text-[var(--color-text-muted)]" />
               <p className="text-sm">Enter at least 2 characters to search</p>
             </div>
           ) : plumbers.length === 0 ? (
-            <div className="text-center py-8 text-[#64748d]">
-              <User size={32} className="mx-auto mb-2 text-[#94a3b8]" />
+            <div className="text-center py-8 text-[var(--color-text-muted)]">
+              <User size={32} className="mx-auto mb-2 text-[var(--color-text-muted)]" />
               <p className="text-sm">No plumbers found matching "{searchTerm}"</p>
             </div>
           ) : (
@@ -118,13 +118,13 @@ export function PlumberSearchModal({ isOpen, onClose, onSelect }) {
               {plumbers.map((plumber) => (
                 <div
                   key={plumber._id}
-                  className="p-3 rounded-lg border border-[#e8edf5] hover:bg-[#f8fafc] cursor-pointer transition-colors"
+                  className="p-3 rounded-lg border border-[var(--color-border)] hover:bg-[var(--color-surface-elevated)] cursor-pointer transition-colors"
                   onClick={() => handleSelect(plumber)}
                 >
                   <div className="flex items-start justify-between">
                     <div className="flex-1">
                       <div className="flex items-center gap-2 mb-1">
-                        <p className="text-sm font-medium text-[#061b31]">{plumber.full_name}</p>
+                        <p className="text-sm font-medium text-[var(--color-text-secondary)]">{plumber.full_name}</p>
                         {plumber.verification_status === 'VERIFIED' ? (
                           <Badge variant="success" className="text-[9px]">Verified</Badge>
                         ) : plumber.verification_status === 'PENDING' ? (
@@ -134,7 +134,7 @@ export function PlumberSearchModal({ isOpen, onClose, onSelect }) {
                         )}
                       </div>
 
-                      <div className="flex flex-wrap gap-x-4 gap-y-1 text-xs text-[#64748d]">
+                      <div className="flex flex-wrap gap-x-4 gap-y-1 text-xs text-[var(--color-text-muted)]">
                         <span className="flex items-center gap-1">
                           <Phone size={12} />
                           {plumber.phone}
@@ -159,10 +159,10 @@ export function PlumberSearchModal({ isOpen, onClose, onSelect }) {
                           <span>Bonus will be held</span>
                         </div>
                       )}
-                      <div className="text-[10px] text-[#94a3b8]">
+                      <div className="text-[10px] text-[var(--color-text-muted)]">
                         {plumber.total_referrals || 0} referrals
                       </div>
-                      <div className="text-[10px] text-[#94a3b8]">
+                      <div className="text-[10px] text-[var(--color-text-muted)]">
                         Balance: {formatCurrency(plumber.balance_due || 0)}
                       </div>
                     </div>
@@ -174,8 +174,8 @@ export function PlumberSearchModal({ isOpen, onClose, onSelect }) {
         </div>
 
         {/* Footer */}
-        <div className="p-4 border-t border-[#e8edf5] bg-[#f8fafc] rounded-b-xl">
-          <p className="text-[10px] text-[#94a3b8] text-center">
+        <div className="p-4 border-t border-[var(--color-border)] bg-[var(--color-surface-elevated)] rounded-b-xl">
+          <p className="text-[10px] text-[var(--color-text-muted)] text-center">
             {plumbers.length > 0 && (
               <>
                 {plumbers.filter(p => p.verification_status === 'VERIFIED').length} verified,{' '}

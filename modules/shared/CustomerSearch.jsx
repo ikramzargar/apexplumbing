@@ -94,7 +94,7 @@ export function CustomerSearch({ onSelect, placeholder = 'Search by phone...' })
   return (
     <div ref={containerRef} className="relative">
       <div className="relative">
-        <Search size={16} className="absolute left-3 top-1/2 -translate-y-1/2 text-[#94a3b8]" />
+        <Search size={16} className="absolute left-3 top-1/2 -translate-y-1/2 text-[var(--color-text-muted)]" />
         <Input
           ref={inputRef}
           placeholder={placeholder}
@@ -105,43 +105,43 @@ export function CustomerSearch({ onSelect, placeholder = 'Search by phone...' })
           className="pl-10"
         />
         {query.length >= 2 && (
-          <span className="absolute right-3 top-1/2 -translate-y-1/2 text-[10px] text-[#94a3b8]">
+          <span className="absolute right-3 top-1/2 -translate-y-1/2 text-[10px] text-[var(--color-text-muted)]">
             Search by phone
           </span>
         )}
       </div>
 
       {query.length >= 2 && showDropdown && (
-        <div className="absolute top-full left-0 right-0 z-50 mt-1 bg-white border border-[#e8edf5] rounded-lg shadow-xl max-h-72 overflow-y-auto">
+        <div className="absolute top-full left-0 right-0 z-50 mt-1 bg-white border border-[var(--color-border)] rounded-lg shadow-xl max-h-72 overflow-y-auto">
           {loading ? (
-            <div className="p-4 text-center text-sm text-[#64748d]">Searching...</div>
+            <div className="p-4 text-center text-sm text-[var(--color-text-muted)]">Searching...</div>
           ) : error ? (
             <div className="p-4 text-center text-sm text-red-500">{error}</div>
           ) : suggestions.length > 0 ? (
             <>
-              <div className="p-2 text-xs text-[#64748d] border-b border-[#f1f5f9] bg-[#f8fafc] sticky top-0">
+              <div className="p-2 text-xs text-[var(--color-text-muted)] border-b border-[var(--color-surface-elevated)] bg-[var(--color-surface-elevated)] sticky top-0">
                 {suggestions.length} customer{suggestions.length !== 1 ? 's' : ''} found
               </div>
               {suggestions.map((customer, index) => (
                 <div
                   key={customer._id}
-                  className={`px-4 py-3 cursor-pointer border-b border-[#f1f5f9] last:border-0 transition-colors ${
-                    index === activeIndex ? 'bg-blue-50' : 'hover:bg-[#f8fafc]'
+                  className={`px-4 py-3 cursor-pointer border-b border-[var(--color-surface-elevated)] last:border-0 transition-colors ${
+                    index === activeIndex ? 'bg-blue-50' : 'hover:bg-[var(--color-surface-elevated)]'
                   }`}
                   onClick={() => handleSelect(customer)}
                 >
                   <div className="flex items-center justify-between">
                     <div className="flex items-center gap-2">
-                      <User size={14} className="text-[#533afd]" />
-                      <span className="text-sm font-medium text-[#061b31]">
+                      <User size={14} className="text-[var(--color-primary)]" />
+                      <span className="text-sm font-medium text-[var(--color-text-secondary)]">
                         {customer.name || 'No name'}
                       </span>
                     </div>
-                    <span className="text-xs font-mono bg-[#f1f5f9] px-2 py-1 rounded text-[#533afd]">
+                    <span className="text-xs font-mono bg-[var(--color-surface-elevated)] px-2 py-1 rounded text-[var(--color-primary)]">
                       {customer.phone}
                     </span>
                   </div>
-                  <div className="flex items-center gap-3 mt-1 text-xs text-[#94a3b8]">
+                  <div className="flex items-center gap-3 mt-1 text-xs text-[var(--color-text-muted)]">
                     <span className="flex items-center gap-1">
                       <Clock size={10} />
                       {customer.total_visits || 1} visit{(customer.total_visits || 1) !== 1 ? 's' : ''}
@@ -162,13 +162,13 @@ export function CustomerSearch({ onSelect, placeholder = 'Search by phone...' })
                     )}
                   </div>
                   {customer.address && (
-                    <div className="mt-1 text-xs text-[#64748d]">{customer.address}</div>
+                    <div className="mt-1 text-xs text-[var(--color-text-muted)]">{customer.address}</div>
                   )}
                 </div>
               ))}
             </>
           ) : (
-            <div className="p-4 text-center text-sm text-[#64748b]">
+            <div className="p-4 text-center text-sm text-[var(--color-text-muted)]">
               No customers found for "{query}"
             </div>
           )}

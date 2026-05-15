@@ -51,8 +51,8 @@ export default function StaffInventoryPage() {
                 <p className="text-xs text-muted-foreground uppercase tracking-wide">Total Products</p>
                 <p className="text-2xl font-bold mt-1">{totalItems}</p>
               </div>
-              <div className="w-10 h-10 rounded-lg bg-[#533afd]/10 flex items-center justify-center">
-                <Package size={20} className="text-[#533afd]" />
+              <div className="w-10 h-10 rounded-lg bg-[var(--color-primary)]/10 flex items-center justify-center">
+                <Package size={20} className="text-[var(--color-primary)]" />
               </div>
             </div>
           </CardContent>

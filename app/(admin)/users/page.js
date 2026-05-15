@@ -137,7 +137,7 @@ export default function UsersPage() {
                   </TableHeader>
                   <TableBody>
                     {filteredUsers.map((user) => (
-                      <TableRow key={user._id}>
+                      <TableRow key={user.id || user._id}>
                         <TableCell className="font-medium">{user.name}</TableCell>
                         <TableCell>{user.email}</TableCell>
                         <TableCell className="capitalize">
@@ -193,7 +193,7 @@ export default function UsersPage() {
               {/* Mobile Card View */}
               <div className="block md:hidden divide-y divide-[var(--color-border)]">
                 {filteredUsers.map((user) => (
-                  <div key={user._id} className="p-4 space-y-3">
+                  <div key={user.id || user._id} className="p-4 space-y-3">
                     <div className="flex items-center justify-between">
                       <div>
                         <p className="font-medium text-[var(--color-navy)]">{user.name}</p>

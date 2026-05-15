@@ -163,8 +163,8 @@ export default function NewPortalInvoice() {
           <ArrowLeft size={14} />
         </Button>
         <div>
-          <h1 className="text-lg font-semibold text-[#061b31]">New Invoice</h1>
-          <p className="text-xs text-[#64748d]">Create a new invoice for your customer</p>
+          <h1 className="text-lg font-semibold text-[var(--color-text-secondary)]">New Invoice</h1>
+          <p className="text-xs text-[var(--color-text-muted)]">Create a new invoice for your customer</p>
         </div>
       </div>
 
@@ -214,8 +214,8 @@ export default function NewPortalInvoice() {
         <CardContent>
           {items.length === 0 ? (
             <div className="text-center py-8">
-              <Package size={40} className="mx-auto text-[#94a3b8] mb-3" />
-              <p className="text-[#64748d] mb-3">No products added yet</p>
+              <Package size={40} className="mx-auto text-[var(--color-text-muted)] mb-3" />
+              <p className="text-[var(--color-text-muted)] mb-3">No products added yet</p>
               <Button variant="outline" onClick={() => setShowProductSelect(true)}>
                 <Plus size={14} className="mr-1" /> Add Product
               </Button>
@@ -225,11 +225,11 @@ export default function NewPortalInvoice() {
               {/* Mobile: stacked product cards */}
               <div className="block md:hidden space-y-4">
               {items.map((item, index) => (
-                <div key={index} className="p-4 bg-[#f8fafc] rounded-lg">
+                <div key={index} className="p-4 bg-[var(--color-surface-elevated)] rounded-lg">
                   <div className="flex items-start justify-between mb-3">
                     <div>
-                      <p className="text-sm font-medium text-[#061b31]">{item.product_name}</p>
-                      <p className="text-xs text-[#94a3b8]">SKU: {item.sku}</p>
+                      <p className="text-sm font-medium text-[var(--color-text-secondary)]">{item.product_name}</p>
+                      <p className="text-xs text-[var(--color-text-muted)]">SKU: {item.sku}</p>
                     </div>
                     <Button variant="ghost" size="sm" className="text-red-500" onClick={() => removeItem(index)}>
                       <Trash2 size={14} />
@@ -240,7 +240,7 @@ export default function NewPortalInvoice() {
                       <Label className="text-xs">Qty</Label>
                       <Input type="number" min="1" value={item.quantity}
                         onChange={(e) => updateItem(index, 'quantity', parseInt(e.target.value) || 1)} className="h-10" />
-                      <p className="text-[10px] text-[#94a3b8] mt-0.5">Stock: {item.max_stock}</p>
+                      <p className="text-[10px] text-[var(--color-text-muted)] mt-0.5">Stock: {item.max_stock}</p>
                     </div>
                     <div>
                       <Label className="text-xs">Price</Label>
@@ -254,7 +254,7 @@ export default function NewPortalInvoice() {
                     </div>
                   </div>
                   <div className="mt-3 text-right">
-                    <p className="text-lg font-bold text-[#061b31]">
+                    <p className="text-lg font-bold text-[var(--color-text-secondary)]">
                       {formatCurrency(item.quantity * item.unit_price - (item.discount || 0))}
                     </p>
                   </div>
@@ -264,7 +264,7 @@ export default function NewPortalInvoice() {
 
             {/* Desktop: grid layout */}
             <div className="hidden md:block space-y-3">
-              <div className="grid grid-cols-12 gap-2 text-[10px] font-medium text-[#64748d] px-2">
+              <div className="grid grid-cols-12 gap-2 text-[10px] font-medium text-[var(--color-text-muted)] px-2">
                 <div className="col-span-4">Product</div>
                 <div className="col-span-2 text-right">Qty</div>
                 <div className="col-span-2 text-right">Price</div>
@@ -272,10 +272,10 @@ export default function NewPortalInvoice() {
                 <div className="col-span-2 text-right">Total</div>
               </div>
               {items.map((item, index) => (
-                <div key={index} className="grid grid-cols-12 gap-2 items-center p-2 bg-[#f8fafc] rounded-lg">
+                <div key={index} className="grid grid-cols-12 gap-2 items-center p-2 bg-[var(--color-surface-elevated)] rounded-lg">
                   <div className="col-span-4">
-                    <p className="text-xs font-medium text-[#061b31] truncate">{item.product_name}</p>
-                    <p className="text-[10px] text-[#94a3b8]">SKU: {item.sku}</p>
+                    <p className="text-xs font-medium text-[var(--color-text-secondary)] truncate">{item.product_name}</p>
+                    <p className="text-[10px] text-[var(--color-text-muted)]">SKU: {item.sku}</p>
                   </div>
                   <div className="col-span-2">
                     <Input type="number" min="1" max={item.max_stock} value={item.quantity}
@@ -290,7 +290,7 @@ export default function NewPortalInvoice() {
                       onChange={(e) => updateItem(index, 'discount', parseFloat(e.target.value) || 0)} className="h-8 text-right" />
                   </div>
                   <div className="col-span-2 text-right">
-                    <p className="text-xs font-semibold text-[#061b31]">
+                    <p className="text-xs font-semibold text-[var(--color-text-secondary)]">
                       {formatCurrency(item.quantity * item.unit_price - (item.discount || 0))}
                     </p>
                   </div>
@@ -324,15 +324,15 @@ export default function NewPortalInvoice() {
             </div>
             <div className="space-y-1.5">
               <Label className="text-xs">Balance Due</Label>
-              <div className="h-10 px-3 flex items-center bg-[#f8fafc] rounded-md border border-[#e8edf5]">
-                <span className="text-lg font-semibold text-[#061b31]">{formatCurrency(balanceDue)}</span>
+              <div className="h-10 px-3 flex items-center bg-[var(--color-surface-elevated)] rounded-md border border-[var(--color-border)]">
+                <span className="text-lg font-semibold text-[var(--color-text-secondary)]">{formatCurrency(balanceDue)}</span>
               </div>
             </div>
           </div>
-          <div className="mt-4 p-4 bg-[#f8fafc] rounded-lg border border-[#e8edf5]">
+          <div className="mt-4 p-4 bg-[var(--color-surface-elevated)] rounded-lg border border-[var(--color-border)]">
             <div className="flex justify-between items-center">
-              <span className="text-sm font-medium text-[#061b31]">Total</span>
-              <span className="text-xl font-bold text-[#533afd]">{formatCurrency(subtotal)}</span>
+              <span className="text-sm font-medium text-[var(--color-text-secondary)]">Total</span>
+              <span className="text-xl font-bold text-[var(--color-primary)]">{formatCurrency(subtotal)}</span>
             </div>
           </div>
           <div className="mt-4 flex flex-col sm:flex-row justify-end gap-3">
@@ -360,23 +360,23 @@ export default function NewPortalInvoice() {
               {inventoryProducts.length === 0 ? (
                 <div className="text-center py-8">
                   <AlertTriangle size={40} className="mx-auto text-[var(--color-warning)] mb-3" />
-                  <p className="text-[#64748d] mb-2">No products in your inventory</p>
-                  <p className="text-xs text-[#94a3b8]">Request stock from admin to create invoices</p>
+                  <p className="text-[var(--color-text-muted)] mb-2">No products in your inventory</p>
+                  <p className="text-xs text-[var(--color-text-muted)]">Request stock from admin to create invoices</p>
                 </div>
               ) : (
                 <div className="space-y-2">
                   {inventoryProducts.map((product) => {
                     const invStock = getInventoryStock(product._id);
                     return (
-                      <div key={product._id} className="flex items-center justify-between p-3 rounded-lg border border-[#e8edf5] hover:bg-[#f8fafc] cursor-pointer transition-colors"
+                      <div key={product._id} className="flex items-center justify-between p-3 rounded-lg border border-[var(--color-border)] hover:bg-[var(--color-surface-elevated)] cursor-pointer transition-colors"
                         onClick={() => addItem(product)}>
                         <div>
-                          <p className="text-sm font-medium text-[#061b31]">{product.name}</p>
-                          <p className="text-xs text-[#64748d]">SKU: {product.sku}</p>
+                          <p className="text-sm font-medium text-[var(--color-text-secondary)]">{product.name}</p>
+                          <p className="text-xs text-[var(--color-text-muted)]">SKU: {product.sku}</p>
                         </div>
                         <div className="text-right">
-                          <p className="text-sm font-semibold text-[#533afd]">{formatCurrency(product.wholesale_price || product.mrp)}</p>
-                          <p className="text-xs text-[#94a3b8]">In stock: {invStock}</p>
+                          <p className="text-sm font-semibold text-[var(--color-primary)]">{formatCurrency(product.wholesale_price || product.mrp)}</p>
+                          <p className="text-xs text-[var(--color-text-muted)]">In stock: {invStock}</p>
                         </div>
                       </div>
                     );

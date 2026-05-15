@@ -68,7 +68,7 @@ export function PlumberTable({ data, onEdit, onDelete }) {
                       </Button>
                     )}
                     {(isSuperAdmin || isAdmin) && plumber.verification_status === 'PENDING' && (
-                      <Button size="icon-sm" variant="ghost" className="text-[var(--color-success)] hover:text-[#13a94a] hover:bg-[var(--color-success-bg)]">
+                      <Button size="icon-sm" variant="ghost" className="text-[var(--color-success)] hover:text-[var(--color-success)] hover:bg-[var(--color-success-bg)]">
                         <CheckCircle size={16} />
                       </Button>
                     )}

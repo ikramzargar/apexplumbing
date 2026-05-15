@@ -12,7 +12,7 @@ const AlertDialogPortal = AlertDialogPrimitive.Portal;
 const AlertDialogOverlay = React.forwardRef(({ className, ...props }, ref) => (
   <AlertDialogPrimitive.Overlay
     className={cn(
-      "fixed inset-0 z-50 bg-black/40 backdrop-blur-sm",
+      "fixed inset-0 z-50 bg-black/60 backdrop-blur-sm",
       "data-[state=open]:animate-in data-[state=closed]:animate-out",
       "data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0",
       className
@@ -30,7 +30,7 @@ const AlertDialogContent = React.forwardRef(({ className, ...props }, ref) => (
       ref={ref}
       className={cn(
         "fixed left-[50%] top-[50%] z-50 grid w-full max-w-md translate-x-[-50%] translate-y-[-50%]",
-        "gap-4 rounded-xl border border-[#e8edf5] bg-white p-6 shadow-xl shadow-[0_20px_60px_-15px_rgba(0,0,0,0.12)]",
+        "gap-4 rounded-xl border border-[var(--color-border)] bg-[var(--color-surface)] p-6 shadow-xl shadow-black/30",
         "duration-200",
         "data-[state=open]:animate-in data-[state=closed]:animate-out",
         "data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0",
@@ -58,7 +58,7 @@ AlertDialogFooter.displayName = "AlertDialogFooter";
 const AlertDialogTitle = React.forwardRef(({ className, ...props }, ref) => (
   <AlertDialogPrimitive.Title
     ref={ref}
-    className={cn("text-base font-semibold text-[#061b31]", className)}
+    className={cn("text-base font-semibold text-[var(--color-text-secondary)]", className)}
     {...props}
   />
 ));
@@ -67,7 +67,7 @@ AlertDialogTitle.displayName = AlertDialogPrimitive.Title.displayName;
 const AlertDialogDescription = React.forwardRef(({ className, ...props }, ref) => (
   <AlertDialogPrimitive.Description
     ref={ref}
-    className={cn("text-xs text-[#64748d]", className)}
+    className={cn("text-xs text-[var(--color-text-muted)]", className)}
     {...props}
   />
 ));

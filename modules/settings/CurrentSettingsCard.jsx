@@ -12,12 +12,12 @@ const getModeLabel = (mode) => {
 };
 
 const StatItem = ({ icon: Icon, label, value, highlight }) => (
-  <div className={`p-4 rounded-xl border ${highlight ? 'bg-[#533afd]/5 border-[#533afd]/20' : 'bg-slate-50/70 border-slate-200/50'}`}>
+  <div className={`p-4 rounded-xl border ${highlight ? 'bg-[var(--color-primary)]/5 border-[var(--color-primary)]/20' : 'bg-slate-50/70 border-slate-200/50'}`}>
     <div className="flex items-center gap-2 mb-1.5">
-      <Icon className={`w-4 h-4 ${highlight ? 'text-[#533afd]' : 'text-slate-400'}`} />
+      <Icon className={`w-4 h-4 ${highlight ? 'text-[var(--color-primary)]' : 'text-slate-400'}`} />
       <p className="text-xs font-medium text-slate-500">{label}</p>
     </div>
-    <p className={`text-lg font-semibold ${highlight ? 'text-[#533afd]' : 'text-slate-800'}`}>
+    <p className={`text-lg font-semibold ${highlight ? 'text-[var(--color-primary)]' : 'text-slate-800'}`}>
       {value}
     </p>
   </div>
