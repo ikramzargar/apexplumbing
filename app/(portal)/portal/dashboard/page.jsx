@@ -58,7 +58,7 @@ export default function PortalDashboard() {
   return (
     <div className="space-y-6">
       {/* Stats */}
-      <div className="grid grid-cols-2 lg:grid-cols-4 gap-3">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
         {stats.map((stat) => {
           const Icon = stat.icon;
           return (
@@ -87,15 +87,15 @@ export default function PortalDashboard() {
           ) : (
             <div className="divide-y divide-[var(--color-border-muted)]">
               {recentInvoices.map((inv) => (
-                <div key={inv._id} className="flex items-start justify-between px-3 sm:px-4 py-2.5 sm:py-3 hover:bg-[var(--color-surface-elevated)] transition-colors gap-2">
-                  <div className="min-w-0 flex-1">
-                    <p className="text-xs font-medium text-[var(--color-text-secondary)] truncate">{inv.invoice_number}</p>
+                <div key={inv._id} className="flex flex-col sm:flex-row sm:items-start sm:justify-between px-4 py-3 hover:bg-[var(--color-surface-elevated)] transition-colors gap-2">
+                  <div className="min-w-0">
+                    <p className="text-xs font-medium text-[var(--color-text-secondary)]">{inv.invoice_number}</p>
                     <p className="text-[10px] text-[var(--color-text-muted)]">
                       {new Date(inv.createdAt).toLocaleDateString()}
                     </p>
                   </div>
-                  <div className="text-right shrink-0 flex flex-col items-end">
-                    <p className="text-xs font-medium text-[var(--color-text-secondary)] whitespace-nowrap">Rs.{inv.total.toLocaleString()}</p>
+                  <div className="flex items-center justify-between sm:justify-end gap-2">
+                    <p className="text-xs font-medium text-[var(--color-text-secondary)]">Rs.{inv.total.toLocaleString()}</p>
                     <span className={`inline-block text-[9px] px-1.5 py-0.5 rounded-full font-medium ${
                       inv.payment_status === 'PAID' ? 'bg-[var(--color-success-bg)] text-[var(--color-success)]' :
                       inv.payment_status === 'PARTIAL' ? 'bg-[var(--color-warning-bg)] text-[var(--color-warning)]' :
@@ -123,14 +123,14 @@ export default function PortalDashboard() {
           ) : (
             <div className="divide-y divide-[var(--color-border-muted)]">
               {recentPayments.map((pay) => (
-                <div key={pay._id} className="flex items-start justify-between px-3 sm:px-4 py-2.5 sm:py-3 hover:bg-[var(--color-surface-elevated)] transition-colors gap-2">
-                  <div className="min-w-0 flex-1">
-                    <p className="text-xs font-medium text-[var(--color-text-secondary)] truncate">{pay.note || pay.method}</p>
+                <div key={pay._id} className="flex flex-col sm:flex-row sm:items-start sm:justify-between px-4 py-3 hover:bg-[var(--color-surface-elevated)] transition-colors gap-2">
+                  <div className="min-w-0">
+                    <p className="text-xs font-medium text-[var(--color-text-secondary)]">{pay.note || pay.method}</p>
                     <p className="text-[10px] text-[var(--color-text-muted)]">
                       {new Date(pay.createdAt).toLocaleDateString()}
                     </p>
                   </div>
-                  <p className="text-xs font-semibold text-[var(--color-success)] shrink-0 whitespace-nowrap">
+                  <p className="text-xs font-semibold text-[var(--color-success)] sm:shrink-0">
                     +Rs.{pay.amount.toLocaleString()}
                   </p>
                 </div>
