@@ -4,7 +4,6 @@ import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { useState } from 'react';
 import { AuthProvider } from '@/context/AuthContext';
 import { Toaster } from '@/components/ui/toaster';
-import '@/app/globals.css';
 
 export function Providers({ children }) {
   const [queryClient] = useState(() => new QueryClient({

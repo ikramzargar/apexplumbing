@@ -4,14 +4,14 @@
    APEX PLUMBING BMS — Refined Dark Theme
    ============================================ */
 
-/* --- Refined Dark Color Palette --- */
-/* --- Legacy Color Aliases (fallback for remaining usages) --- */
+:root {
+  /* --- Legacy Color Aliases (fallback for remaining usages) --- */
   --color-navy: var(--color-text-secondary);
   --color-body: var(--color-text-muted);
   --color-body-light: var(--color-text-muted);
   --color-bg-subtle: var(--color-surface-elevated);
+  --color-primary-light: var(--color-primary-muted);
 
-:root {
   /* Backgrounds - Deep neutral dark */
   --color-bg: #0f1117;
   --color-surface: #1a1d27;
