@@ -7,7 +7,7 @@ const inter = Inter({
 });
 
 export const metadata = {
-  title: 'HANSIF GROUP BMS',
+  title: 'APEX PLUMBING BMS',
   description: 'Business Management System',
 };
 

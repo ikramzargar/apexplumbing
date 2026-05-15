@@ -76,7 +76,7 @@ export function Sidebar() {
   return (
     <>
       <button
-        className="lg:hidden fixed top-3 left-3 z-50 p-2 bg-white border border-[var(--color-border)] rounded-xl shadow-md hover:shadow-lg transition-shadow"
+        className="lg:hidden fixed top-3 left-3 z-50 p-2 bg-[var(--color-bg-subtle)] border border-[var(--color-border)] rounded-xl shadow-md hover:shadow-lg transition-shadow"
         onClick={() => setIsOpen(!isOpen)}
       >
         {isOpen ? <X size={18} className="text-[var(--color-navy)]" /> : <Menu size={18} className="text-[var(--color-navy)]" />}
@@ -84,7 +84,7 @@ export function Sidebar() {
 
       <aside
         className={cn(
-          "fixed inset-y-0 left-0 z-40 w-[260px] h-screen bg-white border-r border-[var(--color-border)] flex flex-col shadow-sm overflow-hidden",
+          "fixed inset-y-0 left-0 z-40 w-[260px] h-screen bg-[var(--color-bg-subtle)] border-r border-[var(--color-border)] flex flex-col shadow-sm overflow-hidden",
           "transition-transform duration-200 ease-out lg:translate-x-0",
           isOpen ? "translate-x-0" : "-translate-x-full lg:translate-x-0"
         )}
@@ -96,8 +96,8 @@ export function Sidebar() {
               <Building2 size={20} className="text-white" />
             </div>
             <div>
-              <h1 className="text-base font-bold text-[var(--color-navy)] tracking-tight">HANSIF</h1>
-              <p className="text-[10px] text-[var(--color-body-light)] uppercase tracking-widest font-medium">Group BMS</p>
+              <h1 className="text-base font-bold text-[var(--color-navy)] tracking-tight">APEX PLUMBING</h1>
+              <p className="text-[10px] text-[var(--color-body-light)] uppercase tracking-widest font-medium">Admin</p>
             </div>
           </Link>
         </div>
@@ -118,7 +118,7 @@ export function Sidebar() {
                     "flex items-center gap-3 px-4 py-2.5 rounded-lg text-sm font-medium transition-all duration-150",
                     isActive
                       ? "bg-gradient-to-r from-[var(--color-primary)] to-[var(--color-primary-hover)] text-white shadow-md shadow-[var(--color-primary)]/20"
-                      : "text-[var(--color-body)] hover:text-[var(--color-navy)] hover:bg-[var(--color-bg-subtle)]"
+                      : "text-[var(--color-body)] hover:text-[var(--color-navy)] hover:bg-[var(--color-bg)]"
                   )}
                 >
                   <Icon size={18} className={isActive ? 'text-white' : ''} />
@@ -131,7 +131,7 @@ export function Sidebar() {
 
         {/* User Section */}
         <div className="px-4 py-4 border-t border-[var(--color-border)]">
-          <div className="flex items-center gap-3 px-3 py-2.5 rounded-lg bg-[var(--color-bg-subtle)] mb-2">
+          <div className="flex items-center gap-3 px-3 py-2.5 rounded-lg bg-[var(--color-bg)] mb-2">
             <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-[var(--color-primary)] to-[var(--color-primary-hover)] flex items-center justify-center flex-shrink-0 shadow-sm shadow-[var(--color-primary)]/20">
               <span className="text-sm font-semibold text-white">
                 {(user?.name || user?.business_name || 'U').charAt(0).toUpperCase()}

@@ -27,7 +27,7 @@ export default function PortalInvoices() {
         </Link>
       </div>
 
-      <div className="bg-white rounded-xl border border-[var(--color-border)] overflow-hidden">
+      <div className="bg-[var(--color-bg-subtle)] rounded-xl border border-[var(--color-border)] overflow-hidden">
         {(!invoices || invoices.length === 0) ? (
           <div className="p-6 text-center text-xs text-[var(--color-body-light)]">No invoices found</div>
         ) : (

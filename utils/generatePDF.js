@@ -7,7 +7,7 @@ export const generateInvoicePDF = (invoice) => {
 
   doc.setFontSize(20);
   doc.setTextColor(0, 51, 102);
-  doc.text('HANSIF GROUP', 105, 20, { align: 'center' });
+  doc.text('APEX PLUMBING', 105, 20, { align: 'center' });
 
   doc.setFontSize(10);
   doc.setTextColor(100, 100, 100);
@@ -144,7 +144,7 @@ export const generateInvoicePDF = (invoice) => {
   doc.setFontSize(8);
   doc.setTextColor(100, 100, 100);
   doc.text('Thank you for your business!', 105, yPos, { align: 'center' });
-  doc.text('HANSIF GROUP - Quality PVC Products from Kashmir', 105, yPos + 5, { align: 'center' });
+  doc.text('APEX PLUMBING - Quality PVC Products from Kashmir', 105, yPos + 5, { align: 'center' });
 
   return doc;
 };

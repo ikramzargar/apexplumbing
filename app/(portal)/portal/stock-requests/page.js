@@ -82,7 +82,7 @@ export default function StockRequestsPage() {
               "px-3 py-1.5 text-xs font-medium rounded-lg transition-all whitespace-nowrap",
               statusFilter === status
                 ? "bg-[var(--color-primary)] text-white"
-                : "bg-white text-[var(--color-body)] hover:bg-[var(--color-bg-subtle)] border border-[var(--color-border)]"
+                : "bg-[var(--color-bg-subtle)] text-[var(--color-body)] hover:bg-[var(--color-bg)] border border-[var(--color-border)]"
             )}
           >
             {status === 'all' ? 'All' : statusConfig[status]?.label || status}
@@ -96,7 +96,7 @@ export default function StockRequestsPage() {
           <LoadingSpinner size={32} />
         </div>
       ) : requests.length === 0 ? (
-        <div className="bg-white rounded-xl border border-[var(--color-border)] p-12 text-center">
+        <div className="bg-[var(--color-bg-subtle)] rounded-xl border border-[var(--color-border)] p-12 text-center">
           <div className="w-16 h-16 bg-[var(--color-bg-subtle)] rounded-full flex items-center justify-center mx-auto mb-4">
             <Package size={28} className="text-[var(--color-body-light)]" />
           </div>
@@ -112,7 +112,7 @@ export default function StockRequestsPage() {
           </Link>
         </div>
       ) : (
-        <div className="bg-white rounded-xl border border-[var(--color-border)] overflow-hidden">
+        <div className="bg-[var(--color-bg-subtle)] rounded-xl border border-[var(--color-border)] overflow-hidden">
           <table className="w-full">
             <thead>
               <tr className="border-b border-[var(--color-border)] bg-[var(--color-bg-subtle)]">

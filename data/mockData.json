@@ -1,0 +1,128 @@
+{
+  "dashboard": {
+    "stats": {
+      "total_sales_today": 45780,
+      "total_sales_month": 1284560,
+      "total_sales_year": 15428740,
+      "total_outstanding": 2345670,
+      "inventory_value": 8923450,
+      "active_plumbers": 156,
+      "pending_payouts_amount": 234560,
+      "pending_approvals": 8,
+      "low_stock_count": 12,
+      "isStaff": false
+    },
+    "salesChart": {
+      "day": [
+        { "date": "May 10", "retail": 12400, "wholesale": 8900 },
+        { "date": "May 11", "retail": 15800, "wholesale": 11200 },
+        { "date": "May 12", "retail": 8900, "wholesale": 6700 },
+        { "date": "May 13", "retail": 21000, "wholesale": 15600 },
+        { "date": "May 14", "retail": 18200, "wholesale": 13400 },
+        { "date": "May 15", "retail": 12500, "wholesale": 9800 }
+      ],
+      "month": [
+        { "date": "Jan", "retail": 345000, "wholesale": 289000 },
+        { "date": "Feb", "retail": 412000, "wholesale": 356000 },
+        { "date": "Mar", "retail": 378000, "wholesale": 312000 },
+        { "date": "Apr", "retail": 456000, "wholesale": 389000 },
+        { "date": "May", "retail": 423000, "wholesale": 367000 }
+      ]
+    },
+    "topPlumbers": [
+      { "_id": "p1", "name": "Ramesh Kumar", "district": "Mumbai", "referralCount": 45, "totalBonus": 67500 },
+      { "_id": "p2", "name": "Suresh Patel", "district": "Ahmedabad", "referralCount": 38, "totalBonus": 57000 },
+      { "_id": "p3", "name": "Vikram Singh", "district": "Jaipur", "referralCount": 32, "totalBonus": 48000 },
+      { "_id": "p4", "name": "Anil Verma", "district": "Delhi", "referralCount": 28, "totalBonus": 42000 },
+      { "_id": "p5", "name": "Rajesh Gupta", "district": "Lucknow", "referralCount": 24, "totalBonus": 36000 }
+    ]
+  },
+  "stock": [
+    { "_id": "s1", "name": "CPVC Pipe 1 inch", "sku": "CPVC-1", "category": "Pipes", "current_stock": 2450, "low_stock_threshold": 500, "unit": "meters", "mrp": 85, "distributor_price": 62, "retail_price": 78 },
+    { "_id": "s2", "name": "CPVC Pipe 0.75 inch", "sku": "CPVC-075", "category": "Pipes", "current_stock": 3200, "low_stock_threshold": 500, "unit": "meters", "mrp": 65, "distributor_price": 48, "retail_price": 60 },
+    { "_id": "s3", "name": "PVC Ball Valve 1 inch", "sku": "PVBV-1", "category": "Valves", "current_stock": 340, "low_stock_threshold": 100, "unit": "pcs", "mrp": 245, "distributor_price": 185, "retail_price": 220 },
+    { "_id": "s4", "name": "Tee Joint 1 inch", "sku": "TJ-1", "category": "Fittings", "current_stock": 890, "low_stock_threshold": 200, "unit": "pcs", "mrp": 45, "distributor_price": 32, "retail_price": 42 },
+    { "_id": "s5", "name": "Elbow Joint 1 inch", "sku": "EJ-1", "category": "Fittings", "current_stock": 1250, "low_stock_threshold": 300, "unit": "pcs", "mrp": 35, "distributor_price": 25, "retail_price": 32 },
+    { "_id": "s6", "name": "Water Tank 1000L", "sku": "WT-1000", "category": "Tanks", "current_stock": 45, "low_stock_threshold": 20, "unit": "pcs", "mrp": 8500, "distributor_price": 7200, "retail_price": 8100 },
+    { "_id": "s7", "name": "Water Tank 500L", "sku": "WT-500", "category": "Tanks", "current_stock": 67, "low_stock_threshold": 25, "unit": "pcs", "mrp": 5200, "distributor_price": 4400, "retail_price": 4950 },
+    { "_id": "s8", "name": "Tap Mixer Premium", "sku": "TM-PREM", "category": "Faucets", "current_stock": 120, "low_stock_threshold": 50, "unit": "pcs", "mrp": 1850, "distributor_price": 1480, "retail_price": 1750 },
+    { "_id": "s9", "name": "Shower Head Chrome", "sku": "SH-CHR", "category": "Faucets", "current_stock": 85, "low_stock_threshold": 40, "unit": "pcs", "mrp": 650, "distributor_price": 480, "retail_price": 620 },
+    { "_id": "s10", "name": "Flexi Pipe 1 meter", "sku": "FP-1", "category": "Fittings", "current_stock": 680, "low_stock_threshold": 150, "unit": "pcs", "mrp": 120, "distributor_price": 85, "retail_price": 110 },
+    { "_id": "s11", "name": "Thread Tape", "sku": "TT-STD", "category": "Accessories", "current_stock": 4500, "low_stock_threshold": 500, "unit": "rolls", "mrp": 25, "distributor_price": 15, "retail_price": 22 },
+    { "_id": "s12", "name": "Pipe Clip 1 inch", "sku": "PC-1", "category": "Accessories", "current_stock": 380, "low_stock_threshold": 200, "unit": "pcs", "mrp": 18, "distributor_price": 12, "retail_price": 16 }
+  ],
+  "lowStockItems": [
+    { "_id": "s3", "name": "PVC Ball Valve 1 inch", "current_stock": 340, "low_stock_threshold": 100 },
+    { "_id": "s6", "name": "Water Tank 1000L", "current_stock": 45, "low_stock_threshold": 20 },
+    { "_id": "s8", "name": "Tap Mixer Premium", "current_stock": 120, "low_stock_threshold": 50 },
+    { "_id": "s9", "name": "Shower Head Chrome", "current_stock": 85, "low_stock_threshold": 40 },
+    { "_id": "s12", "name": "Pipe Clip 1 inch", "current_stock": 380, "low_stock_threshold": 200 }
+  ],
+  "plumbers": [
+    { "_id": "pl1", "full_name": "Ramesh Kumar", "phone": "9876543210", "alt_phone": "9876543211", "aadhaar_number": "1234-5678-9012", "address": "42, Gandhi Nagar, Andheri West", "district": "Mumbai", "verification_status": "VERIFIED", "referralCount": 45, "totalBonus": 67500, "createdAt": "2024-01-15T10:30:00Z" },
+    { "_id": "pl2", "full_name": "Suresh Patel", "phone": "9876543212", "aadhaar_number": "2345-6789-0123", "address": "15, Navrangpura Main Road", "district": "Ahmedabad", "verification_status": "VERIFIED", "referralCount": 38, "totalBonus": 57000, "createdAt": "2024-02-20T14:45:00Z" },
+    { "_id": "pl3", "full_name": "Vikram Singh", "phone": "9876543213", "alt_phone": "9876543214", "aadhaar_number": "3456-7890-1234", "address": "78, MI Road", "district": "Jaipur", "verification_status": "VERIFIED", "referralCount": 32, "totalBonus": 48000, "createdAt": "2024-03-10T09:15:00Z" },
+    { "_id": "pl4", "full_name": "Anil Verma", "phone": "9876543215", "aadhaar_number": "4567-8901-2345", "address": "123, Connaught Place", "district": "Delhi", "verification_status": "VERIFIED", "referralCount": 28, "totalBonus": 42000, "createdAt": "2024-03-25T16:20:00Z" },
+    { "_id": "pl5", "full_name": "Mohan Reddy", "phone": "9876543216", "aadhaar_number": "5678-9012-3456", "address": "45, MG Road", "district": "Hyderabad", "verification_status": "VERIFIED", "referralCount": 25, "totalBonus": 37500, "createdAt": "2024-04-05T11:00:00Z" },
+    { "_id": "pl6", "full_name": "Prakash Nair", "phone": "9876543217", "aadhaar_number": "6789-0123-4567", "address": "32, Marine Drive", "district": "Kochi", "verification_status": "PENDING", "referralCount": 0, "totalBonus": 0, "createdAt": "2025-05-10T08:30:00Z" },
+    { "_id": "pl7", "full_name": "Ravi Shankar", "phone": "9876543218", "aadhaar_number": "7890-1234-5678", "address": "67, Brigade Road", "district": "Bangalore", "verification_status": "PENDING", "referralCount": 0, "totalBonus": 0, "createdAt": "2025-05-12T13:45:00Z" },
+    { "_id": "pl8", "full_name": "Deepak Yadav", "phone": "9876543219", "aadhaar_number": "8901-2345-6789", "address": "89, Civil Lines", "district": "Lucknow", "verification_status": "PENDING", "referralCount": 0, "totalBonus": 0, "createdAt": "2025-05-13T10:15:00Z" },
+    { "_id": "pl9", "full_name": "Sanjay Mehta", "phone": "9876543220", "aadhaar_number": "9012-3456-7890", "address": "56, Station Road", "district": "Surat", "verification_status": "REJECTED", "referralCount": 0, "totalBonus": 0, "createdAt": "2025-04-28T15:00:00Z" },
+    { "_id": "pl10", "full_name": "Arun Pillai", "phone": "9876543221", "aadhaar_number": "0123-4567-8901", "address": "23, Kaloor Street", "district": "Kottayam", "verification_status": "PENDING", "referralCount": 0, "totalBonus": 0, "createdAt": "2025-05-14T09:00:00Z" }
+  ],
+  "invoices": [
+    { "_id": "inv1", "invoice_number": "INV-2025-0001", "customer_name": "ABC Construction", "customer_phone": "9876500001", "total_amount": 45670, "paid_amount": 35000, "status": "PARTIAL", "createdAt": "2025-05-10T10:00:00Z" },
+    { "_id": "inv2", "invoice_number": "INV-2025-0002", "customer_name": "XYZ Plumbing Works", "customer_phone": "9876500002", "total_amount": 23450, "paid_amount": 23450, "status": "PAID", "createdAt": "2025-05-11T14:30:00Z" },
+    { "_id": "inv3", "invoice_number": "INV-2025-0003", "customer_name": "BuildTech Solutions", "customer_phone": "9876500003", "total_amount": 67890, "paid_amount": 0, "status": "UNPAID", "createdAt": "2025-05-12T09:15:00Z" },
+    { "_id": "inv4", "invoice_number": "INV-2025-0004", "customer_name": "Home Secure Plumbing", "customer_phone": "9876500004", "total_amount": 12340, "paid_amount": 12340, "status": "PAID", "createdAt": "2025-05-13T11:45:00Z" },
+    { "_id": "inv5", "invoice_number": "INV-2025-0005", "customer_name": "Metro Contractors", "customer_phone": "9876500005", "total_amount": 89120, "paid_amount": 45000, "status": "PARTIAL", "createdAt": "2025-05-14T16:00:00Z" }
+  ],
+  "customers": [
+    { "_id": "cust1", "name": "ABC Construction", "phone": "9876500001", "email": "abc@construction.com", "address": "15, Industrial Area, Andheri", "type": "CONTRACTOR", "total_purchases": 456700, "outstanding": 45000, "createdAt": "2024-01-10T10:00:00Z" },
+    { "_id": "cust2", "name": "XYZ Plumbing Works", "phone": "9876500002", "email": "xyz@plumbing.com", "address": "23, Service Road, Bandra", "type": "RETAIL", "total_purchases": 234500, "outstanding": 0, "createdAt": "2024-02-15T14:00:00Z" },
+    { "_id": "cust3", "name": "BuildTech Solutions", "phone": "9876500003", "email": "info@buildtech.com", "address": "45, Tech Park, Powai", "type": "CONTRACTOR", "total_purchases": 678900, "outstanding": 67890, "createdAt": "2024-03-20T09:00:00Z" },
+    { "_id": "cust4", "name": "Home Secure Plumbing", "phone": "9876500004", "email": "homesecure@plumb.com", "address": "67, Subhash Road, Dadar", "type": "RETAIL", "total_purchases": 123400, "outstanding": 0, "createdAt": "2024-04-05T11:00:00Z" },
+    { "_id": "cust5", "name": "Metro Contractors", "phone": "9876500005", "email": "contact@metrocontract.com", "address": "89, Commercial Complex, Worli", "type": "CONTRACTOR", "total_purchases": 891200, "outstanding": 44120, "createdAt": "2024-04-18T15:00:00Z" }
+  ],
+  "suppliers": [
+    { "_id": "sup1", "name": "Supreme Pipes Ltd", "phone": "9876510001", "email": "orders@supreme.com", "address": "123, Industrial Estate, Tarapur", "contact_person": "Rakesh Shah", "items_supplied": ["CPVC Pipes", "PVC Pipes"], "outstanding": 125000, "createdAt": "2024-01-05T10:00:00Z" },
+    { "_id": "sup2", "name": "FlowMax Valves", "phone": "9876510002", "email": "sales@flowmax.com", "address": "45, MIDC, Boisar", "contact_person": "Anand Desai", "items_supplied": ["Ball Valves", "Gate Valves"], "outstanding": 78000, "createdAt": "2024-02-10T14:00:00Z" },
+    { "_id": "sup3", "name": "AquaPure Tanks", "phone": "9876510003", "email": "info@aquapure.com", "address": "78, MIDC II, Taloja", "contact_person": "Vijay Patil", "items_supplied": ["Water Tanks", "Overhead Tanks"], "outstanding": 156000, "createdAt": "2024-03-15T09:00:00Z" }
+  ],
+  "distributors": [
+    { "_id": "dist1", "name": "Western Plumbing Supplies", "email": "wps@distributor.com", "portalEmail": "wps@portal.com", "phone": "9876520001", "address": "56, SVP Road, Mumbai", "region": "West", "status": "ACTIVE", "createdAt": "2024-01-20T10:00:00Z" },
+    { "_id": "dist2", "name": "Southern Pipe Distributors", "email": "spd@distributor.com", "portalEmail": "spd@portal.com", "phone": "9876520002", "address": "23, MG Road, Bangalore", "region": "South", "status": "ACTIVE", "createdAt": "2024-02-25T14:00:00Z" },
+    { "_id": "dist3", "name": "Northern Hardware Co", "email": "nhc@distributor.com", "portalEmail": "nhc@portal.com", "phone": "9876520003", "address": "89, Connaught Place, Delhi", "region": "North", "status": "ACTIVE", "createdAt": "2024-03-30T09:00:00Z" }
+  ],
+  "payouts": [
+    { "_id": "pay1", "plumber_name": "Ramesh Kumar", "amount": 15000, "status": "PENDING", "createdAt": "2025-05-10T10:00:00Z" },
+    { "_id": "pay2", "plumber_name": "Suresh Patel", "amount": 12000, "status": "PENDING", "createdAt": "2025-05-11T14:30:00Z" },
+    { "_id": "pay3", "plumber_name": "Vikram Singh", "amount": 8500, "status": "PROCESSING", "createdAt": "2025-05-09T09:15:00Z" },
+    { "_id": "pay4", "plumber_name": "Anil Verma", "amount": 10000, "status": "COMPLETED", "createdAt": "2025-05-08T11:45:00Z" },
+    { "_id": "pay5", "plumber_name": "Mohan Reddy", "amount": 7500, "status": "PENDING", "createdAt": "2025-05-12T16:00:00Z" }
+  ],
+  "products": [
+    { "_id": "prod1", "name": "CPVC Pipe 1 inch", "sku": "CPVC-1", "category": "Pipes", "hsn_code": "3917", "mrp": 85, "distributor_price": 62, "retail_price": 78, "gst_rate": 18, "stock": 2450, "unit": "meters" },
+    { "_id": "prod2", "name": "CPVC Pipe 0.75 inch", "sku": "CPVC-075", "category": "Pipes", "hsn_code": "3917", "mrp": 65, "distributor_price": 48, "retail_price": 60, "gst_rate": 18, "stock": 3200, "unit": "meters" },
+    { "_id": "prod3", "name": "PVC Ball Valve 1 inch", "sku": "PVBV-1", "category": "Valves", "hsn_code": "8481", "mrp": 245, "distributor_price": 185, "retail_price": 220, "gst_rate": 18, "stock": 340, "unit": "pcs" },
+    { "_id": "prod4", "name": "Tee Joint 1 inch", "sku": "TJ-1", "category": "Fittings", "hsn_code": "3917", "mrp": 45, "distributor_price": 32, "retail_price": 42, "gst_rate": 18, "stock": 890, "unit": "pcs" },
+    { "_id": "prod5", "name": "Water Tank 1000L", "sku": "WT-1000", "category": "Tanks", "hsn_code": "3925", "mrp": 8500, "distributor_price": 7200, "retail_price": 8100, "gst_rate": 18, "stock": 45, "unit": "pcs" }
+  ],
+  "returns": [
+    { "_id": "ret1", "invoice_number": "INV-2025-0001", "customer_name": "ABC Construction", "reason": "Defective Product", "amount": 4500, "status": "PENDING", "createdAt": "2025-05-12T10:00:00Z" },
+    { "_id": "ret2", "invoice_number": "INV-2025-0002", "customer_name": "XYZ Plumbing Works", "reason": "Wrong Item Delivered", "amount": 1200, "status": "APPROVED", "createdAt": "2025-05-11T14:30:00Z" },
+    { "_id": "ret3", "invoice_number": "INV-2025-0003", "customer_name": "BuildTech Solutions", "reason": "Change of Requirement", "amount": 8900, "status": "PENDING", "createdAt": "2025-05-10T09:15:00Z" }
+  ],
+  "stockMovements": [
+    { "_id": "mov1", "product_name": "CPVC Pipe 1 inch", "type": "IN", "quantity": 500, "reference": "PO-2025-001", "date": "2025-05-10T10:00:00Z", "performed_by": "Admin User" },
+    { "_id": "mov2", "product_name": "PVC Ball Valve 1 inch", "type": "OUT", "quantity": 25, "reference": "INV-2025-0002", "date": "2025-05-11T14:30:00Z", "performed_by": "Staff User" },
+    { "_id": "mov3", "product_name": "Water Tank 1000L", "type": "OUT", "quantity": 3, "reference": "INV-2025-0001", "date": "2025-05-10T16:00:00Z", "performed_by": "Staff User" },
+    { "_id": "mov4", "product_name": "Tap Mixer Premium", "type": "IN", "quantity": 50, "reference": "PO-2025-002", "date": "2025-05-12T09:00:00Z", "performed_by": "Admin User" },
+    { "_id": "mov5", "product_name": "Thread Tape", "type": "OUT", "quantity": 100, "reference": "INV-2025-0003", "date": "2025-05-12T11:30:00Z", "performed_by": "Staff User" }
+  ],
+  "users": [
+    { "id": "1", "email": "admin@hansif.com", "password": "admin123", "name": "Admin User", "role": "superadmin", "portalEmail": null },
+    { "id": "2", "email": "staff@hansif.com", "password": "staff123", "name": "Staff Member", "role": "staff", "portalEmail": null },
+    { "id": "3", "email": "distributor@hansif.com", "password": "dist123", "name": "Distributor User", "role": "distributor", "portalEmail": "dist@portal.com" }
+  ]
+}

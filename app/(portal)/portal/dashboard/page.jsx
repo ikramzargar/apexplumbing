@@ -62,7 +62,7 @@ export default function PortalDashboard() {
         {stats.map((stat) => {
           const Icon = stat.icon;
           return (
-            <div key={stat.label} className="bg-white rounded-xl border border-[var(--color-border)] p-4">
+            <div key={stat.label} className="bg-[var(--color-bg-subtle)] rounded-xl border border-[var(--color-border)] p-4">
               <div className={`w-10 h-10 rounded-xl ${stat.color} flex items-center justify-center mb-3`}>
                 <Icon size={18} />
               </div>
@@ -75,7 +75,7 @@ export default function PortalDashboard() {
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-5">
         {/* Recent Invoices */}
-        <div className="bg-white rounded-xl border border-[var(--color-border)] overflow-hidden">
+        <div className="bg-[var(--color-bg-subtle)] rounded-xl border border-[var(--color-border)] overflow-hidden">
           <div className="flex items-center justify-between px-4 py-3 border-b border-[var(--color-border)]">
             <h2 className="text-sm font-medium text-[var(--color-navy)]">Recent Invoices</h2>
             <Link href="/portal/invoices" className="text-[11px] text-[var(--color-primary)] hover:underline font-medium">
@@ -87,7 +87,7 @@ export default function PortalDashboard() {
           ) : (
             <div className="divide-y divide-[var(--color-border)]">
               {recentInvoices.map((inv) => (
-                <div key={inv._id} className="flex items-center justify-between px-4 py-3 hover:bg-[var(--color-bg-subtle)] transition-colors">
+                <div key={inv._id} className="flex items-center justify-between px-4 py-3 hover:bg-[var(--color-bg)] transition-colors">
                   <div>
                     <p className="text-xs font-medium text-[var(--color-navy)]">{inv.invoice_number}</p>
                     <p className="text-[10px] text-[var(--color-body-light)]">
@@ -111,7 +111,7 @@ export default function PortalDashboard() {
         </div>
 
         {/* Recent Payments */}
-        <div className="bg-white rounded-xl border border-[var(--color-border)] overflow-hidden">
+        <div className="bg-[var(--color-bg-subtle)] rounded-xl border border-[var(--color-border)] overflow-hidden">
           <div className="flex items-center justify-between px-4 py-3 border-b border-[var(--color-border)]">
             <h2 className="text-sm font-medium text-[var(--color-navy)]">Recent Payments</h2>
             <Link href="/portal/statements" className="text-[11px] text-[var(--color-primary)] hover:underline font-medium">
@@ -123,7 +123,7 @@ export default function PortalDashboard() {
           ) : (
             <div className="divide-y divide-[var(--color-border)]">
               {recentPayments.map((pay) => (
-                <div key={pay._id} className="flex items-center justify-between px-4 py-3 hover:bg-[var(--color-bg-subtle)] transition-colors">
+                <div key={pay._id} className="flex items-center justify-between px-4 py-3 hover:bg-[var(--color-bg)] transition-colors">
                   <div>
                     <p className="text-xs font-medium text-[var(--color-navy)]">{pay.note || pay.method}</p>
                     <p className="text-[10px] text-[var(--color-body-light)]">
