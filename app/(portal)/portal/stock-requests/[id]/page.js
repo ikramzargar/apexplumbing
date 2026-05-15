@@ -107,18 +107,18 @@ export default function StockRequestDetailPage() {
       <div className="flex items-center gap-4 mb-6">
         <button
           onClick={() => router.push('/portal/stock-requests')}
-          className="p-2 hover:bg-[var(--color-bg-subtle)] rounded-lg transition-colors"
+          className="p-2 hover:bg-[var(--color-surface-elevated)] rounded-lg transition-colors"
         >
-          <ArrowLeft size={20} className="text-[var(--color-body)]" />
+          <ArrowLeft size={20} className="text-[var(--color-text-muted)]" />
         </button>
         <div className="flex-1">
           <div className="flex items-center gap-3">
-            <h1 className="text-xl font-semibold text-[var(--color-navy)]">
+            <h1 className="text-xl font-semibold text-[var(--color-text-secondary)]">
               Request #{request._id.slice(-6).toUpperCase()}
             </h1>
             <StatusBadge status={request.status} config={statusConfig} />
           </div>
-          <p className="text-sm text-[var(--color-body-light)] mt-0.5">
+          <p className="text-sm text-[var(--color-text-muted)] mt-0.5">
             Submitted on {formatDate(request.createdAt)}
           </p>
         </div>
@@ -126,7 +126,7 @@ export default function StockRequestDetailPage() {
 
       {/* Status Card */}
       <div className={cn(
-        "bg-white rounded-xl border p-5 mb-6",
+        "bg-[var(--color-surface)] rounded-xl border p-5 mb-6",
         request.status === 'APPROVED' || request.status === 'PARTIALLY_APPROVED'
           ? "border-[var(--color-success)]/30 bg-[var(--color-success)]/5"
           : request.status === 'REJECTED'
@@ -162,26 +162,26 @@ export default function StockRequestDetailPage() {
 
         {request.adminNote && (
           <div className="mt-4 pt-4 border-t border-[var(--color-border)]">
-            <p className="text-xs font-medium text-[var(--color-body-light)] mb-1">Admin Note:</p>
-            <p className="text-sm text-[var(--color-navy)]">{request.adminNote}</p>
+            <p className="text-xs font-medium text-[var(--color-text-muted)] mb-1">Admin Note:</p>
+            <p className="text-sm text-[var(--color-text-secondary)]">{request.adminNote}</p>
           </div>
         )}
       </div>
 
       {/* Items */}
-      <div className="bg-white rounded-xl border border-[var(--color-border)] overflow-hidden mb-6">
+      <div className="bg-[var(--color-surface)] rounded-xl border border-[var(--color-border)] overflow-hidden mb-6">
         <div className="px-5 py-4 border-b border-[var(--color-border)]">
-          <h2 className="text-sm font-semibold text-[var(--color-navy)]">Requested Products</h2>
+          <h2 className="text-sm font-semibold text-[var(--color-text-secondary)]">Requested Products</h2>
         </div>
         <table className="w-full">
           <thead>
-            <tr className="bg-[var(--color-bg-subtle)]">
-              <th className="text-left px-5 py-3 text-xs font-medium text-[var(--color-body-light)] uppercase">Product</th>
-              <th className="text-center px-3 py-3 text-xs font-medium text-[var(--color-body-light)] uppercase">Requested</th>
-              <th className="text-center px-3 py-3 text-xs font-medium text-[var(--color-body-light)] uppercase">Approved</th>
-              <th className="text-center px-3 py-3 text-xs font-medium text-[var(--color-body-light)] uppercase">Status</th>
-              <th className="text-right px-5 py-3 text-xs font-medium text-[var(--color-body-light)] uppercase">Price</th>
-              <th className="text-right px-5 py-3 text-xs font-medium text-[var(--color-body-light)] uppercase">Total</th>
+            <tr className="bg-[var(--color-surface-elevated)]">
+              <th className="text-left px-5 py-3 text-xs font-medium text-[var(--color-text-muted)] uppercase">Product</th>
+              <th className="text-center px-3 py-3 text-xs font-medium text-[var(--color-text-muted)] uppercase">Requested</th>
+              <th className="text-center px-3 py-3 text-xs font-medium text-[var(--color-text-muted)] uppercase">Approved</th>
+              <th className="text-center px-3 py-3 text-xs font-medium text-[var(--color-text-muted)] uppercase">Status</th>
+              <th className="text-right px-5 py-3 text-xs font-medium text-[var(--color-text-muted)] uppercase">Price</th>
+              <th className="text-right px-5 py-3 text-xs font-medium text-[var(--color-text-muted)] uppercase">Total</th>
             </tr>
           </thead>
           <tbody>
@@ -191,30 +191,30 @@ export default function StockRequestDetailPage() {
                 <tr key={index} className="border-t border-[var(--color-border)] last:border-0">
                   <td className="px-5 py-3.5">
                     <div>
-                      <p className="text-sm font-medium text-[var(--color-navy)]">{item.product?.name}</p>
-                      <p className="text-xs text-[var(--color-body-light)]">{item.product?.sku}</p>
+                      <p className="text-sm font-medium text-[var(--color-text-secondary)]">{item.product?.name}</p>
+                      <p className="text-xs text-[var(--color-text-muted)]">{item.product?.sku}</p>
                     </div>
                   </td>
                   <td className="px-3 py-3.5 text-center">
-                    <span className="text-sm text-[var(--color-body)]">{item.requestedQuantity}</span>
+                    <span className="text-sm text-[var(--color-text-muted)]">{item.requestedQuantity}</span>
                   </td>
                   <td className="px-3 py-3.5 text-center">
                     {item.approvedQuantity !== null ? (
-                      <span className="text-sm font-medium text-[var(--color-navy)]">
+                      <span className="text-sm font-medium text-[var(--color-text-secondary)]">
                         {item.approvedQuantity}
                       </span>
                     ) : (
-                      <span className="text-sm text-[var(--color-body-light)]">—</span>
+                      <span className="text-sm text-[var(--color-text-muted)]">—</span>
                     )}
                   </td>
                   <td className="px-3 py-3.5 text-center">
                     <StatusBadge status={itemStatus} config={itemStatusConfig} />
                   </td>
                   <td className="px-5 py-3.5 text-right">
-                    <span className="text-sm text-[var(--color-body)]">{formatCurrency(item.unitPrice)}</span>
+                    <span className="text-sm text-[var(--color-text-muted)]">{formatCurrency(item.unitPrice)}</span>
                   </td>
                   <td className="px-5 py-3.5 text-right">
-                    <span className="text-sm font-medium text-[var(--color-navy)]">
+                    <span className="text-sm font-medium text-[var(--color-text-secondary)]">
                       {formatCurrency((item.approvedQuantity ?? item.requestedQuantity) * item.unitPrice)}
                     </span>
                   </td>
@@ -223,12 +223,12 @@ export default function StockRequestDetailPage() {
             })}
           </tbody>
           <tfoot>
-            <tr className="border-t-2 border-[var(--color-border)] bg-[var(--color-bg-subtle)]">
+            <tr className="border-t-2 border-[var(--color-border)] bg-[var(--color-surface-elevated)]">
               <td colSpan={5} className="px-5 py-3 text-right">
-                <span className="text-sm font-semibold text-[var(--color-navy)]">Total Value:</span>
+                <span className="text-sm font-semibold text-[var(--color-text-secondary)]">Total Value:</span>
               </td>
               <td className="px-5 py-3 text-right">
-                <span className="text-base font-semibold text-[var(--color-navy)]">
+                <span className="text-base font-semibold text-[var(--color-text-secondary)]">
                   {formatCurrency(calculateTotal())}
                 </span>
               </td>
@@ -239,9 +239,9 @@ export default function StockRequestDetailPage() {
 
       {/* Notes */}
       {request.distributorNote && (
-        <div className="bg-white rounded-xl border border-[var(--color-border)] p-5">
-          <h3 className="text-sm font-semibold text-[var(--color-navy)] mb-2">Your Note</h3>
-          <p className="text-sm text-[var(--color-body)]">{request.distributorNote}</p>
+        <div className="bg-[var(--color-surface)] rounded-xl border border-[var(--color-border)] p-5">
+          <h3 className="text-sm font-semibold text-[var(--color-text-secondary)] mb-2">Your Note</h3>
+          <p className="text-sm text-[var(--color-text-muted)]">{request.distributorNote}</p>
         </div>
       )}
     </div>

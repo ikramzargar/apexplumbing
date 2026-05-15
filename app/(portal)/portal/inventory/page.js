@@ -55,17 +55,17 @@ export default function MyInventoryPage() {
     <>
       {/* Summary Cards */}
       <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-        <div className="bg-white rounded-xl border border-[var(--color-border)] p-4">
+        <div className="bg-[var(--color-surface)] rounded-xl border border-[var(--color-border)] p-4">
           <p className="text-xs text-[var(--color-body-light)] uppercase tracking-wide mb-1">Total Products</p>
-          <p className="text-2xl font-semibold text-[var(--color-navy)]">{inventory.length}</p>
+          <p className="text-2xl font-semibold text-[var(--color-text-secondary)]">{inventory.length}</p>
         </div>
-        <div className="bg-white rounded-xl border border-[var(--color-border)] p-4">
+        <div className="bg-[var(--color-surface)] rounded-xl border border-[var(--color-border)] p-4">
           <p className="text-xs text-[var(--color-body-light)] uppercase tracking-wide mb-1">In Stock</p>
           <p className="text-2xl font-semibold text-[var(--color-success)]">{inStockCount}</p>
         </div>
-        <div className="bg-white rounded-xl border border-[var(--color-border)] p-4">
+        <div className="bg-[var(--color-surface)] rounded-xl border border-[var(--color-border)] p-4">
           <p className="text-xs text-[var(--color-body-light)] uppercase tracking-wide mb-1">Total Value</p>
-          <p className="text-2xl font-semibold text-[var(--color-navy)]">{formatCurrency(totalValue)}</p>
+          <p className="text-2xl font-semibold text-[var(--color-text-secondary)]">{formatCurrency(totalValue)}</p>
         </div>
       </div>
 
@@ -75,49 +75,49 @@ export default function MyInventoryPage() {
           <LoadingSpinner size={32} />
         </div>
       ) : inventory.length === 0 ? (
-        <div className="bg-white rounded-xl border border-[var(--color-border)] p-12 text-center">
+        <div className="bg-[var(--color-surface)] rounded-xl border border-[var(--color-border)] p-12 text-center">
           <div className="w-16 h-16 bg-[var(--color-bg-subtle)] rounded-full flex items-center justify-center mx-auto mb-4">
-            <Package size={28} className="text-[var(--color-body-light)]" />
+            <Package size={28} className="text-[var(--color-text-muted)]" />
           </div>
-          <h3 className="text-base font-medium text-[var(--color-navy)] mb-2">No inventory yet</h3>
-          <p className="text-sm text-[var(--color-body-light)] mb-4">
+          <h3 className="text-base font-medium text-[var(--color-text-secondary)] mb-2">No inventory yet</h3>
+          <p className="text-sm text-[var(--color-text-muted)] mb-4">
             Submit a stock request to get products from admin
           </p>
-          <p className="text-xs text-[var(--color-body-light)] flex items-center justify-center gap-1.5">
+          <p className="text-xs text-[var(--color-text-muted)] flex items-center justify-center gap-1.5">
             <AlertCircle size={12} />
             Products will appear here once admin approves your requests
           </p>
         </div>
       ) : (
-        <div className="bg-white rounded-xl border border-[var(--color-border)] overflow-hidden">
+        <div className="bg-[var(--color-surface)] rounded-xl border border-[var(--color-border)] overflow-hidden">
           <table className="w-full">
             <thead>
-              <tr className="border-b border-[var(--color-border)] bg-[var(--color-bg-subtle)]">
-                <th className="text-left px-4 py-3 text-xs font-medium text-[var(--color-body-light)] uppercase tracking-wide">
+              <tr className="border-b border-[var(--color-border)] bg-[var(--color-surface-elevated)]">
+                <th className="text-left px-4 py-3 text-xs font-medium text-[var(--color-text-muted)] uppercase tracking-wide">
                   Product
                 </th>
-                <th className="text-left px-4 py-3 text-xs font-medium text-[var(--color-body-light)] uppercase tracking-wide">
+                <th className="text-left px-4 py-3 text-xs font-medium text-[var(--color-text-muted)] uppercase tracking-wide">
                   SKU
                 </th>
-                <th className="text-left px-4 py-3 text-xs font-medium text-[var(--color-body-light)] uppercase tracking-wide">
+                <th className="text-left px-4 py-3 text-xs font-medium text-[var(--color-text-muted)] uppercase tracking-wide">
                   Category
                 </th>
-                <th className="text-center px-4 py-3 text-xs font-medium text-[var(--color-body-light)] uppercase tracking-wide">
+                <th className="text-center px-4 py-3 text-xs font-medium text-[var(--color-text-muted)] uppercase tracking-wide">
                   Available
                 </th>
-                <th className="text-right px-4 py-3 text-xs font-medium text-[var(--color-body-light)] uppercase tracking-wide">
+                <th className="text-right px-4 py-3 text-xs font-medium text-[var(--color-text-muted)] uppercase tracking-wide">
                   Unit Price
                 </th>
-                <th className="text-center px-4 py-3 text-xs font-medium text-[var(--color-body-light)] uppercase tracking-wide">
+                <th className="text-center px-4 py-3 text-xs font-medium text-[var(--color-text-muted)] uppercase tracking-wide">
                   Status
                 </th>
               </tr>
             </thead>
             <tbody>
               {inventory.map((item) => (
-                <tr key={item._id} className="border-b border-[var(--color-border)] last:border-0 hover:bg-[var(--color-bg-subtle)]/50">
+                <tr key={item._id} className="border-b border-[var(--color-border)] last:border-0 hover:bg-[var(--color-surface-elevated)]/50">
                   <td className="px-4 py-3.5">
-                    <span className="text-sm font-medium text-[var(--color-navy)]">
+                    <span className="text-sm font-medium text-[var(--color-text-secondary)]">
                       {item.product?.name || 'Unknown Product'}
                     </span>
                   </td>
@@ -127,7 +127,7 @@ export default function MyInventoryPage() {
                     </span>
                   </td>
                   <td className="px-4 py-3.5">
-                    <span className="text-sm text-[var(--color-body)]">
+                    <span className="text-sm text-[var(--color-text-muted)]">
                       {item.product?.category || 'N/A'}
                     </span>
                   </td>
@@ -137,7 +137,7 @@ export default function MyInventoryPage() {
                     </span>
                   </td>
                   <td className="px-4 py-3.5 text-right">
-                    <span className="text-sm text-[var(--color-body)]">
+                    <span className="text-sm text-[var(--color-text-muted)]">
                       {formatCurrency(item.product?.wholesale_price || 0)}
                     </span>
                   </td>

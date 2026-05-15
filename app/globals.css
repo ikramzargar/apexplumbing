@@ -5,6 +5,12 @@
    ============================================ */
 
 /* --- Refined Dark Color Palette --- */
+/* --- Legacy Color Aliases (fallback for remaining usages) --- */
+  --color-navy: var(--color-text-secondary);
+  --color-body: var(--color-text-muted);
+  --color-body-light: var(--color-text-muted);
+  --color-bg-subtle: var(--color-surface-elevated);
+
 :root {
   /* Backgrounds - Deep neutral dark */
   --color-bg: #0f1117;
@@ -21,32 +27,32 @@
   --color-text-secondary: #dde1f0;
   --color-text-muted: #8b90a7;
 
-  /* Accent - Blue & Indigo theme */
-  --color-accent: #4f46e5;
-  --color-accent-hover: #6366f1;
-  --color-accent-muted: rgba(79, 70, 229, 0.12);
-  --color-accent-border: rgba(79, 70, 229, 0.2);
+  /* Accent - Desaturated, subtle */
+  --color-accent: #5b7fa6;
+  --color-accent-hover: #6e8fcf;
+  --color-accent-muted: rgba(91, 127, 166, 0.12);
+  --color-accent-border: rgba(91, 127, 166, 0.2);
 
-  /* Primary actions - Blue */
-  --color-primary: #2563eb;
-  --color-primary-hover: #3b82f6;
-  --color-primary-muted: rgba(37, 99, 235, 0.1);
+  /* Primary actions */
+  --color-primary: #6e8fcf;
+  --color-primary-hover: #7d94d6;
+  --color-primary-muted: rgba(110, 143, 207, 0.1);
 
-  /* Semantic Colors - Emerald for success */
-  --color-success: #10b981;
-  --color-success-bg: rgba(16, 185, 129, 0.1);
-  --color-success-border: rgba(16, 185, 129, 0.2);
+  /* Semantic Colors - Muted, not harsh */
+  --color-success: #6ab88f;
+  --color-success-bg: rgba(106, 184, 143, 0.1);
+  --color-success-border: rgba(106, 184, 143, 0.2);
 
-  --color-warning: #f59e0b;
-  --color-warning-bg: rgba(245, 158, 11, 0.1);
-  --color-warning-border: rgba(245, 158, 11, 0.2);
+  --color-warning: #c9a45c;
+  --color-warning-bg: rgba(201, 164, 92, 0.1);
+  --color-warning-border: rgba(201, 164, 92, 0.2);
 
-  --color-danger: #ef4444;
-  --color-danger-bg: rgba(239, 68, 68, 0.1);
-  --color-danger-border: rgba(239, 68, 68, 0.2);
+  --color-danger: #a85c6e;
+  --color-danger-bg: rgba(168, 92, 110, 0.1);
+  --color-danger-border: rgba(168, 92, 110, 0.2);
 
-  --color-info: #3b82f6;
-  --color-info-bg: rgba(59, 130, 246, 0.1);
+  --color-info: #6e8fcf;
+  --color-info-bg: rgba(110, 143, 207, 0.1);
 
   /* Shadows - Dark with slight color tint */
   --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.4);
@@ -101,11 +107,15 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* --- Tailwind Overrides for Dark Theme --- */
-.bg-white, .bg-\[white\], [class*="bg-white"] {
+.bg-white, .bg-\[white\], [class*="bg-white"], .bg-gray-50, .bg-gray-100, .bg-gray-200, .bg-slate-50, .bg-slate-100, .bg-slate-200 {
   background-color: var(--color-surface) !important;
 }
 
-.border-white, .border-\[white\] {
+.bg-black, .bg-\[black\], [class*="bg-black"] {
+  background-color: var(--color-bg) !important;
+}
+
+.border-white, .border-\[white\], .border-gray-200, .border-gray-300, .border-slate-200, .border-slate-300 {
   border-color: var(--color-border) !important;
 }
 

@@ -149,7 +149,7 @@ export default function PortalInvoiceDetail() {
           { label: 'Balance Due', value: formatCurrency(data.balance_due || 0), color: 'text-orange-600' },
           { label: 'Payment', value: data.payment_method, color: 'text-[var(--color-text-muted)]' },
         ].map((item) => (
-          <div key={item.label} className="bg-white rounded-xl border border-[var(--color-border)] p-4">
+          <div key={item.label} className="bg-[var(--color-surface)] rounded-xl border border-[var(--color-border)] p-4">
             <p className="text-[10px] text-[var(--color-text-muted)] uppercase tracking-wide mb-1">{item.label}</p>
             <p className={`text-base font-semibold ${item.color}`}>{item.value}</p>
           </div>
@@ -157,7 +157,7 @@ export default function PortalInvoiceDetail() {
       </div>
 
       {/* Customer Info */}
-      <div className="bg-white rounded-xl border border-[var(--color-border)] p-4">
+      <div className="bg-[var(--color-surface)] rounded-xl border border-[var(--color-border)] p-4">
         <h2 className="text-xs font-medium text-[var(--color-text-muted)] uppercase tracking-wide mb-3">Customer Details</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           {editMode ? (
@@ -213,7 +213,7 @@ export default function PortalInvoiceDetail() {
       </div>
 
       {/* Items */}
-      <div className="bg-white rounded-xl border border-[var(--color-border)] overflow-hidden">
+      <div className="bg-[var(--color-surface)] rounded-xl border border-[var(--color-border)] overflow-hidden">
         <div className="px-4 py-3 border-b border-[var(--color-border)]">
           <h2 className="text-xs font-medium text-[var(--color-text-muted)] uppercase tracking-wide">Items</h2>
         </div>

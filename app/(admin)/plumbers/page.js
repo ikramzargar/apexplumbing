@@ -53,7 +53,7 @@ export default function PlumbersPage() {
           <LoadingSpinner />
         </div>
       ) : data?.data?.plumbers?.length === 0 ? (
-        <div className="rounded-xl border border-[var(--color-border)] bg-white">
+        <div className="rounded-xl border border-[var(--color-border)] bg-[var(--color-surface)]">
           <EmptyState
             icon={Users}
             title="No plumbers found"

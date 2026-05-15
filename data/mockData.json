@@ -1,13 +1,13 @@
 {
   "dashboard": {
     "stats": {
-      "total_sales_today": 45780,
-      "total_sales_month": 1284560,
-      "total_sales_year": 15428740,
-      "total_outstanding": 2345670,
-      "inventory_value": 8923450,
+      "total_sales_today": 45,
+      "total_sales_month": 128,
+      "total_sales_year": 1542,
+      "total_outstanding": 234,
+      "inventory_value": 8923,
       "active_plumbers": 156,
-      "pending_payouts_amount": 234560,
+      "pending_payouts_amount": 2345,
       "pending_approvals": 8,
       "low_stock_count": 12,
       "isStaff": false

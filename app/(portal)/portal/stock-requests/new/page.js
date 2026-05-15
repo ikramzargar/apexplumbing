@@ -110,13 +110,13 @@ export default function NewStockRequestPage() {
       <div className="flex items-center gap-4 mb-6">
         <button
           onClick={() => router.back()}
-          className="p-2 hover:bg-[var(--color-bg-subtle)] rounded-lg transition-colors"
+          className="p-2 hover:bg-[var(--color-surface-elevated)] rounded-lg transition-colors"
         >
-          <ArrowLeft size={20} className="text-[var(--color-body)]" />
+          <ArrowLeft size={20} className="text-[var(--color-text-muted)]" />
         </button>
         <div>
-          <h1 className="text-xl font-semibold text-[var(--color-navy)]">Request Stock from Admin</h1>
-          <p className="text-sm text-[var(--color-body-light)] mt-0.5">
+          <h1 className="text-xl font-semibold text-[var(--color-text-secondary)]">Request Stock from Admin</h1>
+          <p className="text-sm text-[var(--color-text-muted)] mt-0.5">
             Submit a request and admin will approve stock for you
           </p>
         </div>
@@ -124,9 +124,9 @@ export default function NewStockRequestPage() {
 
       <form onSubmit={handleSubmit} className="space-y-6">
         {/* Items */}
-        <div className="bg-white rounded-xl border border-[var(--color-border)] p-5">
+        <div className="bg-[var(--color-surface)] rounded-xl border border-[var(--color-border)] p-5">
           <div className="flex items-center justify-between mb-4">
-            <h2 className="text-sm font-semibold text-[var(--color-navy)]">Products</h2>
+            <h2 className="text-sm font-semibold text-[var(--color-text-secondary)]">Products</h2>
             <Button type="button" variant="outline" size="sm" onClick={addItem} className="gap-1.5">
               <Plus size={14} />
               Add Product
@@ -137,14 +137,14 @@ export default function NewStockRequestPage() {
             {items.map((item, index) => (
               <div
                 key={index}
-                className="flex gap-3 items-start p-3 bg-[var(--color-bg-subtle)] rounded-lg"
+                className="flex gap-3 items-start p-3 bg-[var(--color-surface-elevated)] rounded-lg"
               >
                 <div className="flex-1">
-                  <label className="text-xs text-[var(--color-body-light)] mb-1 block">Product</label>
+                  <label className="text-xs text-[var(--color-text-muted)] mb-1 block">Product</label>
                   <select
                     value={item.productId}
                     onChange={(e) => updateItem(index, 'productId', e.target.value)}
-                    className="w-full px-3 py-2 text-sm border border-[var(--color-border)] rounded-lg bg-white focus:outline-none focus:ring-2 focus:ring-[var(--color-primary)]/[0.2]"
+                    className="w-full px-3 py-2 text-sm border border-[var(--color-border)] rounded-lg bg-[var(--color-bg)] focus:outline-none focus:ring-2 focus:ring-[var(--color-accent)]/[0.2]"
                   >
                     <option value="">Select product</option>
                     {filteredProducts.map((product) => (
@@ -156,7 +156,7 @@ export default function NewStockRequestPage() {
                 </div>
 
                 <div className="w-28">
-                  <label className="text-xs text-[var(--color-body-light)] mb-1 block">Quantity</label>
+                  <label className="text-xs text-[var(--color-text-muted)] mb-1 block">Quantity</label>
                   <Input
                     type="number"
                     min="1"
@@ -167,8 +167,8 @@ export default function NewStockRequestPage() {
                 </div>
 
                 <div className="w-28">
-                  <label className="text-xs text-[var(--color-body-light)] mb-1 block">Total</label>
-                  <div className="px-3 py-2 text-sm font-medium text-[var(--color-navy)] bg-white border border-[var(--color-border)] rounded-lg text-right">
+                  <label className="text-xs text-[var(--color-text-muted)] mb-1 block">Total</label>
+                  <div className="px-3 py-2 text-sm font-medium text-[var(--color-text-secondary)] bg-[var(--color-bg)] border border-[var(--color-border)] rounded-lg text-right">
                     {formatCurrency(calculateLineTotal(item))}
                   </div>
                 </div>
@@ -176,7 +176,7 @@ export default function NewStockRequestPage() {
                 <button
                   type="button"
                   onClick={() => removeItem(index)}
-                  className="mt-6 p-1.5 text-[var(--color-body-light)] hover:text-[var(--color-danger)] hover:bg-[var(--color-danger-bg)] rounded-lg transition-colors"
+                  className="mt-6 p-1.5 text-[var(--color-text-muted)] hover:text-[var(--color-danger)] hover:bg-[var(--color-danger-bg)] rounded-lg transition-colors"
                 >
                   <X size={16} />
                 </button>
@@ -187,8 +187,8 @@ export default function NewStockRequestPage() {
           {/* Grand Total */}
           <div className="flex justify-end mt-4 pt-4 border-t border-[var(--color-border)]">
             <div className="flex items-center gap-4">
-              <span className="text-sm text-[var(--color-body)]">Estimated Total:</span>
-              <span className="text-lg font-semibold text-[var(--color-navy)]">
+              <span className="text-sm text-[var(--color-text-muted)]">Estimated Total:</span>
+              <span className="text-lg font-semibold text-[var(--color-text-secondary)]">
                 {formatCurrency(calculateGrandTotal())}
               </span>
             </div>
@@ -196,8 +196,8 @@ export default function NewStockRequestPage() {
         </div>
 
         {/* Note */}
-        <div className="bg-white rounded-xl border border-[var(--color-border)] p-5">
-          <label className="text-sm font-semibold text-[var(--color-navy)] mb-2 block">
+        <div className="bg-[var(--color-surface)] rounded-xl border border-[var(--color-border)] p-5">
+          <label className="text-sm font-semibold text-[var(--color-text-secondary)] mb-2 block">
             Note to Admin (optional)
           </label>
           <textarea
@@ -205,7 +205,7 @@ export default function NewStockRequestPage() {
             onChange={(e) => setNote(e.target.value)}
             placeholder="Add any special instructions or reason for this request..."
             rows={3}
-            className="w-full px-3 py-2 text-sm border border-[var(--color-border)] rounded-lg focus:outline-none focus:ring-2 focus:ring-[var(--color-primary)]/[0.2] resize-none"
+            className="w-full px-3 py-2 text-sm border border-[var(--color-border)] rounded-lg bg-[var(--color-bg)] focus:outline-none focus:ring-2 focus:ring-[var(--color-accent)]/[0.2] resize-none"
           />
         </div>
 
