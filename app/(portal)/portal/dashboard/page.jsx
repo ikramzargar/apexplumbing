@@ -58,16 +58,16 @@ export default function PortalDashboard() {
   return (
     <div className="space-y-6">
       {/* Stats */}
-      <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
+      <div className="grid grid-cols-2 lg:grid-cols-4 gap-3">
         {stats.map((stat) => {
           const Icon = stat.icon;
           return (
-            <div key={stat.label} className="bg-[var(--color-surface)] rounded-xl border border-[var(--color-border)] p-4 min-h-[110px]">
-              <div className={`w-10 h-10 rounded-xl ${stat.color} flex items-center justify-center mb-3`}>
-                <Icon size={18} />
+            <div key={stat.label} className="bg-[var(--color-surface)] rounded-xl border border-[var(--color-border)] p-3 sm:p-4">
+              <div className={`w-8 h-8 sm:w-10 sm:h-10 rounded-lg sm:rounded-xl ${stat.color} flex items-center justify-center mb-2 sm:mb-3`}>
+                <Icon size={14} className="sm:!size-[18px]" />
               </div>
-              <p className="text-[10px] text-[var(--color-text-muted)] uppercase tracking-wide mb-1">{stat.label}</p>
-              <p className="text-lg font-semibold text-[var(--color-text-secondary)] break-words leading-tight">{stat.value}</p>
+              <p className="text-[9px] sm:text-[10px] text-[var(--color-text-muted)] uppercase tracking-wide mb-0.5 sm:mb-1">{stat.label}</p>
+              <p className="text-sm sm:text-base lg:text-lg font-semibold text-[var(--color-text-secondary)] whitespace-normal break-all leading-snug">{stat.value}</p>
             </div>
           );
         })}
@@ -87,14 +87,14 @@ export default function PortalDashboard() {
           ) : (
             <div className="divide-y divide-[var(--color-border-muted)]">
               {recentInvoices.map((inv) => (
-                <div key={inv._id} className="flex items-center justify-between px-4 py-3 hover:bg-[var(--color-surface-elevated)] transition-colors min-h-[56px]">
-                  <div className="min-w-0 flex-1 mr-3">
-                    <p className="text-xs font-medium text-[var(--color-text-secondary)] break-words">{inv.invoice_number}</p>
+                <div key={inv._id} className="flex items-start justify-between px-3 sm:px-4 py-2.5 sm:py-3 hover:bg-[var(--color-surface-elevated)] transition-colors gap-2">
+                  <div className="min-w-0 flex-1">
+                    <p className="text-xs font-medium text-[var(--color-text-secondary)] truncate">{inv.invoice_number}</p>
                     <p className="text-[10px] text-[var(--color-text-muted)]">
                       {new Date(inv.createdAt).toLocaleDateString()}
                     </p>
                   </div>
-                  <div className="text-right shrink-0">
+                  <div className="text-right shrink-0 flex flex-col items-end">
                     <p className="text-xs font-medium text-[var(--color-text-secondary)] whitespace-nowrap">Rs.{inv.total.toLocaleString()}</p>
                     <span className={`inline-block text-[9px] px-1.5 py-0.5 rounded-full font-medium ${
                       inv.payment_status === 'PAID' ? 'bg-[var(--color-success-bg)] text-[var(--color-success)]' :
@@ -123,9 +123,9 @@ export default function PortalDashboard() {
           ) : (
             <div className="divide-y divide-[var(--color-border-muted)]">
               {recentPayments.map((pay) => (
-                <div key={pay._id} className="flex items-center justify-between px-4 py-3 hover:bg-[var(--color-surface-elevated)] transition-colors min-h-[56px]">
-                  <div className="min-w-0 flex-1 mr-3">
-                    <p className="text-xs font-medium text-[var(--color-text-secondary)] break-words">{pay.note || pay.method}</p>
+                <div key={pay._id} className="flex items-start justify-between px-3 sm:px-4 py-2.5 sm:py-3 hover:bg-[var(--color-surface-elevated)] transition-colors gap-2">
+                  <div className="min-w-0 flex-1">
+                    <p className="text-xs font-medium text-[var(--color-text-secondary)] truncate">{pay.note || pay.method}</p>
                     <p className="text-[10px] text-[var(--color-text-muted)]">
                       {new Date(pay.createdAt).toLocaleDateString()}
                     </p>
